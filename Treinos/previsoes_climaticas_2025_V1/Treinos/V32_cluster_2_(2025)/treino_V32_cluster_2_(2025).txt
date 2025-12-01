@@ -1,0 +1,23 @@
+Treino ID: V32_cluster_2_(2025)
+Dataset: V32
+Data: 2025-10-06T10:05:01
+
+Comentario: V32_cluster_2_(2025)
+    Modelo LSTM treinado com dados de 2012 a 2023, validado com os dados de 2024 e testado com os dados de 2025.
+    Para esse treinamento foi utilizado o dataset V32, dividido em 5 Clusters.
+    Os dados de treino e validação usa os dados climaticos reais, enquanto que os dados de teste usam os dados que foram estimados.
+Usei o score_media_simples e h=1 para otimizar o modelo, pois o objetivo é ter uma boa previsão para cada série individualmente.
+
+    O modelo foi treinado com as seguintes configurações:
+    input_size: 3
+
+    encoder_n_layers = 4
+    learning_rate: 0.00011696441437466816
+    encoder_hidden_size: 256
+    decoder_layers: 4
+    decoder_hidden_size: 64
+    batch_size: 32
+    dropout: 0.3
+    weight_decay: 0.0001
+    steps: 100
+    
