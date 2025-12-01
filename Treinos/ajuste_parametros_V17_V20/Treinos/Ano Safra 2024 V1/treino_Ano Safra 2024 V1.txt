@@ -1,0 +1,21 @@
+Treino ID: Ano Safra 2024 V1
+Dataset: V20
+Data: 2025-07-30T15:07:31
+
+Comentario: Modelo LSTM treinado com dados de 2012 a 2023, validado com os dados de 2023 e testado com os dados de 2024.
+Para esse treinamento foi utilizado o dataset V19, que utiliza o ano safra (Jun-Maio) aon inves do ano normal (jan-dez). 
+E os municipios selecionados foram os que tiveram um erro percentual inferior a 15% no teste anterior.
+Para este teste todos os parametros foram otimizados com o Optuna.
+Hiperparametros usados:
+input_size: 4
+
+encoder_n_layers = 4
+learning_rate: 0.00010136368976391248
+encoder_hidden_size: 192
+decoder_layers: 3
+decoder_hidden_size: 128
+batch_size: 32
+dropout: 0.5
+weight_decay: 1e-05
+steps: 1000
+

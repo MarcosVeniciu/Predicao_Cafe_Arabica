@@ -1,0 +1,294 @@
+alias: null
+batch_size: 32
+context_size: null
+dataloader_kwargs: null
+decoder_hidden_size: 256
+decoder_layers: 3
+drop_last_loader: false
+early_stop_patience_steps: -1
+encoder_bias: true
+encoder_dropout: 0.5
+encoder_hidden_size: 64
+encoder_n_layers: 7
+exclude_insample_y: false
+futr_exog_list:
+- altitude
+- "\xC1rea colhida (Hectares)"
+- precipitacao (mm) 01
+- precipitacao (mm) 02
+- precipitacao (mm) 03
+- precipitacao (mm) 04
+- precipitacao (mm) 05
+- precipitacao (mm) 06
+- precipitacao (mm) 07
+- precipitacao (mm) 08
+- precipitacao (mm) 09
+- precipitacao (mm) 10
+- precipitacao (mm) 11
+- precipitacao (mm) 12
+- "temperatura maxima (\xBAC) 01"
+- "temperatura maxima (\xBAC) 02"
+- "temperatura maxima (\xBAC) 03"
+- "temperatura maxima (\xBAC) 04"
+- "temperatura maxima (\xBAC) 05"
+- "temperatura maxima (\xBAC) 06"
+- "temperatura maxima (\xBAC) 07"
+- "temperatura maxima (\xBAC) 08"
+- "temperatura maxima (\xBAC) 09"
+- "temperatura maxima (\xBAC) 10"
+- "temperatura maxima (\xBAC) 11"
+- "temperatura maxima (\xBAC) 12"
+- "temperatura minima (\xBAC) 01"
+- "temperatura minima (\xBAC) 02"
+- "temperatura minima (\xBAC) 03"
+- "temperatura minima (\xBAC) 04"
+- "temperatura minima (\xBAC) 05"
+- "temperatura minima (\xBAC) 06"
+- "temperatura minima (\xBAC) 07"
+- "temperatura minima (\xBAC) 08"
+- "temperatura minima (\xBAC) 09"
+- "temperatura minima (\xBAC) 10"
+- "temperatura minima (\xBAC) 11"
+- "temperatura minima (\xBAC) 12"
+- "Mesorregi\xE3o_Campo Das Vertentes"
+- "Mesorregi\xE3o_Jequitinhonha"
+- "Mesorregi\xE3o_Noroeste De Minas"
+- "Mesorregi\xE3o_Norte De Minas"
+- "Mesorregi\xE3o_Oeste De Minas"
+- "Mesorregi\xE3o_Sul/Sudoeste De Minas"
+- "Mesorregi\xE3o_Tri\xE2ngulo Mineiro/Alto Parana\xEDba"
+- "Mesorregi\xE3o_Vale Do Rio Doce"
+- "Mesorregi\xE3o_Zona Da Mata"
+- Municipio_Abre Campo - MG
+- Municipio_Alfenas - MG
+- "Municipio_Alpin\xF3polis - MG"
+- Municipio_Alterosa - MG
+- "Municipio_Alto Capara\xF3 - MG"
+- "Municipio_Alto Jequitib\xE1 - MG"
+- Municipio_Andradas - MG
+- "Municipio_Angel\xE2ndia - MG"
+- Municipio_Araguari - MG
+- Municipio_Araponga - MG
+- "Municipio_Arax\xE1 - MG"
+- Municipio_Areado - MG
+- "Municipio_Bambu\xED - MG"
+- "Municipio_Boa Esperan\xE7a - MG"
+- Municipio_Bom Jesus da Penha - MG
+- Municipio_Bom Sucesso - MG
+- Municipio_Botelhos - MG
+- "Municipio_Bueno Brand\xE3o - MG"
+- Municipio_Buritizeiro - MG
+- Municipio_Cabo Verde - MG
+- Municipio_Caiana - MG
+- Municipio_Cambuquira - MG
+- Municipio_Campanha - MG
+- Municipio_Campestre - MG
+- Municipio_Campo Belo - MG
+- Municipio_Campo do Meio - MG
+- Municipio_Campos Altos - MG
+- Municipio_Campos Gerais - MG
+- Municipio_Candeias - MG
+- "Municipio_Capara\xF3 - MG"
+- Municipio_Capelinha - MG
+- Municipio_Capetinga - MG
+- "Municipio_Capit\xF3lio - MG"
+- Municipio_Caputira - MG
+- Municipio_Carangola - MG
+- Municipio_Caratinga - MG
+- Municipio_Carmo da Cachoeira - MG
+- Municipio_Carmo de Minas - MG
+- "Municipio_Carmo do Parana\xEDba - MG"
+- Municipio_Carmo do Rio Claro - MG
+- "Municipio_Chal\xE9 - MG"
+- Municipio_Claraval - MG
+- "Municipio_Concei\xE7\xE3o da Aparecida - MG"
+- "Municipio_Concei\xE7\xE3o do Rio Verde - MG"
+- Municipio_Conselheiro Pena - MG
+- Municipio_Coqueiral - MG
+- Municipio_Coromandel - MG
+- Municipio_Cristais - MG
+- "Municipio_C\xE1ssia - MG"
+- Municipio_Divino - MG
+- Municipio_Divisa Nova - MG
+- "Municipio_Durand\xE9 - MG"
+- "Municipio_El\xF3i Mendes - MG"
+- "Municipio_Erv\xE1lia - MG"
+- Municipio_Espera Feliz - MG
+- Municipio_Estrela do Sul - MG
+- Municipio_Fervedouro - MG
+- Municipio_Formiga - MG
+- "Municipio_Guap\xE9 - MG"
+- "Municipio_Guaran\xE9sia - MG"
+- "Municipio_Guaxup\xE9 - MG"
+- "Municipio_Guimar\xE2nia - MG"
+- Municipio_Heliodora - MG
+- Municipio_Ibiraci - MG
+- "Municipio_Ibiti\xFAra de Minas - MG"
+- "Municipio_Ibi\xE1 - MG"
+- "Municipio_Ilic\xEDnea - MG"
+- "Municipio_Imb\xE9 de Minas - MG"
+- Municipio_Inconfidentes - MG
+- "Municipio_Indian\xF3polis - MG"
+- Municipio_Inhapim - MG
+- Municipio_Itamogi - MG
+- Municipio_Jacutinga - MG
+- "Municipio_Jacu\xED - MG"
+- Municipio_Jequeri - MG
+- "Municipio_Jo\xE3o Pinheiro - MG"
+- Municipio_Juruaia - MG
+- Municipio_Lajinha - MG
+- Municipio_Lambari - MG
+- Municipio_Lavras - MG
+- Municipio_Luisburgo - MG
+- Municipio_Machado - MG
+- "Municipio_Manhua\xE7u - MG"
+- Municipio_Manhumirim - MG
+- Municipio_Martins Soares - MG
+- "Municipio_Matip\xF3 - MG"
+- Municipio_Medeiros - MG
+- Municipio_Miradouro - MG
+- Municipio_Monsenhor Paulo - MG
+- Municipio_Monte Belo - MG
+- Municipio_Monte Carmelo - MG
+- Municipio_Monte Santo de Minas - MG
+- "Municipio_Monte Si\xE3o - MG"
+- Municipio_Mutum - MG
+- Municipio_Muzambinho - MG
+- "Municipio_Nat\xE9rcia - MG"
+- Municipio_Nazareno - MG
+- Municipio_Nepomuceno - MG
+- Municipio_Ninheira - MG
+- "Municipio_Nova Bel\xE9m - MG"
+- Municipio_Nova Resende - MG
+- Municipio_Oliveira - MG
+- "Municipio_Oriz\xE2nia - MG"
+- Municipio_Ouro Fino - MG
+- Municipio_Paracatu - MG
+- "Municipio_Paragua\xE7u - MG"
+- Municipio_Passos - MG
+- Municipio_Patos de Minas - MG
+- "Municipio_Patroc\xEDnio - MG"
+- Municipio_Pedra Bonita - MG
+- Municipio_Pedralva - MG
+- Municipio_Perdizes - MG
+- "Municipio_Perd\xF5es - MG"
+- Municipio_Piedade de Caratinga - MG
+- Municipio_Pimenta - MG
+- Municipio_Piumhi - MG
+- "Municipio_Po\xE7o Fundo - MG"
+- "Municipio_Po\xE7os de Caldas - MG"
+- Municipio_Pratinha - MG
+- "Municipio_Presidente Oleg\xE1rio - MG"
+- Municipio_Raul Soares - MG
+- Municipio_Reduto - MG
+- "Municipio_Rio Parana\xEDba - MG"
+- Municipio_Romaria - MG
+- Municipio_Sacramento - MG
+- "Municipio_Santa B\xE1rbara do Leste - MG"
+- Municipio_Santa Margarida - MG
+- Municipio_Santa Rita de Minas - MG
+- Municipio_Santa Rita do Itueto - MG
+- "Municipio_Santa Rita do Sapuca\xED - MG"
+- Municipio_Santa Rosa da Serra - MG
+- Municipio_Santana da Vargem - MG
+- "Municipio_Santana do Manhua\xE7u - MG"
+- "Municipio_Santo Ant\xF4nio do Amparo - MG"
+- Municipio_Sericita - MG
+- Municipio_Serra do Salitre - MG
+- Municipio_Serrania - MG
+- "Municipio_Simon\xE9sia - MG"
+- "Municipio_S\xE3o Domingos das Dores - MG"
+- "Municipio_S\xE3o Francisco de Paula - MG"
+- "Municipio_S\xE3o Gon\xE7alo do Sapuca\xED - MG"
+- "Municipio_S\xE3o Gotardo - MG"
+- "Municipio_S\xE3o Jos\xE9 da Barra - MG"
+- "Municipio_S\xE3o Jo\xE3o do Manhua\xE7u - MG"
+- "Municipio_S\xE3o Pedro da Uni\xE3o - MG"
+- "Municipio_S\xE3o Roque de Minas - MG"
+- "Municipio_S\xE3o Sebasti\xE3o do Anta - MG"
+- "Municipio_S\xE3o Sebasti\xE3o do Para\xEDso - MG"
+- "Municipio_S\xE3o Tom\xE1s de Aquino - MG"
+- Municipio_Tiros - MG
+- "Municipio_Tr\xEAs Cora\xE7\xF5es - MG"
+- "Municipio_Tr\xEAs Pontas - MG"
+- "Municipio_Turvol\xE2ndia - MG"
+- Municipio_Ubaporanga - MG
+- "Municipio_Una\xED - MG"
+- Municipio_Varginha - MG
+- "Municipio_Varj\xE3o de Minas - MG"
+- Municipio_Vermelho Novo - MG
+h: 1
+h_train: 1
+hist_exog_list: null
+inference_input_size: null
+inference_windows_batch_size: 1024
+input_size: 7
+learning_rate: 0.00011219939137207916
+logger: !!python/object:pytorch_lightning.loggers.csv_logs.CSVLogger
+  _experiment: null
+  _flush_logs_every_n_steps: 100
+  _fs: !!python/object/apply:fsspec.spec.make_instance
+  - !!python/name:fsspec.implementations.local.LocalFileSystem ''
+  - !!python/tuple []
+  - {}
+  _name: logs
+  _prefix: ''
+  _root_dir: ./Logs
+  _save_dir: ./Logs
+  _version: null
+loss: !!python/object:neuralforecast.losses.pytorch.HuberLoss
+  _backward_hooks: !!python/object/apply:collections.OrderedDict
+  - []
+  _backward_pre_hooks: !!python/object/apply:collections.OrderedDict
+  - []
+  _buffers: {}
+  _forward_hooks: !!python/object/apply:collections.OrderedDict
+  - []
+  _forward_hooks_always_called: !!python/object/apply:collections.OrderedDict
+  - []
+  _forward_hooks_with_kwargs: !!python/object/apply:collections.OrderedDict
+  - []
+  _forward_pre_hooks: !!python/object/apply:collections.OrderedDict
+  - []
+  _forward_pre_hooks_with_kwargs: !!python/object/apply:collections.OrderedDict
+  - []
+  _is_full_backward_hook: null
+  _load_state_dict_post_hooks: !!python/object/apply:collections.OrderedDict
+  - []
+  _load_state_dict_pre_hooks: !!python/object/apply:collections.OrderedDict
+  - []
+  _modules: {}
+  _non_persistent_buffers_set: !!set {}
+  _parameters: {}
+  _state_dict_hooks: !!python/object/apply:collections.OrderedDict
+  - []
+  _state_dict_pre_hooks: !!python/object/apply:collections.OrderedDict
+  - []
+  delta: 1.0
+  horizon_weight: null
+  is_distribution_output: false
+  output_names:
+  - ''
+  outputsize_multiplier: 1
+  training: true
+lr_scheduler: !!python/name:torch.optim.lr_scheduler.StepLR ''
+lr_scheduler_kwargs:
+  gamma: 0.1
+  step_size: 500
+max_steps: 1000
+n_samples: 100
+n_series: 1
+num_lr_decays: -1
+optimizer: !!python/name:torch.optim.adamw.AdamW ''
+optimizer_kwargs:
+  weight_decay: 1.0e-05
+random_seed: 1
+recurrent: false
+scaler_type: revin
+start_padding_enabled: false
+stat_exog_list: null
+step_size: 1
+val_check_steps: 100
+valid_batch_size: null
+valid_loss: null
+windows_batch_size: 128

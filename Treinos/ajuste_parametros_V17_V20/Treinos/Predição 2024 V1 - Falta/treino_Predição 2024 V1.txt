@@ -1,0 +1,19 @@
+Treino ID: Predição 2024 V1
+Dataset: V18
+Data: 2025-07-30T14:05:47
+
+Comentario: Modelo LSTM treinado com dados de 2012 a 2023, validado com os dados de 2023 e testado com os dados de 2024.
+Para este teste todos os parametros foram otimizados com o Optuna.
+Hiperparametros usados:
+input_size: 7
+
+encoder_n_layers = 5
+learning_rate: 0.005924326149617853
+encoder_hidden_size: 256
+decoder_layers: 4
+decoder_hidden_size: 192
+batch_size: 32
+dropout: 0.4
+weight_decay: 1e-05
+steps: 1000
+
