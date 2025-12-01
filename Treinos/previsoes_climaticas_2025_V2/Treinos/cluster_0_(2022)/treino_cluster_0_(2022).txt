@@ -1,0 +1,21 @@
+Treino ID: cluster_0_(2022)
+Dataset: V32
+Data: 2025-10-02T15:04:29
+
+Comentario: cluster_0_(2022)
+    Modelo LSTM treinado com dados de 2012 a 2020, validado com os dados de 2021 e testado com os dados de 2022.
+    Para esse treinamento foi utilizado o dataset V32, dividido em 5 Clusters.
+    Os dados de treino e validação usa os dados climaticos reais, enquanto que os dados de teste usam os dados que foram estimados.
+    O modelo foi treinado com as seguintes configurações:
+    input_size: 3
+
+    encoder_n_layers = 4
+    learning_rate: 0.00035827912711831265
+    encoder_hidden_size: 64
+    decoder_layers: 3
+    decoder_hidden_size: 128
+    batch_size: 32
+    dropout: 0.3
+    weight_decay: 1e-05
+    steps: 400
+    
