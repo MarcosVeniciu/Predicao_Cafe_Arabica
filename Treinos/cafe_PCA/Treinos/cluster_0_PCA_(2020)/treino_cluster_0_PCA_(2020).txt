@@ -1,0 +1,24 @@
+Treino ID: cluster_0_PCA_(2020)
+Dataset: V35
+Data: 2025-10-15T03:29:01
+
+Comentario: cluster_0_PCA_(2020)
+    Modelo LSTM treinado com dados de 2012 a 2018, validado com os dados de 2019 e testado com os dados de 2020.
+    Para esse treinamento foi utilizado o dataset V35, dividido em 5 Clusters.
+    Para esse treinamento, vou treinar o modelo sem ajsute de hiperparâmetros e sem o uso da variavel pandemia, com janela de contexto maxima.
+Para esse teste o dataset os anos de 2021 a produtividade será a media entre 2020 e 2023 e a produtividade de 2022 sera a media entre 2021 e 2024.
+E para reduzir a quantidade de variaveis foi aplicado o PCA.
+
+    O modelo foi treinado com as seguintes configurações:
+    input_size: -1
+
+    encoder_n_layers = 4
+    learning_rate: 0.00013034723280377263
+    encoder_hidden_size: 192
+    decoder_layers: 1
+    decoder_hidden_size: 64
+    batch_size: 32
+    dropout: 0.3
+    weight_decay: 0.0001
+    steps: 1000
+    
