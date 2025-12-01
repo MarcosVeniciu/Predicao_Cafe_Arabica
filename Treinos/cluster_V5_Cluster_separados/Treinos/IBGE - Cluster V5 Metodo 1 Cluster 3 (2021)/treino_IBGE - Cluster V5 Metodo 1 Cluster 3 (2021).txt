@@ -1,0 +1,21 @@
+Treino ID: IBGE - Cluster V5 Metodo 1 Cluster 3 (2021)
+Dataset: V29 - Cluster V5
+Data: 2025-09-17T14:02:00
+
+Comentario: IBGE - Cluster V5 Metodo 1 Cluster 3 (2021)
+        Modelo LSTM treinado com dados de 2012 a 2019, validado com os dados de 2020 e testado com os dados de 2021.
+        Para esse treinamento foi utilizado o dataset V29 - Cluster V5, dividido em 5 Clusters.
+        Neste teste os cluster foram usados como features do tipo true/false.
+        O modelo foi treinado com as seguintes configurações:
+        input_size: 3
+
+        encoder_n_layers = 4
+        learning_rate: 0.00010014956295742247
+        encoder_hidden_size: 64
+        decoder_layers: 1
+        decoder_hidden_size: 64
+        batch_size: 32
+        dropout: 0.3
+        weight_decay: 0.01
+        steps: 100
+        
