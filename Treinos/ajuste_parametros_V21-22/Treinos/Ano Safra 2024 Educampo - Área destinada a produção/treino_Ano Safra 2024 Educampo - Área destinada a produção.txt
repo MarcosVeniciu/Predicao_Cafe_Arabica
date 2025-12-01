@@ -1,0 +1,21 @@
+Treino ID: Ano Safra 2024 Educampo - Área destinada a produção
+Dataset: V21
+Data: 2025-08-13T12:42:17
+
+Comentario: Modelo LSTM treinado com dados de 2019 a 2022, validado com os dados de 2023 e testado com os dados de 2024.
+Para esse treinamento foi utilizado o dataset V21, que utiliza os dados do Educampo para 47 municipios o ano safra (Jun-Maio) ao inves do ano normal (jan-dez). 
+O modelo foi treinado usando apenas a área destinada a colheita como variável exógena.
+
+O modelo foi treinado com as seguintes configurações:
+input_size: 3
+
+encoder_n_layers = 8
+learning_rate: 0.00011371535519877455
+encoder_hidden_size: 64
+decoder_layers: 4
+decoder_hidden_size: 256
+batch_size: 32
+dropout: 0.5
+weight_decay: 0.0001
+steps: 1000
+

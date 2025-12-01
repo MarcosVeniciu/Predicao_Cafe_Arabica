@@ -1,0 +1,20 @@
+Treino ID: Ano Safra 2024 Educampo
+Dataset: V21
+Data: 2025-08-07T10:17:08
+
+Comentario: Modelo LSTM treinado com dados de 2019 a 2022, validado com os dados de 2023 e testado com os dados de 2024.
+Para esse treinamento foi utilizado o dataset V21, que utiliza os dados do Educampo para 47 municipios o ano safra (Jun-Maio) aon inves do ano normal (jan-dez). 
+Para este teste todos os parametros foram otimizados com o Optuna.
+Hiperparametros usados:
+input_size: 3
+
+encoder_n_layers = 6
+learning_rate: 0.00015724195792242237
+encoder_hidden_size: 192
+decoder_layers: 3
+decoder_hidden_size: 64
+batch_size: 32
+dropout: 0.2
+weight_decay: 0.01
+steps: 1000
+

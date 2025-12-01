@@ -1,0 +1,23 @@
+Treino ID: Ano Safra 2024 Educampo - Mesorregião Centro-Oeste e Sudoeste
+Dataset: V21
+Data: 2025-08-20T21:11:44
+
+Comentario: Modelo LSTM treinado com dados de 2019 a 2022, validado com os dados de 2023 e testado com os dados de 2024.
+Para esse treinamento foi utilizado o dataset V21, que utiliza os dados do Educampo para 47 municipios o ano safra (Jun-Maio) ao inves do ano normal (jan-dez). 
+O modelo foi treinado usando apenas os municipios da mesorregião Centro-Oeste e Sudoeste.
+    - 7 municipios foram usados.
+O modelo foi treinado sem o uso de variáveis exógenas.
+
+O modelo foi treinado com as seguintes configurações:
+input_size: 3
+
+encoder_n_layers = 6
+learning_rate: 0.00015738037481650337
+encoder_hidden_size: 192
+decoder_layers: 3
+decoder_hidden_size: 256
+batch_size: 32
+dropout: 0.4
+weight_decay: 1e-05
+steps: 1000
+
