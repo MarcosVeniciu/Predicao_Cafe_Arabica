@@ -1,0 +1,16 @@
+
+Esse grafico foi gerado para a reunião do dia 27/11/2025.
+Foi mostrado o resultado para 3 modelos diferentes:
+- 01_12_2025_teste_2016_2025_por_cluster.csv onde cada cluster tem um conjunto específico de features.
+  para cada ano de teste entre 2016 e 2025 foi treinado um modelo.
+  os modelos estão salvos no diretorio "Treinos/01_12_2025_teste_2016_2025_por_cluster/Modelos".
+
+- teste_2020_2025_por_cluster.csv onde cada cluster tem um conjunto específico de features.
+  para cada ano de teste entre 2020 e 2025 foi treinado um modelo.
+  os modelos estão salvos no diretorio "Treinos/teste_2020_2025_por_cluster/Modelos".
+
+- modelo_altitude_ajustado.csv neste modelo tem o uso da variavel de altitude.
+  os modelos estão salvos no diretorio "Treinos/Modelo_Altitude_Ajustado/Modelos".
+
+Os valores para a área destinada a colheita foi usado o dataset: Area_colhida_V2.csv
+Todos os modelos foram treinados usando o mesmo conjunto de hiperparametros.

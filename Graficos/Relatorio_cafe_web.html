@@ -1,0 +1,3258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Relatório Café</title>
+
+  <!-- 1. ESTILOS (CSS) -->
+  <style>
+    /* Reset e Estilos Globais */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; font-family: Arial, sans-serif; }
+
+    /* Layout Principal */
+    .navbar {
+      display: flex; justify-content: space-between; align-items: center;
+      background-color: #004080; color: #fff; padding: 1rem 2rem;
+    }
+    .upload-container {
+      background-color: #f0f0f0; padding: 1rem 2rem; border-bottom: 1px solid #ccc;
+    }
+    .content-container {
+      overflow-y: auto; /* Permite rolagem apenas no conteúdo */
+      height: calc(100% - 125px); /* Altura dinâmica */
+      padding: 2rem;
+      background-color: #f5f5f5;
+    }
+
+    /* Navegação */
+    .navbar h1 { font-size: 1.5rem; }
+    .menu { display: flex; gap: 1.5rem; }
+    .menu a {
+      color: #fff; text-decoration: none; font-weight: bold; cursor: pointer;
+      position: relative; padding-bottom: .25rem;
+    }
+    .menu a.active::after {
+      content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px;
+      background-color: yellow; border-radius: 2px;
+    }
+
+    /* Elementos Comuns */
+    .chart-container {
+      width: 80vw; /* Alterado para 80% da largura da tela */
+      max-width: 1600px; /* Aumentado o limite máximo */
+      height: 500px; margin: 2rem auto;
+      background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 1rem;
+    }
+    .sem-dados {
+      text-align: center; color: #666; font-style: italic; padding: 2rem;
+    }
+    .selecao-container {
+      margin-top: 1rem; margin-bottom: 1rem; display: flex;
+      align-items: center; gap: 1rem; flex-wrap: wrap;
+    }
+    .selecao-container label { font-weight: bold; }
+    .selecao-container select, .selecao-container input { padding: 0.25rem 0.5rem; }
+
+    /* Tabelas */
+    .tabela-estilizada {
+      width: 100%; border-collapse: collapse; margin-top: 1rem; background-color: white;
+    }
+    .tabela-estilizada th, .tabela-estilizada td {
+      border: 1px solid #ccc; padding: .5rem; text-align: center;
+    }
+    .tabela-estilizada th {
+      background-color: #004080; color: #fff;
+      cursor: pointer; /* Adicionado para indicar que é clicável */
+      position: relative;
+      user-select: none;
+    }
+    .tabela-estilizada th:hover {
+        background-color: #0056b3;
+    }
+    /* Estilos para os indicadores de ordenação */
+    .tabela-estilizada th .sort-indicator {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        margin-left: 8px;
+        vertical-align: middle;
+        opacity: 0.5;
+    }
+    .tabela-estilizada th.sort-asc .sort-indicator {
+        border-bottom: 5px solid #fff;
+        opacity: 1;
+    }
+    .tabela-estilizada th.sort-desc .sort-indicator {
+        border-top: 5px solid #fff;
+        opacity: 1;
+    }
+    #tabela-modelos th[data-col] { cursor: pointer; position: relative; user-select: none; }
+    #tabela-modelos th[data-col]:hover { background-color: #0056b3; }
+    #tabela-modelos th[data-col].sort-asc::after, #tabela-modelos th[data-col].sort-desc::after {
+      content: ''; position: absolute; right: 8px; top: 50%;
+      transform: translateY(-50%); width: 0; height: 0;
+      border-left: 4px solid transparent; border-right: 4px solid transparent;
+    }
+    #tabela-modelos th[data-col].sort-asc::after { border-bottom: 6px solid #fff; }
+    #tabela-modelos th[data-col].sort-desc::after { border-top: 6px solid #fff; }
+    
+    /* Paginação */
+    #paginacao-controles {
+      margin-top: 1rem; display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap;
+    }
+    #paginacao-controles button {
+      padding: 0.25rem 0.75rem; border: 1px solid #004080;
+      background-color: #fff; color: #004080; cursor: pointer; border-radius: 4px;
+    }
+    #paginacao-controles button:disabled {
+        cursor: not-allowed;
+        background-color: #e9ecef;
+        color: #6c757d;
+        border-color: #dee2e6;
+    }
+    #paginacao-controles button.active-page { background-color: #004080; color: #fff; }
+
+    /* Estilos Gemini API */
+    .gemini-analysis-container {
+        margin: 2rem auto 0 auto;
+        width: 80vw;
+        max-width: 1600px;
+        padding: 1.5rem;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border-left: 5px solid #6a0dad;
+        text-align: center; /* Centraliza o botão */
+    }
+    .gemini-analysis-container h3 {
+        margin-bottom: 1rem;
+        color: #333;
+        text-align: left; /* Garante que o título não seja centralizado */
+    }
+    .gemini-button {
+        background-color: #6a0dad;
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+    .gemini-button:hover {
+        background-color: #520a86;
+    }
+    .gemini-button:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+    }
+    .gemini-response {
+        margin-top: 1.5rem;
+        padding: 1rem;
+        background-color: #f8f9fa;
+        border-radius: 5px;
+        white-space: normal; /* Alterado de pre-wrap para normal */
+        line-height: 1.6;
+        text-align: left;
+    }
+    .loader {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #6a0dad;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        animation: spin 1s linear infinite;
+        margin: 1rem auto 0 auto;
+        display: none; /* Inicia escondido */
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    /* Estilos para Seletor de Colunas da Correlação */
+    #correlation-column-selector-container,
+    /* Reuso do mesmo layout visual para a sessão por município */
+    #muni-corr-column-selector-container {
+        width: 80vw; /* Alterado para 80% da largura da tela */
+        max-width: 1600px; /* Aumentado o limite máximo */
+        margin: 2rem auto 0 auto;
+        background-color: #fff;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    #correlation-column-selector-container h4,
+    #muni-corr-column-selector-container h4 {
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 0.5rem;
+    }
+    #correlation-column-selector,
+    /* Grid responsivo para a sessão por município (mesmo comportamento visual) */
+    #muni-corr-column-selector {
+        display: grid;
+        gap: 0.5rem 1rem; /* Espaçamento vertical e horizontal */
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* fallback inicial */
+    }
+    .column-selector-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5rem;
+        white-space: nowrap; /* Impede que o texto quebre a linha */
+    }
+    .column-selector-item input {
+        margin-right: 0.5rem;
+    }
+    .column-selector-item label {
+        font-weight: normal;
+    }
+
+  /* ======================= Patch 2: Estilos da sessão "Correlação por Período (Ano)" =======================
+     Reuso do mesmo layout visual adotado em #correlation-column-selector-container e #muni-corr-column-selector-container.
+     O grid abaixo usa o mesmo comportamento responsivo das demais sessões. */
+  #year-corr-column-selector-container {
+      width: 80vw;
+      max-width: 1600px;
+      margin: 2rem auto 0 auto;
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  #year-corr-column-selector {
+      display: grid;
+      gap: 0.5rem 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+  /* ======================= Fim Patch 2 (CSS) ======================= */
+
+  /* ======================= Patch 3 (CSS): Estilos da sessão "Correlação com Defasagem (Lag)" =======================
+     Reuso do mesmo layout visual dos containers de seleção de colunas:
+     - #lag-corr-column-selector-container segue o visual de #correlation-column-selector-container (largura 80vw, padding, sombra, radius).
+     - #lag-corr-column-selector usa grid responsivo como os demais (auto-fill, minmax 220px) com gap. */
+  #lag-corr-column-selector-container {
+      width: 80vw;
+      max-width: 1600px;
+      margin: 2rem auto 0 auto;
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  #lag-corr-column-selector {
+      display: grid;
+      gap: 0.5rem 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+  /* ======================= Fim Patch 3 (CSS) ======================= */
+  </style>
+
+  <!-- Dependências Externas (Bibliotecas JS) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luxon@3/build/global/luxon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@1/dist/chartjs-adapter-luxon.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+</head>
+<body>
+
+  <!-- 2. ESTRUTURA HTML (Cabeçalho e Navegação) -->
+  <div class="navbar">
+    <h1>Relatório Café</h1>
+    <nav class="menu">
+      <a data-target="visao_geral" class="active">Visão Geral</a>
+      <a data-target="modelos">Modelos</a>
+      <a data-target="dataset">Dataset</a>
+    </nav>
+  </div>
+
+  <div class="upload-container">
+    <label for="uploadCSV">Escolha o arquivo "predicoes_modelos.csv":</label>
+    <input type="file" id="uploadCSV" accept=".csv" />
+    <label for="uploadDatasetCSV" style="margin-left: 2rem;">Escolha o arquivo de dataset adicional:</label>
+    <input type="file" id="uploadDatasetCSV" accept=".csv" />
+  </div>
+
+  <!-- Contêiner Principal para as Páginas -->
+  <div class="content-container">
+
+    <!-- ======================= PÁGINA: VISÃO GERAL ======================= -->
+    <section id="visao_geral" class="pagina">
+      <h2>Comparativo de Métricas dos Modelos</h2>
+      <p class="descricao">Métricas de desempenho para combinações de treino, modelo e dataset.</p>
+      <table id="tabela-metricas" class="tabela-estilizada">
+        <thead>
+          <!-- O cabeçalho será gerado dinamicamente pelo JS -->
+        </thead>
+        <tbody>
+          <tr><td colspan="7" class="sem-dados">Carregue um arquivo CSV para ver os dados.</td></tr>
+        </tbody>
+      </table>
+      <!-- Gemini Feature: Análise de Métricas -->
+      <div id="gemini-metrics-container" class="gemini-analysis-container" style="display: none;">
+        <button id="generate-metrics-analysis-btn" class="gemini-button">✨ Gerar Análise das Métricas</button>
+        <div id="gemini-metrics-content" style="display: none; margin-top: 1.5rem;">
+            <h3>Análise das Métricas com IA</h3>
+            <div id="gemini-metrics-loader" class="loader"></div>
+            <div id="gemini-metrics-response" class="gemini-response"></div>
+        </div>
+      </div>
+      
+      <h2 style="margin-top:3rem;">Análise Temporal: Previsões</h2>
+      <p class="descricao">Análise temporal com diferenças percentuais das previsões.</p>
+      <div class="selecao-container">
+        <label for="uniqueSelect">Selecione o Unique ID:</label>
+        <select id="uniqueSelect"></select>
+      </div>
+      <div class="chart-container"><canvas id="graficoTemporal"></canvas></div>
+      <p id="mensagemSemDadoGrafico" class="sem-dados" style="display:none;"></p>
+      
+      <h2 style="margin-top:3rem;">Distribuição das Diferenças Percentuais</h2>
+      <p class="descricao">Distribuição das diferenças percentuais para um único treino.</p>
+      <div class="selecao-container">
+        <label for="treinoSelect">Selecione o Treino ID:</label>
+        <select id="treinoSelect"></select>
+        <label for="anoDistribuicaoSelect" style="margin-left:1rem;">Filtrar Ano:</label>
+        <select id="anoDistribuicaoSelect"><option value="Todos">Todos</option></select>
+        <label for="absCheckbox" style="margin-left:1rem;">Valor Absoluto:</label>
+        <input type="checkbox" id="absCheckbox" />
+      </div>
+      <div class="chart-container"><canvas id="graficoDistribuicao"></canvas></div>
+      <p id="mensagemSemDadoDistribuicao" class="sem-dados" style="display:none;"></p>
+      <div id="gemini-distribution-container" class="gemini-analysis-container" style="display: none;">
+        <button id="generate-distribution-analysis-btn" class="gemini-button">✨ Gerar Análise da Distribuição</button>
+        <div id="gemini-distribution-content" style="display: none; margin-top: 1.5rem;">
+            <h3>Análise da Distribuição com IA</h3>
+            <div id="gemini-distribution-loader" class="loader"></div>
+            <div id="gemini-distribution-response" class="gemini-response"></div>
+        </div>
+      </div>
+      
+      <h2 style="margin-top:3rem;">Comparação de Safra Anual</h2>
+      <p class="descricao">Comparação entre valores reais e preditos por treino, com a diferença percentual.</p>
+      <div class="selecao-container">
+        <label for="anoSafraSelect">Selecione o Ano:</label>
+        <select id="anoSafraSelect"></select>
+        <label for="absSafraCheckbox" style="margin-left:1rem;">Valor Absoluto:</label>
+        <input type="checkbox" id="absSafraCheckbox" />
+      </div>
+      <div class="chart-container"><canvas id="graficoSafraAnual"></canvas></div>
+      <p id="mensagemSemDadoSafra" class="sem-dados" style="display:none;"></p>
+      <div id="gemini-safra-container" class="gemini-analysis-container" style="display: none;">
+        <button id="generate-safra-analysis-btn" class="gemini-button">✨ Gerar Análise da Safra</button>
+        <div id="gemini-safra-content" style="display: none; margin-top: 1.5rem;">
+            <h3>Análise da Safra com IA</h3>
+            <div id="gemini-safra-loader" class="loader"></div>
+            <div id="gemini-safra-response" class="gemini-response"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= PÁGINA: MODELOS ======================= -->
+    <section id="modelos" class="pagina" style="display:none;">
+      <h2>Análise Detalhada por Modelo</h2>
+      <div class="selecao-container">
+        <label for="modeloTreinoSelect">Selecione o Treino ID:</label>
+        <select id="modeloTreinoSelect"></select>
+      </div>
+      <div id="comentario-treino-container" style="margin-top: 2rem; display: none;">
+        <h3>Comentário do Treino</h3>
+        <div id="comentario-treino-texto" style="background-color: #f8f9fa; border-left: 4px solid #004080; padding: 1rem; margin-top: 0.5rem;"></div>
+      </div>
+      
+      <h2 style="margin-top:3rem;">Análise Temporal (Treino Atual)</h2>
+      <p class="descricao">Diferenças percentuais das previsões apenas para o Treino selecionado.</p>
+      <div class="selecao-container">
+        <label for="uniqueModeloSelect">Selecione o Unique ID:</label>
+        <select id="uniqueModeloSelect"></select>
+        <label for="absModeloCheckbox" style="margin-left:1rem;">Valor Absoluto:</label>
+        <input type="checkbox" id="absModeloCheckbox" />
+      </div>
+      <div class="chart-container"><canvas id="graficoTemporalModelos"></canvas></div>
+      <p id="mensagemSemDadoGraficoModelos" class="sem-dados" style="display:none;"></p>
+      
+      <h3 style="margin-top:3rem;">Resultados de Teste</h3>
+      <div class="selecao-container">
+        <label for="filtroMunicipioSelect">Filtrar Município:</label>
+        <select id="filtroMunicipioSelect"></select>
+        <label for="filtroAnoSelect" style="margin-left:1rem;">Filtrar Ano:</label>
+        <select id="filtroAnoSelect"></select>
+        <label for="absDiferencaCheckbox" style="margin-left:1rem;">Valor Absoluto (na Diferença):</label>
+        <input type="checkbox" id="absDiferencaCheckbox" />
+      </div>
+      <div class="selecao-container">
+        <label for="minDiferencaInput">Diferença (%):</label>
+        <input type="number" id="minDiferencaInput" placeholder="Mínimo" step="0.01" />
+        <input type="number" id="maxDiferencaInput" placeholder="Máximo" step="0.01" />
+      </div>
+      <table id="tabela-modelos" class="tabela-estilizada">
+        <thead>
+          <tr>
+            <th>Nº</th>
+            <th data-col="ds">Data</th>
+            <th data-col="unique_id">Município</th>
+            <th data-col="y">Valor Real</th>
+            <th data-col="y_pred">Valor Previsto</th>
+            <th data-col="diferença_%">Diferença (%)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="selecao-container" style="margin-top:1rem; justify-content: space-between;">
+        <div>
+            <label for="itensPorPagina">Itens por página:</label>
+            <select id="itensPorPagina"><option value="25">25</option><option value="50">50</option><option value="100">100</option></select>
+        </div>
+        <div id="paginacao-controles"></div>
+      </div>
+      <p id="mensagemSemDadosTabela" class="sem-dados" style="display:none;"></p>
+      
+      <h3 style="margin-top:3rem;">Gráfico de Dispersão (Teste)</h3>
+      <div class="chart-container"><canvas id="graficoDispersao"></canvas></div>
+      <p id="mensagemSemDadoDispersao" class="sem-dados" style="display:none;"></p>
+       <div id="gemini-dispersion-container" class="gemini-analysis-container" style="display: none;">
+        <button id="generate-dispersion-analysis-btn" class="gemini-button">✨ Gerar Análise de Dispersão</button>
+        <div id="gemini-dispersion-content" style="display: none; margin-top: 1.5rem;">
+            <h3>Análise de Dispersão com IA</h3>
+            <div id="gemini-dispersion-loader" class="loader"></div>
+            <div id="gemini-dispersion-response" class="gemini-response"></div>
+        </div>
+      </div>
+      
+      <h3 style="margin-top:3rem;">Série Histórica x Previsões</h3>
+      <div class="selecao-container">
+        <label for="seriesUniqueSelect">Selecione o Município:</label>
+        <select id="seriesUniqueSelect"></select>
+      </div>
+      <div class="chart-container"><canvas id="graficoSeries"></canvas></div>
+      <p id="mensagemSemDadoSeries" class="sem-dados" style="display:none;"></p>
+      <!-- Gemini Feature: Análise da Série Histórica -->
+      <div id="gemini-series-container" class="gemini-analysis-container" style="display: none;">
+          <h3>Análise da Série Histórica com IA</h3>
+          <button id="generate-series-analysis-btn" class="gemini-button">✨ Gerar Análise do Gráfico</button>
+          <div id="gemini-series-loader" class="loader"></div>
+          <div id="gemini-series-response" class="gemini-response"></div>
+      </div>
+    </section>
+
+    <!-- ======================= PÁGINA: DATASET ======================= -->
+    <section id="dataset" class="pagina" style="display:none;">
+      <h2>Análise de Datasets</h2>
+      <p class="descricao">Análise detalhada dos datasets utilizados nos modelos de previsão.</p>
+      <div class="section" id="correlation-matrix">
+        <h2>Correlação com a Variável Alvo (por Faixa de Erro)</h2>
+        <p class="descricao">Esta seção mostra a correlação de Pearson entre cada variável do dataset e a variável alvo (target). Não é uma matriz completa entre todas as variáveis. <br>O dataset é filtrado para incluir somente os municípios presentes no Treino ID selecionado e utiliza o Ano de predição como contexto para agrupar municípios por faixas de erro (0–10%, 0–25%, ≥50% e “Tudo”). <br>Ajuste o período (Ano Inicial/Final) e selecione as variáveis para personalizar a visualização. <br><br>Ela mostra a relação linear "média" ou "global" entre as variáveis, considerando todos os municípios e anos. Se a correlação for forte, indica que a relação tende a ser consistente no dataset como um todo.</p>
+        <div class="selecao-container">
+          <label for="correlationTreinoSelect">Selecione o Treino ID (Contexto):</label>
+          <select id="correlationTreinoSelect"></select>
+          <label for="correlationAnoSelect" style="margin-left:1rem;">Ano de predição (Contexto):</label>
+          <select id="correlationAnoSelect"></select>
+        </div>
+        <div class="selecao-container">
+          <label>Selecione o período dos dados para correlação:
+            <label for="anoInicialSelect">Ano Inicial</label><select id="anoInicialSelect"></select>
+            <label for="anoFinalSelect" style="margin-left:1rem;">Ano Final</label><select id="anoFinalSelect"></select>
+          </label>
+        </div>
+        <div id="correlation-container">
+            <div id="correlation-content">
+                <p class="sem-dados">Carregue os arquivos CSV para visualizar a análise.</p>
+            </div>
+        </div>
+        <div id="correlation-column-selector-container" style="display: none;">
+            <h4>Selecionar Variáveis (Eixo X)</h4>
+            <div class="column-selector-item">
+                <input type="checkbox" id="corr-select-all" checked>
+                <label for="corr-select-all"><strong>Selecionar Todas</strong></label>
+            </div>
+            <hr style="margin: 0.5rem 0;">
+            <div id="correlation-column-selector">
+                <!-- Checkboxes serão renderizados aqui -->
+            </div>
+        </div>
+        <div id="gemini-correlation-container" class="gemini-analysis-container" style="display: none;">
+            <button id="generate-correlation-analysis-btn" class="gemini-button">✨ Gerar Análise de Correlação</button>
+            <div id="gemini-correlation-content" style="display: none; margin-top: 1.5rem;">
+                <h3>Análise de Correlação com IA</h3>
+                <div id="gemini-correlation-loader" class="loader"></div>
+                <div id="gemini-correlation-response" class="gemini-response"></div>
+            </div>
+        </div>
+      </div>
+
+      <!-- ======================= SESSÃO: CORRELAÇÃO POR MUNICÍPIO ======================= -->
+      <!--
+        Esta seção calcula e exibe as correlações entre a variável alvo (target) e as demais variáveis
+        para UM município específico ao longo de um período selecionado.
+        Estrutura:
+        - Seletores: Município + Período dedicado (muniAnoInicialSelect/muniAnoFinalSelect)
+        - Checklist de variáveis X (por sessão) com "Selecionar Todas"
+        - Gráfico de barras (Chart.js) mostrando correlação com target para cada variável selecionada
+        - Botão de IA (opcional) que reutiliza generateAiAnalysis com prompt específico
+      -->
+      <div class="section" id="dataset-corr-municipio" style="margin-top:2rem;">
+        <h2>Correlação por Município (Target vs. Variáveis)</h2>
+        <p class="descricao">
+          <strong>O que este gráfico mostra?</strong>
+          <ul>
+            <li>Relação média entre diferentes fatores (ex.: chuva, temperatura etc.) e o indicador alvo (target) ao longo de vários anos, para <em>um município específico</em>.</li>
+          </ul>
+          <strong>Como ele é calculado?</strong>
+          <ul>
+            <li>Filtra os dados apenas para o <em>município</em> selecionado e para o <em>período de anos</em> escolhido.</li>
+            <li>Para cada variável (ex.: “Chuva”), cria pares do mesmo ano: (Target de 2012, Chuva de 2012), (Target de 2013, Chuva de 2013), …</li>
+            <li>Calcula <em>um único valor</em> de correlação de Pearson a partir de toda essa lista de pares do período.</li>
+            <li>O resultado representa a relação consolidada para aquele município considerando todo o período.</li>
+          </ul>
+          <strong>Como interpretar?</strong>
+          <ul>
+            <li><b>Barras positivas</b>: relação direta — quando o fator aumenta, o alvo tende a subir no município.</li>
+            <li><b>Barras negativas</b>: relação inversa — quando o fator aumenta, o alvo tende a diminuir.</li>
+            <li><b>Próximas de zero</b>: sem relação linear consistente ao longo do tempo.</li>
+          </ul>
+          <strong>Principal utilidade</strong>
+          <ul>
+            <li>Descobrir quais fatores são mais impactantes para o resultado em um local específico.</li>
+          </ul>
+        </p>
+
+        <!-- Seletores de município e período (dedicados a esta sessão) -->
+        <div class="selecao-container">
+          <label for="correlationMunicipioSelect">Selecione o Município:</label>
+          <select id="correlationMunicipioSelect"></select>
+
+          <label for="muniAnoInicialSelect" style="margin-left:1rem;">Ano Inicial</label>
+          <select id="muniAnoInicialSelect"></select>
+
+          <label for="muniAnoFinalSelect" style="margin-left:1rem;">Ano Final</label>
+          <select id="muniAnoFinalSelect"></select>
+        </div>
+
+        <!-- Checklist de variáveis para o eixo X (dedicado à sessão por município) -->
+        <div id="muni-corr-column-selector-container" style="display: none;">
+          <h4>Selecionar Variáveis (Eixo X)</h4>
+          <div class="column-selector-item">
+            <input type="checkbox" id="corr-muni-select-all" checked>
+            <label for="corr-muni-select-all"><strong>Selecionar Todas</strong></label>
+          </div>
+          <hr style="margin: 0.5rem 0;">
+          <div id="muni-corr-column-selector">
+            <!-- Checkboxes renderizados dinamicamente -->
+          </div>
+        </div>
+
+        <!-- Container do gráfico -->
+        <div class="chart-container" style="height: 600px;">
+          <canvas id="graficoCorrelacaoMunicipio"></canvas>
+        </div>
+        <p id="mensagemSemDadoCorrMunicipio" class="sem-dados" style="display:none;"></p>
+
+        <!-- Gemini Feature: Análise por Município -->
+        <div id="gemini-muni-corr-container" class="gemini-analysis-container" style="display: none;">
+          <button id="generate-muni-corr-analysis-btn" class="gemini-button">✨ Gerar Análise por Município</button>
+          <div id="gemini-muni-corr-content" style="display: none; margin-top: 1.5rem;">
+            <h3>Análise por Município com IA</h3>
+            <div id="gemini-muni-corr-loader" class="loader"></div>
+            <div id="gemini-muni-corr-response" class="gemini-response"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================= SESSÃO: CORRELAÇÃO POR PERÍODO (Target vs. Variáveis por Ano) ======================= -->
+      <div class="section" id="dataset-corr-ano" style="margin-top:2rem;">
+        <h2>Correlação por Período (Target vs. Variáveis por Ano)</h2>
+        <p class="descricao">
+          <strong>O que este gráfico mostra?</strong>
+          <ul>
+            <li>Como a relação entre os fatores e o indicador alvo muda ao longo do tempo.</li>
+            <li>Cada cor/barras refere-se a um <em>ano específico</em>, permitindo comparar a evolução por variável.</li>
+          </ul>
+          <strong>Como ele é calculado?</strong>
+          <ul>
+            <li>O cálculo é feito <em>ano a ano</em>, de forma independente.</li>
+            <li>Para o ano 2012, usa apenas dados de 2012; para 2013, apenas de 2013; e assim por diante.</li>
+            <li>Para cada ano, monta-se pares (Target, Variável) por linha do dataset naquele ano (tipicamente vários municípios) e calcula-se a correlação de Pearson.</li>
+          </ul>
+          <strong>Como interpretar?</strong>
+          <ul>
+            <li>Compare as barras de uma mesma variável entre os anos: mudanças de altura ou inversões de sinal indicam <em>dinâmica temporal</em> (fortalecimento, enfraquecimento ou reversão).</li>
+          </ul>
+          <strong>Principal utilidade</strong>
+          <ul>
+            <li>Identificar tendências e mudanças de dinâmica no tempo, verificando se fatores importantes no passado permanecem relevantes.</li>
+          </ul>
+        </p>
+
+        <div class="selecao-container">
+          <label for="yearAnoInicialSelect">Ano Inicial</label>
+          <select id="yearAnoInicialSelect"></select>
+
+          <label for="yearAnoFinalSelect" style="margin-left:1rem;">Ano Final</label>
+          <select id="yearAnoFinalSelect"></select>
+        </div>
+
+        <div id="year-corr-column-selector-container" style="display: none;">
+          <h4>Selecionar Variáveis (Eixo X)</h4>
+          <div class="column-selector-item">
+            <input type="checkbox" id="corr-year-select-all" checked>
+            <label for="corr-year-select-all"><strong>Selecionar Todas</strong></label>
+          </div>
+          <hr style="margin: 0.5rem 0;">
+          <div id="year-corr-column-selector"></div>
+        </div>
+
+        <div class="chart-container" style="height: 600px;">
+          <canvas id="graficoCorrelacaoPorAno"></canvas>
+        </div>
+        <p id="mensagemSemDadoCorrAno" class="sem-dados" style="display:none;"></p>
+
+        <div id="gemini-year-corr-container" class="gemini-analysis-container" style="display: none;">
+          <button id="generate-year-corr-analysis-btn" class="gemini-button">✨ Gerar Análise por Ano</button>
+          <div id="gemini-year-corr-content" style="display: none; margin-top: 1.5rem;">
+            <h3>Análise de Correlação por Período com IA</h3>
+            <div id="gemini-year-corr-loader" class="loader"></div>
+            <div id="gemini-year-corr-response" class="gemini-response"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================= SESSÃO: CORRELAÇÃO COM DEFASAGEM (Lag) ======================= -->
+      <div class="section" id="dataset-corr-lag" style="margin-top:2rem;">
+        <h2>Correlação com Defasagem (Target vs. Variáveis Defasadas)</h2>
+        <p class="descricao">
+          <strong>O que este gráfico mostra?</strong>
+          <ul>
+            <li>Investiga relações temporais com atraso (“causa e efeito”).</li>
+          </ul>
+          <strong>Como ele é calculado? (mais importante)</strong>
+          <ul>
+            <li>Pares (Target(t), Variável(t + k)) construídos ponto a ponto.</li>
+            <li>Exemplos: Lag -1 (variável passada), Lag 0 (mesmo ano), Lag +1 (variável futura).</li>
+            <li>Cálculo de correlação de Pearson por k.</li>
+          </ul>
+          <strong>Como interpretar?</strong>
+          <ul>
+            <li>Lags negativos: impacto do passado.</li>
+            <li>Lag 0: linha de base.</li>
+            <li>Lags positivos: relação com comportamento futuro.</li>
+          </ul>
+        </p>
+
+        <div class="selecao-container">
+          <label for="correlationLagMunicipioSelect">Município (opcional)</label>
+          <select id="correlationLagMunicipioSelect"></select>
+
+          <label for="lagAnoInicialSelect" style="margin-left:1rem;">Ano Inicial</label>
+          <select id="lagAnoInicialSelect"></select>
+
+          <label for="lagAnoFinalSelect" style="margin-left:1rem;">Ano Final</label>
+          <select id="lagAnoFinalSelect"></select>
+
+          <label for="lagInput" style="margin-left:1rem;">Lags (k), separados por vírgula</label>
+          <input id="lagInput" type="text" placeholder="-4,-3,-2,-1,0,1,2,3,4" />
+        </div>
+
+        <div id="lag-corr-column-selector-container" style="display:none;">
+          <h4>Selecionar Variáveis (Eixo X)</h4>
+          <div class="column-selector-item">
+            <input type="checkbox" id="corr-lag-select-all" checked>
+            <label for="corr-lag-select-all"><strong>Selecionar Todas</strong></label>
+          </div>
+          <hr style="margin: 0.5rem 0;">
+          <div id="lag-corr-column-selector"></div>
+        </div>
+
+        <div class="chart-container" style="height: 600px;">
+          <canvas id="graficoCorrelacaoLag"></canvas>
+        </div>
+        <p id="mensagemSemDadoCorrLag" class="sem-dados" style="display:none;"></p>
+
+        <div id="gemini-lag-corr-container" class="gemini-analysis-container" style="display:none;">
+          <button id="generate-lag-corr-analysis-btn" class="gemini-button">✨ Gerar Análise de Defasagem</button>
+          <div id="gemini-lag-corr-content" style="display:none; margin-top:1.5rem;">
+            <h3>Análise de Correlação com Defasagem (IA)</h3>
+            <div id="gemini-lag-corr-loader" class="loader"></div>
+            <div id="gemini-lag-corr-response" class="gemini-response"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- removido: duplicata fora da seção Dataset (Correlação por Período) -->
+
+<!-- removido: duplicata fora da seção Dataset (Correlação com Defasagem) -->
+
+  </div>
+
+  <!-- 3. SCRIPT GLOBAL (JAVASCRIPT) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // ===================================================================
+      // ESTADO GLOBAL E VARIÁVEIS
+      // ===================================================================
+      let predictionsData = [];
+      let datasetData = [];
+      let chartInstances = {}; // Armazena todas as instâncias de gráficos
+      const markdownConverter = new showdown.Converter(); // Instância do conversor de Markdown
+      
+      // Variáveis da Tabela de Métricas
+      let metricasData = []; // Armazena os dados processados para a tabela
+      let metricasSortState = { column: null, asc: true }; // Estado da ordenação
+
+      // Variáveis específicas da página Modelos
+      let filteredTestData = [];
+      let currentPage = 1;
+      let itemsPerPage = 25;
+      let currentSortColumn = 'ds'; // Coluna de ordenação padrão
+      let currentSortAsc = true;
+
+      // ===================================================================
+      // INICIALIZAÇÃO E NAVEGAÇÃO
+      // ===================================================================
+
+      // Configura os listeners de eventos principais
+      function setupEventListeners() {
+        // Navegação
+        document.querySelectorAll('.menu a').forEach(link => {
+          link.addEventListener('click', handleNavigation);
+        });
+
+        // Upload de arquivos
+        document.getElementById('uploadCSV').addEventListener('change', handlePredictionsUpload);
+        document.getElementById('uploadDatasetCSV').addEventListener('change', handleDatasetUpload);
+
+        // Listeners da Página Visão Geral
+        document.getElementById('uniqueSelect').addEventListener('change', (e) => plotarGraficoTemporal(e.target.value));
+        document.getElementById('treinoSelect').addEventListener('change', (e) => plotarGraficoDistribuicao(e.target.value, document.getElementById('anoDistribuicaoSelect').value));
+        document.getElementById('anoDistribuicaoSelect').addEventListener('change', (e) => plotarGraficoDistribuicao(document.getElementById('treinoSelect').value, e.target.value));
+        document.getElementById('absCheckbox').addEventListener('change', () => plotarGraficoDistribuicao(document.getElementById('treinoSelect').value, document.getElementById('anoDistribuicaoSelect').value));
+        document.getElementById('anoSafraSelect').addEventListener('change', (e) => plotarGraficoSafraAnual(parseInt(e.target.value)));
+        document.getElementById('absSafraCheckbox').addEventListener('change', () => plotarGraficoSafraAnual(parseInt(document.getElementById('anoSafraSelect').value)));
+
+        // Listeners da Página Modelos
+        document.getElementById('modeloTreinoSelect').addEventListener('change', updateModelosPage);
+        document.getElementById('uniqueModeloSelect').addEventListener('change', () => plotarGraficoTemporalModelos(document.getElementById('modeloTreinoSelect').value, document.getElementById('uniqueModeloSelect').value));
+        document.getElementById('absModeloCheckbox').addEventListener('change', () => plotarGraficoTemporalModelos(document.getElementById('modeloTreinoSelect').value, document.getElementById('uniqueModeloSelect').value));
+        document.querySelectorAll('#tabela-modelos th[data-col]').forEach(th => th.addEventListener('click', () => sortTableModelos(th.dataset.col)));
+        document.getElementById('filtroMunicipioSelect').addEventListener('change', () => { currentPage = 1; renderTableModelos(); });
+        document.getElementById('filtroAnoSelect').addEventListener('change', () => { currentPage = 1; renderTableModelos(); });
+        document.getElementById('itensPorPagina').addEventListener('change', e => { itemsPerPage = parseInt(e.target.value, 10); currentPage = 1; renderTableModelos(); });
+        document.getElementById('absDiferencaCheckbox').addEventListener('change', () => { currentPage = 1; renderTableModelos(); });
+        document.getElementById('minDiferencaInput').addEventListener('input', () => { currentPage = 1; renderTableModelos(); });
+        document.getElementById('maxDiferencaInput').addEventListener('input', () => { currentPage = 1; renderTableModelos(); });
+        document.getElementById('seriesUniqueSelect').addEventListener('change', ev => {
+            const treinoId = document.getElementById('modeloTreinoSelect').value;
+            renderSeriesChart(ev.target.value, treinoId);
+        });
+
+        // Listeners da Página Dataset
+        document.getElementById('correlationTreinoSelect').addEventListener('change', (e) => {
+            preencherCorrelationAnoSelect(predictionsData, e.target.value);
+            exibirMatrizCorrelacao();
+        });
+        document.getElementById('correlationAnoSelect').addEventListener('change', exibirMatrizCorrelacao);
+        document.getElementById('anoInicialSelect').addEventListener('change', exibirMatrizCorrelacao);
+        document.getElementById('anoFinalSelect').addEventListener('change', exibirMatrizCorrelacao);
+
+        // Listeners Gemini API
+        document.getElementById('generate-metrics-analysis-btn').addEventListener('click', handleMetricsAnalysis);
+        document.getElementById('generate-series-analysis-btn').addEventListener('click', handleSeriesAnalysis);
+        document.getElementById('generate-distribution-analysis-btn').addEventListener('click', handleDistributionAnalysis);
+        document.getElementById('generate-safra-analysis-btn').addEventListener('click', handleAnnualComparisonAnalysis);
+        document.getElementById('generate-dispersion-analysis-btn').addEventListener('click', handleDispersionAnalysis);
+        document.getElementById('generate-correlation-analysis-btn').addEventListener('click', handleCorrelationAnalysis);
+
+        // Patch 2: Listeners da sessão "Correlação por Período (Ano)"
+        const anoIniYear = document.getElementById('yearAnoInicialSelect');
+        const anoFimYear = document.getElementById('yearAnoFinalSelect');
+        const selectAllYear = document.getElementById('corr-year-select-all');
+        if (anoIniYear) anoIniYear.addEventListener('change', exibirCorrelacaoPorAno);
+        if (anoFimYear) anoFimYear.addEventListener('change', exibirCorrelacaoPorAno);
+        if (selectAllYear) selectAllYear.addEventListener('change', (e) => {
+          const grid = document.getElementById('year-corr-column-selector');
+          if (grid) {
+            grid.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = e.target.checked);
+          }
+          exibirCorrelacaoPorAno();
+        });
+      }
+
+      // Lida com a troca de páginas
+      function handleNavigation(e) {
+        e.preventDefault();
+        const targetId = e.target.getAttribute('data-target');
+        
+        document.querySelectorAll('.menu a').forEach(l => l.classList.remove('active'));
+        e.target.classList.add('active');
+        
+        document.querySelectorAll('.pagina').forEach(page => {
+          page.style.display = page.id === targetId ? 'block' : 'none';
+        });
+
+        // Se a página de dataset for selecionada, tenta atualizar o layout da lista de checkboxes.
+        if (targetId === 'dataset') {
+            requestAnimationFrame(updateCorrelationChecklistLayout);
+        }
+      }
+
+      // Lida com o upload do CSV de predições
+      function handlePredictionsUpload(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        Papa.parse(file, {
+          header: true, skipEmptyLines: true,
+          complete: (results) => {
+            predictionsData = results.data;
+            updateAllPages();
+          },
+          error: (err) => alert(`Erro ao carregar CSV de predições: ${err.message}`)
+        });
+      }
+
+      // Lida com o upload do CSV de dataset
+      function handleDatasetUpload(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        Papa.parse(file, {
+          header: true, skipEmptyLines: true,
+          complete: (results) => {
+            datasetData = results.data;
+            updateAllPages();
+          },
+          error: (err) => alert(`Erro ao carregar CSV de dataset: ${err.message}`)
+        });
+      }
+      
+      // Função central para atualizar todos os componentes após um upload
+      function updateAllPages() {
+        if (predictionsData.length > 0) {
+          updateVisaoGeralPage();
+          preencherTreinoModelos(predictionsData);
+          updateModelosPage();
+        }
+        if (datasetData.length > 0) {
+          updateDatasetPage();
+        }
+      }
+
+      // Função genérica para destruir um gráfico se ele existir
+      function destroyChart(chartId) {
+        if (chartInstances[chartId]) {
+          chartInstances[chartId].destroy();
+          delete chartInstances[chartId];
+        }
+      }
+      
+      // Função genérica para popular um <select>
+      function populateSelect(selectId, options, config = {}) {
+        const select = document.getElementById(selectId);
+        const currentValue = select.value;
+        select.innerHTML = '';
+        if (config.prompt) {
+          select.appendChild(new Option(config.prompt, ''));
+        }
+        if (config.includeAll) {
+          select.appendChild(new Option(config.includeAll, 'Todos'));
+        }
+        if (!options || options.length === 0) {
+          select.innerHTML = `<option>${config.empty || 'Nenhuma opção'}</option>`;
+          return;
+        }
+        options.forEach(opt => select.appendChild(new Option(opt, opt)));
+        
+        if (Array.from(select.options).some(opt => opt.value === currentValue)) {
+            select.value = currentValue;
+        }
+      }
+      
+      // Tenta analisar uma string de data em vários formatos.
+      function parseDate(str) {
+        if (!str) return luxon.DateTime.invalid('Entrada nula');
+        const trimmedStr = str.trim();
+        
+        let dt = luxon.DateTime.fromFormat(trimmedStr, 'dd/MM/yyyy');
+        if (dt.isValid) return dt;
+        
+        dt = luxon.DateTime.fromSQL(trimmedStr);
+        if (dt.isValid) return dt;
+        
+        dt = luxon.DateTime.fromISO(trimmedStr);
+        if (dt.isValid) return dt;
+
+        return luxon.DateTime.invalid('Formato desconhecido');
+      }
+
+      // Função genérica para extrair ano de uma data
+      function extractYear(str) {
+        const dt = parseDate(str);
+        return dt.isValid ? dt.year : null;
+      }
+
+      // ===================================================================
+      // LÓGICA DA PÁGINA: VISÃO GERAL
+      // ===================================================================
+      
+      function updateVisaoGeralPage() {
+        calcularMetricas();
+        const geminiContainer = document.getElementById('gemini-metrics-container');
+        const geminiContent = document.getElementById('gemini-metrics-content');
+
+        if (metricasData.length > 0) {
+            geminiContainer.style.display = 'block';
+            geminiContent.style.display = 'none'; // Garante que o conteúdo comece escondido
+            document.getElementById('gemini-metrics-response').innerHTML = ''; // Limpa a resposta anterior
+        } else {
+            geminiContainer.style.display = 'none';
+        }
+        
+        const uniqueIds = [...new Set(predictionsData.filter(d => d.flag?.toLowerCase() === 'teste' && d.unique_id).map(d => d.unique_id.trim()))].sort();
+        populateSelect('uniqueSelect', uniqueIds);
+        if(uniqueIds.length > 0) plotarGraficoTemporal(document.getElementById('uniqueSelect').value || uniqueIds[0]);
+
+        const treinoIds = [...new Set(predictionsData.filter(d => d.flag?.toLowerCase() === 'teste' && d.treino_id).map(d => d.treino_id.trim()))].sort();
+        populateSelect('treinoSelect', treinoIds);
+        preencherAnosDistribuicao(predictionsData);
+        if(treinoIds.length > 0) plotarGraficoDistribuicao(document.getElementById('treinoSelect').value || treinoIds[0], 'Todos');
+
+        const anoPadrao = preencherAnosSafra(predictionsData);
+        if(anoPadrao) plotarGraficoSafraAnual(parseInt(document.getElementById('anoSafraSelect').value) || anoPadrao);
+      }
+
+      // --- Lógica da Tabela de Métricas ---
+      function calcularMetricas() {
+        const validFlags = ['teste', 'treino', 'validacao'];
+        const dadosFiltrados = predictionsData.filter(d => validFlags.includes((d.flag || '').toLowerCase()));
+        
+        if (!dadosFiltrados.length) {
+            const tbody = document.querySelector('#tabela-metricas tbody');
+            tbody.innerHTML = '<tr><td colspan="7" class="sem-dados">Nenhum dado de treino ou teste encontrado</td></tr>';
+            return;
+        }
+
+        const agrupado = {};
+        dadosFiltrados.forEach(d => {
+            const y = parseFloat(d.y), y_pred = parseFloat(d.y_pred);
+            if (isNaN(y) || isNaN(y_pred)) return;
+            const chave = `${d.treino_id||'N/A'}||${d.modelo||'N/A'}||${d.dataset||'N/A'}||${d.flag.toLowerCase()}`;
+            if (!agrupado[chave]) agrupado[chave] = { y: [], y_pred: [] };
+            agrupado[chave].y.push(y);
+            agrupado[chave].y_pred.push(y_pred);
+        });
+        
+        metricasData = Object.entries(agrupado).map(([chave, v]) => {
+            if (v.y.length < 2) return null;
+            const [treino, modelo, dataset, flag] = chave.split('||');
+            const n = v.y.length;
+            const rmse = Math.sqrt(v.y.reduce((s, y, i) => s + Math.pow(v.y_pred[i] - y, 2), 0) / n);
+            const wmape = v.y.reduce((s, y, i) => s + Math.abs(v.y_pred[i] - y), 0) / v.y.reduce((s, y) => s + Math.abs(y), 0);
+            const meanY = v.y.reduce((a, b) => a + b, 0) / n;
+            const ssTot = v.y.reduce((s, y) => s + Math.pow(y - meanY, 2), 0);
+            const ssRes = v.y.reduce((s, y, i) => s + Math.pow(y - v.y_pred[i], 2), 0);
+            const r2 = ssTot === 0 ? 0 : 1 - ssRes / ssTot;
+            
+            return {
+                'Treino ID': treino,
+                'Modelo': modelo,
+                'Dataset': dataset,
+                'Flag': flag.charAt(0).toUpperCase() + flag.slice(1),
+                'RMSE': rmse,
+                'WMAPE (%)': wmape * 100,
+                'R²': r2
+            };
+        }).filter(Boolean);
+
+        renderMetricasTable();
+      }
+
+      function renderMetricasTable() {
+        const table = document.getElementById('tabela-metricas');
+        const thead = table.querySelector('thead');
+        const tbody = table.querySelector('tbody');
+        
+        thead.innerHTML = '';
+        tbody.innerHTML = '';
+
+        if (metricasData.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="7" class="sem-dados">Nenhum dado para exibir.</td></tr>';
+            return;
+        }
+
+        const headerRow = thead.insertRow();
+        const headers = Object.keys(metricasData[0]);
+        headers.forEach(headerText => {
+            const th = document.createElement('th');
+            th.innerHTML = `${headerText} <span class="sort-indicator"></span>`;
+            th.dataset.column = headerText;
+            
+            th.classList.remove('sort-asc', 'sort-desc');
+            if (metricasSortState.column === headerText) {
+                th.classList.add(metricasSortState.asc ? 'sort-asc' : 'sort-desc');
+            }
+            
+            th.addEventListener('click', () => {
+                handleSortMetricas(headerText);
+            });
+            headerRow.appendChild(th);
+        });
+
+        const lightColors = [
+            '#F0F8FF', '#FAEBD7', '#E0FFFF', '#F5F5DC', '#FFFACD',
+            '#F5FFFA', '#FFF0F5', '#F8F8FF', '#F0FFF0', '#E6E6FA'
+        ];
+        const treinoColors = {};
+        let colorIndex = 0;
+
+        metricasData.forEach(rowData => {
+            const treinoId = rowData['Treino ID'];
+            if (!treinoColors[treinoId]) {
+                treinoColors[treinoId] = lightColors[colorIndex % lightColors.length];
+                colorIndex++;
+            }
+            
+            const row = tbody.insertRow();
+            row.style.backgroundColor = treinoColors[treinoId];
+            
+            headers.forEach(header => {
+                const cell = row.insertCell();
+                const value = rowData[header];
+                cell.textContent = typeof value === 'number' ? (header === 'R²' ? value.toFixed(4) : value.toFixed(2)) : value;
+            });
+        });
+      }
+
+      function handleSortMetricas(column) {
+        const isAsc = metricasSortState.column === column ? !metricasSortState.asc : true;
+        metricasSortState = { column, asc: isAsc };
+
+        metricasData.sort((a, b) => {
+            let valA = a[column];
+            let valB = b[column];
+
+            const isNumeric = typeof valA === 'number' && typeof valB === 'number';
+
+            let comparison = 0;
+            if (isNumeric) {
+                comparison = valA - valB;
+            } else {
+                comparison = String(valA).localeCompare(String(valB));
+            }
+
+            return isAsc ? comparison : -comparison;
+        });
+
+        renderMetricasTable();
+      }
+      
+      // --- Fim da Lógica da Tabela de Métricas ---
+
+      function plotarGraficoTemporal(unique_id) {
+        destroyChart('graficoTemporal');
+        const ctx = document.getElementById('graficoTemporal').getContext('2d');
+        const dadosTeste = predictionsData.filter(d => d.unique_id === unique_id && d.flag?.toLowerCase() === 'teste');
+        
+        const msg = document.getElementById('mensagemSemDadoGrafico');
+        if (dadosTeste.length === 0) {
+            msg.textContent = `Nenhum dado de teste encontrado para ${unique_id}.`;
+            msg.style.display = 'block';
+            document.getElementById('graficoTemporal').style.display = 'none';
+            return;
+        }
+        msg.style.display = 'none';
+        document.getElementById('graficoTemporal').style.display = 'block';
+
+        const testeAgrupado = {};
+        dadosTeste.forEach(d => {
+            const treinoId = d.treino_id?.trim() ?? 'N/A';
+            const dif = parseFloat(d['diferença_%']);
+            const ano = extractYear(d.ds);
+
+            if(ano && !isNaN(dif)) {
+              if (!testeAgrupado[treinoId]) testeAgrupado[treinoId] = {};
+              if (!testeAgrupado[treinoId][ano]) testeAgrupado[treinoId][ano] = [];
+              testeAgrupado[treinoId][ano].push(dif);
+            }
+        });
+
+        const colors = ["#004080", "#E67E22", "#16A085", "#27AE60", "#8E44AD", "#C0392B", "#2980B9", "#D35400"];
+        
+        const datasets = Object.entries(testeAgrupado).map(([treino, anosData], i) => {
+            const pontos = Object.entries(anosData).map(([ano, values]) => ({
+                x: luxon.DateTime.fromObject({ year: parseInt(ano) }).toJSDate(),
+                y: values.reduce((a, b) => a + b, 0) / values.length
+            }));
+
+            return {
+                label: `${treino} (Diferença %)`, 
+                data: pontos.sort((a, b) => a.x - b.x),
+                borderColor: colors[i % colors.length], 
+                fill: false,
+                tension: 0.1,
+                pointRadius: 5,
+                pointHoverRadius: 7
+            };
+        });
+
+        chartInstances['graficoTemporal'] = new Chart(ctx, {
+            type: 'line', 
+            data: { datasets },
+            options: { 
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { 
+                    title: { 
+                        display: true, 
+                        text: `Diferença Percentual Média por Ano - ${unique_id}` 
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: (context) => `${context.dataset.label}: ${context.parsed.y.toFixed(2)}%`
+                        }
+                    },
+                    annotation: {
+                        annotations: {
+                            zeroLine: {
+                                type: 'line',
+                                yMin: 0,
+                                yMax: 0,
+                                borderColor: 'grey',
+                                borderWidth: 1.5,
+                                borderDash: [6, 6]
+                            }
+                        }
+                    }
+                }, 
+                scales: { 
+                    x: { 
+                        type: 'time', 
+                        time: { unit: 'year' },
+                        title: { display: true, text: 'Ano' }
+                    },
+                    y: {
+                        title: { display: true, text: 'Diferença Média (%)' },
+                        ticks: { callback: (value) => `${value}%` }
+                    }
+                } 
+            }
+        });
+      }
+      
+      function preencherAnosDistribuicao(dados) {
+        const anos = [...new Set(dados.filter(d => d.flag?.toLowerCase() === 'teste' && d.ds).map(d => extractYear(d.ds)).filter(Boolean))].sort((a, b) => a - b);
+        populateSelect('anoDistribuicaoSelect', anos, { includeAll: 'Todos' });
+      }
+
+      function plotarGraficoDistribuicao(treino_id, anoSelecionado) {
+        destroyChart('graficoDistribuicao');
+        const ctx = document.getElementById('graficoDistribuicao').getContext('2d');
+        const useAbs = document.getElementById('absCheckbox').checked;
+        
+        let dadosFiltrados = predictionsData.filter(d => d.treino_id?.trim() === treino_id && d.flag?.toLowerCase() === 'teste');
+        if (anoSelecionado !== "Todos") {
+            dadosFiltrados = dadosFiltrados.filter(d => extractYear(d.ds) === parseInt(anoSelecionado));
+        }
+        
+        const valores = dadosFiltrados.map(d => {
+            const val = parseFloat(d['diferença_%']);
+            return useAbs ? Math.abs(val) : val;
+        }).filter(v => !isNaN(v));
+        
+        const msg = document.getElementById('mensagemSemDadoDistribuicao');
+        const geminiContainer = document.getElementById('gemini-distribution-container');
+        if (valores.length === 0) {
+            msg.textContent = `Nenhum dado encontrado para o treino ${treino_id}` + (anoSelecionado !== 'Todos' ? ` no ano ${anoSelecionado}` : '');
+            msg.style.display = 'block';
+            document.getElementById('graficoDistribuicao').style.display = 'none';
+            geminiContainer.style.display = 'none';
+            return;
+        }
+        msg.style.display = 'none';
+        document.getElementById('graficoDistribuicao').style.display = 'block';
+        geminiContainer.style.display = 'block';
+
+        const min = Math.floor(Math.min(...valores) / 5) * 5;
+        const max = Math.ceil(Math.max(...valores) / 5) * 5;
+        const binCount = Math.max(10, (max - min) / 5);
+        const bins = Array.from({length: binCount + 2}, (_, i) => min + (i * 5));
+        const counts = new Array(bins.length - 1).fill(0);
+        const labels = [];
+
+        for(let i = 0; i < bins.length - 1; i++) {
+            labels.push(`${bins[i]}% a ${bins[i+1]}%`);
+        }
+        
+        valores.forEach(val => {
+            const binIndex = Math.floor((val - min) / 5);
+            if(binIndex >= 0 && binIndex < counts.length) {
+                counts[binIndex]++;
+            }
+        });
+
+        const percentages = counts.map(c => (c / valores.length) * 100);
+
+        // --- CÁLCULO DINÂMICO DO EIXO Y ---
+        let yMax = 0;
+        if (percentages.length > 0) {
+            yMax = Math.max(...percentages);
+        }
+        const yAxisMax = yMax * 1.1; // Adiciona 10% de margem
+        // --- FIM DO CÁLCULO ---
+
+        chartInstances['graficoDistribuicao'] = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: `Proporção (%)`,
+                    data: percentages,
+                    backgroundColor: 'skyblue'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: { display: true, text: `Distribuição das Diferenças - Treino ${treino_id}` },
+                    tooltip: {
+                        callbacks: {
+                            label: (context) => `${context.dataset.label || ''}: ${context.parsed.y.toFixed(2)}%`
+                        }
+                    }
+                },
+                scales: {
+                    x: { title: { display: true, text: 'Intervalo de Diferença (%)' } },
+                    y: {
+                        title: { display: true, text: 'Proporção (%)' },
+                        ticks: { callback: (value) => value.toFixed(1) + '%' },
+                        min: 0,
+                        max: yAxisMax
+                    }
+                }
+            }
+        });
+      }
+
+      function preencherAnosSafra(dados) {
+        const anos = [...new Set(dados.filter(d => d.flag?.toLowerCase() === 'teste' && d.ds).map(d => extractYear(d.ds)).filter(Boolean))].sort((a, b) => a - b);
+        populateSelect('anoSafraSelect', anos);
+        return anos.length > 0 ? anos[0] : null;
+      }
+
+      function plotarGraficoSafraAnual(anoSelecionado) {
+        destroyChart('graficoSafraAnual');
+        const ctx = document.getElementById('graficoSafraAnual').getContext('2d');
+        const useAbs = document.getElementById('absSafraCheckbox').checked;
+        const dadosTeste = predictionsData.filter(d => d.flag?.toLowerCase() === 'teste' && extractYear(d.ds) === anoSelecionado);
+        
+        const msg = document.getElementById('mensagemSemDadoSafra');
+        const geminiContainer = document.getElementById('gemini-safra-container');
+        if (!dadosTeste.length) {
+            msg.textContent = `Nenhum dado encontrado para o ano ${anoSelecionado}.`;
+            msg.style.display = 'block';
+            document.getElementById('graficoSafraAnual').style.display = 'none';
+            geminiContainer.style.display = 'none';
+            return;
+        }
+        msg.style.display = 'none';
+        document.getElementById('graficoSafraAnual').style.display = 'block';
+        geminiContainer.style.display = 'block';
+
+        const grupos = {};
+        dadosTeste.forEach(d => {
+            const treinoId = d.treino_id.trim();
+            if (!grupos[treinoId]) grupos[treinoId] = { y: 0, y_pred: 0 };
+            grupos[treinoId].y += parseFloat(d.y) || 0;
+            grupos[treinoId].y_pred += parseFloat(d.y_pred) || 0;
+        });
+        const labels = Object.keys(grupos);
+        const realData = labels.map(id => grupos[id].y);
+        const preditoData = labels.map(id => grupos[id].y_pred);
+        const difData = labels.map(id => {
+            let dif = grupos[id].y === 0 ? 0 : ((grupos[id].y_pred - grupos[id].y) / grupos[id].y) * 100;
+            return useAbs ? Math.abs(dif) : dif;
+        });
+
+        // --- CÁLCULO DINÂMICO DOS EIXOS Y ---
+        const allValues = [...realData, ...preditoData];
+        let minVal = Math.min(...allValues);
+        let maxVal = Math.max(...allValues);
+        const valRange = maxVal - minVal;
+        const valMargin = valRange === 0 ? 10 : valRange * 0.1;
+        
+        let minDiff = Math.min(...difData);
+        let maxDiff = Math.max(...difData);
+        const diffRange = maxDiff - minDiff;
+        const diffMargin = diffRange === 0 ? 10 : diffRange * 0.1;
+        // --- FIM DO CÁLCULO ---
+
+        chartInstances['graficoSafraAnual'] = new Chart(ctx, {
+            type: 'bar',
+            data: { labels, datasets: [
+                    { label: 'Real', data: realData, backgroundColor: 'rgba(54, 162, 235, 0.7)', yAxisID: 'y-axis-value' },
+                    { label: 'Predito', data: preditoData, backgroundColor: 'rgba(255, 99, 132, 0.7)', yAxisID: 'y-axis-value' },
+                    { label: 'Diferença (%)', data: difData, type: 'line', borderColor: 'rgba(75, 192, 192, 1)', yAxisID: 'y-axis-diff', tension: 0.1 }
+            ]},
+            options: { 
+                responsive: true, 
+                maintainAspectRatio: false,
+                scales: { 
+                    'y-axis-value': {
+                        type: 'linear',
+                        position: 'left',
+                        title: { display: true, text: 'Valor Acumulado' },
+                        min: minVal - valMargin,
+                        max: maxVal + valMargin
+                    },
+                    'y-axis-diff': { 
+                        type: 'linear',
+                        position: 'right', 
+                        grid: { drawOnChartArea: false },
+                        title: { display: true, text: 'Diferença (%)' },
+                        ticks: { callback: (value) => `${value.toFixed(1)}%` },
+                        min: minDiff - diffMargin,
+                        max: maxDiff + diffMargin
+                    } 
+                } 
+            }
+        });
+      }
+
+      // ===================================================================
+      // LÓGICA DA PÁGINA: MODELOS
+      // ===================================================================
+      
+      function preencherTreinoModelos(dados) {
+        const treinoIds = [...new Set(dados.map(d => d.treino_id.trim()))].sort();
+        populateSelect('modeloTreinoSelect', treinoIds);
+      }
+
+      function updateModelosPage() {
+        const treinoId = document.getElementById('modeloTreinoSelect').value;
+        if (!treinoId) return;
+        
+        const comentario = predictionsData.find(d => d.treino_id.trim() === treinoId && d.comentario)?.comentario;
+        const comentarioContainer = document.getElementById('comentario-treino-container');
+        if (comentario) {
+          document.getElementById('comentario-treino-texto').innerHTML = comentario.trim().replace(/\n/g, '<br>');
+          comentarioContainer.style.display = 'block';
+        } else {
+          comentarioContainer.style.display = 'none';
+        }
+
+        filteredTestData = predictionsData.filter(d => d.treino_id.trim() === treinoId && d.flag?.toLowerCase() === 'teste');
+        sortTableModelos(currentSortColumn);
+        currentPage = 1;
+
+        const municipios = [...new Set(filteredTestData.map(item => item.unique_id))].filter(Boolean).sort();
+        populateSelect('filtroMunicipioSelect', municipios, { includeAll: 'Todos' });
+        
+        const anos = [...new Set(filteredTestData.map(d => extractYear(d.ds)))].filter(Boolean).sort();
+        populateSelect('filtroAnoSelect', anos, { includeAll: 'Todos' });
+        
+        populateSelect('seriesUniqueSelect', municipios);
+
+        renderTableModelos();
+        plotDispersion();
+        if (municipios.length > 0) {
+            renderSeriesChart(document.getElementById('seriesUniqueSelect').value || municipios[0], treinoId);
+        }
+        
+        populateSelect('uniqueModeloSelect', municipios, { includeAll: 'Todos' });
+        plotarGraficoTemporalModelos(treinoId, 'Todos');
+      }
+
+      function plotarGraficoTemporalModelos(treino_id, unique_id) {
+        destroyChart('graficoTemporalModelos');
+        const ctx = document.getElementById('graficoTemporalModelos').getContext('2d');
+        const useAbs = document.getElementById('absModeloCheckbox').checked;
+        let dados = filteredTestData;
+        if (unique_id !== 'Todos') {
+            dados = dados.filter(d => d.unique_id === unique_id);
+        }
+        const agrupado = {};
+        dados.forEach(d => {
+            const ano = extractYear(d.ds);
+            if (!ano) return;
+            let dif = parseFloat(d['diferença_%']);
+            if (isNaN(dif)) return;
+            if (!agrupado[ano]) agrupado[ano] = [];
+            agrupado[ano].push(useAbs ? Math.abs(dif) : dif);
+        });
+        const pontos = Object.entries(agrupado).map(([ano, vals]) => ({
+            x: luxon.DateTime.fromObject({year: parseInt(ano)}).toJSDate(),
+            y: vals.reduce((a, b) => a + b, 0) / vals.length
+        })).sort((a,b) => a.x - b.x);
+
+        chartInstances['graficoTemporalModelos'] = new Chart(ctx, {
+            type: 'line', data: { datasets: [{ label: `Diferença Média (%)`, data: pontos, borderColor: '#004080', tension: 0.1 }] },
+            options: { responsive: true, maintainAspectRatio: false, scales: { x: { type: 'time', time: { unit: 'year' } } } }
+        });
+      }
+
+      function renderTableModelos() {
+        const tbody = document.querySelector('#tabela-modelos tbody');
+        const paginacaoControles = document.getElementById('paginacao-controles');
+        const msgSemDados = document.getElementById('mensagemSemDadosTabela');
+
+        tbody.innerHTML = '';
+        paginacaoControles.innerHTML = '';
+        msgSemDados.style.display = 'none';
+
+        const municipioFiltro = document.getElementById('filtroMunicipioSelect').value;
+        const anoFiltro = document.getElementById('filtroAnoSelect').value;
+        const useAbs = document.getElementById('absDiferencaCheckbox').checked;
+        const minDiff = parseFloat(document.getElementById('minDiferencaInput').value);
+        const maxDiff = parseFloat(document.getElementById('maxDiferencaInput').value);
+
+        let dataToRender = filteredTestData.filter(d => {
+            const municipioMatch = municipioFiltro === 'Todos' || d.unique_id === municipioFiltro;
+            const anoMatch = anoFiltro === 'Todos' || extractYear(d.ds) == anoFiltro;
+
+            let diff = parseFloat(d['diferença_%']);
+            if (isNaN(diff)) return false;
+            
+            const diffValue = useAbs ? Math.abs(diff) : diff;
+            
+            const minMatch = isNaN(minDiff) || diffValue >= minDiff;
+            const maxMatch = isNaN(maxDiff) || diffValue <= maxDiff;
+
+            return municipioMatch && anoMatch && minMatch && maxMatch;
+        });
+
+        if (dataToRender.length === 0) {
+            msgSemDados.textContent = 'Nenhum dado encontrado para os filtros selecionados.';
+            msgSemDados.style.display = 'block';
+            return;
+        }
+
+        const totalItems = dataToRender.length;
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+        currentPage = Math.min(currentPage, totalPages);
+        const startIdx = (currentPage - 1) * itemsPerPage;
+        const endIdx = startIdx + itemsPerPage;
+        const pageData = dataToRender.slice(startIdx, endIdx);
+
+        pageData.forEach((d, i) => {
+            const row = tbody.insertRow();
+            const y_val = parseFloat(d.y).toFixed(2);
+            const y_pred_val = parseFloat(d.y_pred).toFixed(2);
+            const diff_raw = parseFloat(d['diferença_%']);
+            const diff_display = useAbs ? Math.abs(diff_raw) : diff_raw;
+            const diff_val = isNaN(diff_display) ? 'N/A' : diff_display.toFixed(2);
+
+            row.innerHTML = `<td>${startIdx + i + 1}</td><td>${d.ds}</td><td>${d.unique_id}</td><td>${y_val}</td><td>${y_pred_val}</td><td>${diff_val}%</td>`;
+        });
+
+        if (totalPages > 1) {
+            const prevButton = document.createElement('button');
+            prevButton.textContent = 'Anterior';
+            prevButton.disabled = currentPage === 1;
+            prevButton.addEventListener('click', () => { if (currentPage > 1) { currentPage--; renderTableModelos(); } });
+            paginacaoControles.appendChild(prevButton);
+
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === currentPage || i <= 2 || i >= totalPages -1 || Math.abs(i - currentPage) <= 1) {
+                    const pageButton = document.createElement('button');
+                    pageButton.textContent = i;
+                    if (i === currentPage) pageButton.classList.add('active-page');
+                    pageButton.addEventListener('click', () => { currentPage = i; renderTableModelos(); });
+                    paginacaoControles.appendChild(pageButton);
+                } else if (paginacaoControles.lastChild.textContent !== '...') {
+                    const ellipsis = document.createElement('span');
+                    ellipsis.textContent = '...';
+                    ellipsis.style.padding = "0.25rem 0.5rem";
+                    paginacaoControles.appendChild(ellipsis);
+                }
+            }
+
+            const nextButton = document.createElement('button');
+            nextButton.textContent = 'Próximo';
+            nextButton.disabled = currentPage === totalPages;
+            nextButton.addEventListener('click', () => { if (currentPage < totalPages) { currentPage++; renderTableModelos(); } });
+            paginacaoControles.appendChild(nextButton);
+        }
+      }
+      
+      function sortTableModelos(col) {
+        if (!col) return;
+        if (currentSortColumn === col) {
+            currentSortAsc = !currentSortAsc;
+        } else {
+            currentSortColumn = col;
+            currentSortAsc = true;
+        }
+
+        const useAbs = document.getElementById('absDiferencaCheckbox').checked;
+
+        filteredTestData.sort((a, b) => {
+            let valA = a[col];
+            let valB = b[col];
+
+            if (col === 'diferença_%') {
+                let numA = parseFloat(valA);
+                let numB = parseFloat(valB);
+                if (useAbs) {
+                    numA = Math.abs(numA);
+                    numB = Math.abs(numB);
+                }
+                valA = numA;
+                valB = numB;
+            } else if (col === 'ds') {
+                valA = parseDate(valA).toMillis();
+                valB = parseDate(valB).toMillis();
+            } else {
+                const numA = parseFloat(valA);
+                const numB = parseFloat(valB);
+                if (!isNaN(numA) && !isNaN(numB)) {
+                    valA = numA;
+                    valB = numB;
+                } else {
+                    valA = String(valA).toLowerCase();
+                    valB = String(valB).toLowerCase();
+                }
+            }
+            
+            if (valA < valB) return currentSortAsc ? -1 : 1;
+            if (valA > valB) return currentSortAsc ? 1 : -1;
+            return 0;
+        });
+
+        document.querySelectorAll('#tabela-modelos th[data-col]').forEach(th => {
+            th.classList.remove('sort-asc', 'sort-desc');
+            if (th.dataset.col === col) {
+                th.classList.add(currentSortAsc ? 'sort-asc' : 'sort-desc');
+            }
+        });
+
+        currentPage = 1;
+        renderTableModelos();
+      }
+      
+      function plotDispersion() {
+        destroyChart('graficoDispersao');
+        const ctx = document.getElementById('graficoDispersao').getContext('2d');
+        const msg = document.getElementById('mensagemSemDadoDispersao');
+        const geminiContainer = document.getElementById('gemini-dispersion-container');
+
+        const pontos = filteredTestData.map(d => ({ x: parseFloat(d.y), y: parseFloat(d.y_pred) })).filter(p => !isNaN(p.x) && !isNaN(p.y));
+
+        if (pontos.length === 0) {
+            msg.textContent = 'Nenhum dado de teste válido para exibir no gráfico de dispersão.';
+            msg.style.display = 'block';
+            document.getElementById('graficoDispersao').style.display = 'none';
+            geminiContainer.style.display = 'none';
+            return;
+        }
+        msg.style.display = 'none';
+        document.getElementById('graficoDispersao').style.display = 'block';
+        geminiContainer.style.display = 'block';
+
+        // --- CÁLCULO DINÂMICO DOS EIXOS ---
+        const allValues = pontos.flatMap(p => [p.x, p.y]);
+        let minVal = Math.min(0, ...allValues); // Garante que o eixo comece no mínimo em 0
+        let maxVal = Math.max(...allValues);
+        const range = maxVal - minVal;
+        const margin = range === 0 ? maxVal * 0.1 : range * 0.1;
+        const axisMin = minVal - margin;
+        const axisMax = maxVal + margin;
+        // --- FIM DO CÁLCULO ---
+
+        const idealLineData = [{x: axisMin, y: axisMin}, {x: axisMax, y: axisMax}];
+
+        chartInstances['graficoDispersao'] = new Chart(ctx, {
+            type: 'scatter',
+            data: {
+                datasets: [
+                {
+                    label: 'Pontos (Real vs Previsto)',
+                    data: pontos,
+                    backgroundColor: '#004080',
+                    type: 'scatter'
+                },
+                {
+                    label: 'Linha Ideal',
+                    data: idealLineData,
+                    borderColor: 'grey',
+                    borderWidth: 2,
+                    borderDash: [6, 6],
+                    type: 'line',
+                    fill: false,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Real vs Previsto (Dispersão)'
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Valor Real'
+                        },
+                        min: axisMin,
+                        max: axisMax
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Valor Previsto'
+                        },
+                        min: axisMin,
+                        max: axisMax
+                    }
+                }
+            }
+        });
+      }
+      
+      function renderSeriesChart(uid, treinoId) {
+        destroyChart('graficoSeries');
+        const msg = document.getElementById('mensagemSemDadoSeries');
+        const canvas = document.getElementById('graficoSeries');
+        const geminiContainer = document.getElementById('gemini-series-container');
+
+        if (!uid || !treinoId) {
+            msg.textContent = 'Selecione um município e um treino para exibir o gráfico.';
+            msg.style.display = 'block';
+            canvas.style.display = 'none';
+            geminiContainer.style.display = 'none';
+            return;
+        }
+        
+        const ctx = canvas.getContext('2d');
+        
+        const dadosMunicipioTreino = predictionsData.filter(d => d.unique_id === uid && d.treino_id === treinoId);
+
+        if (dadosMunicipioTreino.length === 0) {
+            msg.textContent = `Nenhum dado encontrado para o município ${uid} no treino ${treinoId}.`;
+            msg.style.display = 'block';
+            canvas.style.display = 'none';
+            geminiContainer.style.display = 'none';
+            return;
+        }
+
+        const processData = (data, valueKey) => {
+            if (!data || data.length === 0) return [];
+            return data
+                .map(d => ({
+                    x: parseDate(d.ds).toMillis(),
+                    y: parseFloat(d[valueKey])
+                }))
+                .filter(p => !isNaN(p.x) && !isNaN(p.y))
+                .sort((a, b) => a.x - b.x);
+        };
+
+        const realData = processData(dadosMunicipioTreino, 'y');
+        const treinoData = processData(dadosMunicipioTreino.filter(d => d.flag?.toLowerCase() === 'treino'), 'y_pred');
+        const validacaoData = processData(dadosMunicipioTreino.filter(d => d.flag?.toLowerCase() === 'validacao'), 'y_pred');
+        const testeData = processData(dadosMunicipioTreino.filter(d => d.flag?.toLowerCase() === 'teste'), 'y_pred');
+        
+        const allPoints = [...realData, ...treinoData, ...validacaoData, ...testeData];
+        if (allPoints.length === 0) {
+            msg.textContent = `Nenhum dado válido (data, valor) encontrado para ${uid} no treino ${treinoId}. Verifique o formato dos dados no CSV.`;
+            msg.style.display = 'block';
+            canvas.style.display = 'none';
+            geminiContainer.style.display = 'none';
+            return;
+        }
+        
+        msg.style.display = 'none';
+        canvas.style.display = 'block';
+        geminiContainer.style.display = 'block';
+        document.getElementById('gemini-series-response').innerHTML = '';
+
+
+        const minDate = Math.min(...allPoints.map(p => p.x));
+        const maxDate = Math.max(...allPoints.map(p => p.x));
+
+        if (treinoData.length > 0 && validacaoData.length > 0) {
+            validacaoData.unshift(treinoData[treinoData.length - 1]);
+        }
+        if (validacaoData.length > 0 && testeData.length > 0) {
+            testeData.unshift(validacaoData[validacaoData.length - 1]);
+        } else if (treinoData.length > 0 && testeData.length > 0) {
+            testeData.unshift(treinoData[treinoData.length - 1]);
+        }
+
+        const datasets = [
+            {
+                label: 'Histórico Real',
+                data: realData,
+                borderColor: 'black',
+                backgroundColor: 'white',
+                borderWidth: 2,
+                pointRadius: 4,
+                pointHoverRadius: 6,
+                tension: 0.1
+            },
+            {
+                label: 'Previsão (Treino)',
+                data: treinoData,
+                borderColor: '#007bff',
+                backgroundColor: '#007bff',
+                tension: 0.1
+            },
+            {
+                label: 'Previsão (Validação)',
+                data: validacaoData,
+                borderColor: '#fd7e14',
+                backgroundColor: '#fd7e14',
+                tension: 0.1
+            },
+            {
+                label: 'Previsão (Teste)',
+                data: testeData,
+                borderColor: '#28a745',
+                backgroundColor: '#28a745',
+                tension: 0.1
+            }
+        ];
+
+        chartInstances['graficoSeries'] = new Chart(ctx, {
+            type: 'line',
+            data: { datasets: datasets.filter(d => d.data.length > 0) },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: `Série Histórica e Previsões - Município: ${uid}`
+                    },
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    x: {
+                        type: 'time',
+                        time: { unit: 'year' },
+                        title: { display: true, text: 'Ano' },
+                        min: minDate,
+                        max: maxDate
+                    },
+                    y: {
+                        title: { display: true, text: 'Produção' }
+                    }
+                }
+            }
+        });
+      }
+
+      // ===================================================================
+      // LÓGICA DA PÁGINA: DATASET - CORRELAÇÃO (MODIFICADO)
+      // ===================================================================
+
+      function updateDatasetPage() {
+        if (predictionsData.length === 0 || datasetData.length === 0) {
+            document.getElementById('correlation-content').innerHTML = '<p class="sem-dados">Por favor, carregue ambos os arquivos CSV para visualizar a análise.</p>';
+            return;
+        }
+
+        const treinoIds = [...new Set(predictionsData.filter(d => d.treino_id?.trim()).map(d => d.treino_id.trim()))].sort();
+        populateSelect('correlationTreinoSelect', treinoIds, { empty: 'Nenhum Treino disponível' });
+        
+        const selectedTreinoId = document.getElementById('correlationTreinoSelect').value;
+        preencherCorrelationAnoSelect(predictionsData, selectedTreinoId);
+        
+        preencherAnosCorrelacaoPeriodo(datasetData);
+        
+        exibirMatrizCorrelacao();
+      }
+
+      function preencherCorrelationAnoSelect(dados, treinoId) {
+        const anos = [...new Set(
+            dados
+            .filter(d => d.treino_id === treinoId && ['validacao', 'teste'].includes(d.flag?.toLowerCase()))
+            .map(d => extractYear(d.ds))
+            .filter(Boolean)
+        )].sort((a, b) => b - a);
+        populateSelect('correlationAnoSelect', anos, { empty: 'Nenhum ano disponível' });
+      }
+
+      function preencherAnosCorrelacaoPeriodo(dados) {
+        const anos = [...new Set(dados.filter(d => d.Ano && !isNaN(parseInt(d.Ano))).map(d => parseInt(d.Ano)))].sort((a, b) => a - b);
+        populateSelect('anoInicialSelect', anos, { empty: 'Nenhum ano disponível' });
+        populateSelect('anoFinalSelect', anos, { empty: 'Nenhum ano disponível' });
+
+        if (anos.length > 0) {
+            document.getElementById('anoInicialSelect').value = anos[0];
+            document.getElementById('anoFinalSelect').value = anos[anos.length - 1];
+        }
+      }
+
+      function calcularDiferencaPercentual(y, y_pred) {
+        const yNum = parseFloat(y);
+        const yPredNum = parseFloat(y_pred);
+        if (yNum === 0 || isNaN(yNum) || isNaN(yPredNum)) return null;
+        return Math.abs((yPredNum - yNum) / yNum) * 100;
+      }
+
+      function calcularCorrelacao(x, y) {
+        const n = x.length;
+        if (n !== y.length || n < 2) return null;
+
+        const sumX = x.reduce((a, b) => a + b, 0);
+        const sumY = y.reduce((a, b) => a + b, 0);
+        const sumXY = x.reduce((sum, xi, i) => sum + xi * y[i], 0);
+        const sumX2 = x.reduce((sum, xi) => sum + xi * xi, 0);
+        const sumY2 = y.reduce((sum, yi) => sum + yi * yi, 0);
+
+        const numerator = n * sumXY - sumX * sumY;
+        const denominator = Math.sqrt((n * sumX2 - sumX * sumX) * (n * sumY2 - sumY * sumY));
+
+        if (denominator === 0) return null;
+        return numerator / denominator;
+      }
+
+      // Lógica de layout da lista de checkboxes movida para uma função separada.
+      function updateCorrelationChecklistLayout() {
+        // Esta função agora suporta múltiplos grids de checklists:
+        // - #correlation-column-selector (faixa de erro)
+        // - #muni-corr-column-selector (município)
+        // - #year-corr-column-selector (período por ano - Patch 2)
+        // - #lag-corr-column-selector (defasagem - Patch 3)
+        const grids = [
+          document.getElementById('correlation-column-selector'),
+          document.getElementById('muni-corr-column-selector'),
+          document.getElementById('year-corr-column-selector'),
+          document.getElementById('lag-corr-column-selector')
+        ].filter(Boolean);
+
+        grids.forEach(selectorDiv => {
+          if (!selectorDiv || selectorDiv.children.length === 0 || selectorDiv.offsetWidth === 0) {
+            return;
+          }
+          const labels = Array.from(selectorDiv.querySelectorAll('label')).map(l => l.textContent);
+          let longest = '';
+          labels.forEach(v => { if (v.length > longest.length) longest = v; });
+
+          if (longest) {
+            const tempSpan = document.createElement('span');
+            tempSpan.style.visibility = 'hidden';
+            tempSpan.style.position = 'absolute';
+            tempSpan.style.fontSize = '14px';
+            tempSpan.innerText = longest;
+            document.body.appendChild(tempSpan);
+            const labelWidth = tempSpan.offsetWidth;
+            document.body.removeChild(tempSpan);
+
+            const estimatedColumnWidth = labelWidth + 45;
+            const containerWidth = selectorDiv.offsetWidth;
+
+            if (containerWidth > 0) {
+              let numColumns = Math.floor(containerWidth / estimatedColumnWidth);
+              if (numColumns < 1) numColumns = 1;
+              selectorDiv.style.gridTemplateColumns = `repeat(${numColumns}, 1fr)`;
+            }
+          }
+        });
+      }
+      
+      function exibirMatrizCorrelacao() {
+        destroyChart('graficoCorrelacao');
+        const contentDiv = document.getElementById('correlation-content');
+        const selectorContainer = document.getElementById('correlation-column-selector-container');
+        const selectorDiv = document.getElementById('correlation-column-selector');
+        const geminiContainer = document.getElementById('gemini-correlation-container');
+
+        if (predictionsData.length === 0 || datasetData.length === 0) {
+            contentDiv.innerHTML = '<p class="sem-dados">Por favor, carregue ambos os arquivos CSV para visualizar a análise.</p>';
+            selectorContainer.style.display = 'none';
+            geminiContainer.style.display = 'none';
+            return;
+        }
+
+        const treinoId = document.getElementById('correlationTreinoSelect').value;
+        const anoPredicao = document.getElementById('correlationAnoSelect').value;
+        const anoInicial = parseInt(document.getElementById('anoInicialSelect').value);
+        const anoFinal = parseInt(document.getElementById('anoFinalSelect').value);
+
+        let predicoesFiltradas = predictionsData.filter(d => {
+            const flag = d.flag?.toLowerCase();
+            return (flag === 'validacao' || flag === 'teste') && d.treino_id === treinoId && extractYear(d.ds) == anoPredicao;
+        });
+
+        const errosPorMunicipio = {};
+        predicoesFiltradas.forEach(p => {
+            const erro = calcularDiferencaPercentual(p.y, p.y_pred);
+            if (erro !== null) {
+                if (!errosPorMunicipio[p.unique_id]) errosPorMunicipio[p.unique_id] = [];
+                errosPorMunicipio[p.unique_id].push(erro);
+            }
+        });
+
+        const municipiosPorFaixa = { '0-10%': new Set(), '0-25%': new Set(), '>=50%': new Set(), 'Tudo': new Set(Object.keys(errosPorMunicipio)) };
+        Object.keys(errosPorMunicipio).forEach(municipio => {
+            const avgError = errosPorMunicipio[municipio].reduce((a, b) => a + b, 0) / errosPorMunicipio[municipio].length;
+            if (avgError <= 10) municipiosPorFaixa['0-10%'].add(municipio);
+            if (avgError <= 25) municipiosPorFaixa['0-25%'].add(municipio);
+            if (avgError >= 50) municipiosPorFaixa['>=50%'].add(municipio);
+        });
+
+        let datasetFiltrado = datasetData.filter(d => {
+            const ano = parseInt(d.Ano);
+            return !isNaN(ano) && ano >= anoInicial && ano <= anoFinal;
+        });
+        
+        const resultados = {};
+        let targetCol = null;
+
+        Object.keys(municipiosPorFaixa).forEach(faixa => {
+            const municipios = municipiosPorFaixa[faixa];
+            const dadosFaixa = datasetFiltrado.filter(d => municipios.has(d.unique_id || d.municipio || d.Municipio));
+            
+            if (dadosFaixa.length < 2) {
+                resultados[faixa] = {};
+                return;
+            }
+
+            const colunasNumericas = Object.keys(dadosFaixa[0]).filter(col => dadosFaixa.some(d => !isNaN(parseFloat(d[col]))));
+            
+            if (!targetCol) {
+                const targetCandidates = ['target', 'y', 'producao', 'produção', 'safra', 'ton'];
+                targetCol = colunasNumericas.find(col => targetCandidates.some(c => col.toLowerCase().includes(c))) || 'y';
+            }
+
+            const correlacoes = {};
+            const targetValues = dadosFaixa.map(d => parseFloat(d[targetCol])).filter(v => !isNaN(v));
+
+            colunasNumericas.forEach(col => {
+                if (col !== targetCol && !['Ano', 'Mês'].includes(col)) {
+                    const colValues = dadosFaixa.map(d => parseFloat(d[col])).filter(v => !isNaN(v));
+                    if (targetValues.length === colValues.length) {
+                        const corr = calcularCorrelacao(targetValues, colValues);
+                        if (corr !== null) correlacoes[col] = corr;
+                    }
+                }
+            });
+            resultados[faixa] = correlacoes;
+        });
+
+        const todasVariaveis = new Set();
+        Object.values(resultados).forEach(faixa => Object.keys(faixa).forEach(v => todasVariaveis.add(v)));
+        const variaveisOrdenadas = Array.from(todasVariaveis).sort();
+
+        const previouslyChecked = new Set();
+        const existingCheckboxes = selectorDiv.querySelectorAll('input[type="checkbox"]');
+        if (existingCheckboxes.length > 0) {
+            existingCheckboxes.forEach(cb => {
+                if (cb.checked) previouslyChecked.add(cb.value);
+            });
+        } else {
+            variaveisOrdenadas.forEach(v => previouslyChecked.add(v));
+        }
+
+        selectorDiv.innerHTML = '';
+        variaveisOrdenadas.forEach(variavel => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'column-selector-item';
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = `corr-check-${variavel}`;
+            checkbox.value = variavel;
+            checkbox.checked = previouslyChecked.has(variavel);
+            checkbox.addEventListener('change', exibirMatrizCorrelacao);
+
+            const label = document.createElement('label');
+            label.htmlFor = `corr-check-${variavel}`;
+            label.textContent = variavel;
+
+            itemDiv.appendChild(checkbox);
+            itemDiv.appendChild(label);
+            selectorDiv.appendChild(itemDiv);
+        });
+
+        document.getElementById('corr-select-all').onchange = (e) => {
+            selectorDiv.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                cb.checked = e.target.checked;
+            });
+            exibirMatrizCorrelacao();
+        };
+        
+        // A lógica de layout agora é chamada aqui.
+        requestAnimationFrame(updateCorrelationChecklistLayout);
+
+        const colunasSelecionadas = Array.from(selectorDiv.querySelectorAll('input:checked')).map(cb => cb.value);
+
+        if (colunasSelecionadas.length === 0) {
+            contentDiv.innerHTML = '<p class="sem-dados">Nenhuma variável selecionada para exibir no eixo X.</p>';
+            selectorContainer.style.display = 'block';
+            geminiContainer.style.display = 'none';
+            return;
+        }
+
+        const datasets = Object.keys(resultados).map(faixa => ({
+            label: faixa,
+            data: colunasSelecionadas.map(label => resultados[faixa][label] || 0),
+            backgroundColor: {'0-10%': '#2ecc71', '0-25%': '#3498db', '>=50%': '#e74c3c', 'Tudo': '#9b59b6'}[faixa]
+        }));
+
+        // --- CÁLCULO DINÂMICO DO EIXO Y ---
+        let minCorr = Infinity;
+        let maxCorr = -Infinity;
+        if (datasets.length > 0) {
+            datasets.forEach(ds => {
+                ds.data.forEach(val => {
+                    if (val < minCorr) minCorr = val;
+                    if (val > maxCorr) maxCorr = val;
+                });
+            });
+        }
+        
+        // Se nenhum dado for encontrado, volta para o padrão.
+        if (minCorr === Infinity) {
+            minCorr = -1;
+            maxCorr = 1;
+        }
+
+        // Adiciona uma margem de 10% para melhor visualização
+        const range = maxCorr - minCorr;
+        const margin = range === 0 ? 0.1 : range * 0.1; 
+        let yMin = minCorr - margin;
+        let yMax = maxCorr + margin;
+
+        // Garante que o eixo não ultrapasse os limites de correlação de -1 e 1
+        yMin = Math.max(-1, yMin);
+        yMax = Math.min(1, yMax);
+        // --- FIM DO CÁLCULO ---
+
+        contentDiv.innerHTML = `<div class="chart-container" style="height: 600px;"><canvas id="graficoCorrelacao"></canvas></div>`;
+        const ctx = document.getElementById('graficoCorrelacao').getContext('2d');
+        selectorContainer.style.display = 'block';
+        geminiContainer.style.display = 'block';
+
+        chartInstances['graficoCorrelacao'] = new Chart(ctx, {
+            type: 'bar',
+            data: { labels: colunasSelecionadas, datasets },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: { display: true, text: `Correlações entre ${targetCol || 'Target'} e Outras Variáveis por Faixa de Erro` },
+                    legend: { position: 'top' }
+                },
+                scales: {
+                    x: { ticks: { maxRotation: 45, minRotation: 45 } },
+                    y: { 
+                        title: { display: true, text: `Correlação com ${targetCol || 'Target'}` }, 
+                        min: yMin, // Valor mínimo dinâmico
+                        max: yMax  // Valor máximo dinâmico
+                    }
+                }
+            }
+        });
+      }
+
+      // ===================================================================
+      // LÓGICA DA API DE IA
+      // ===================================================================
+
+      // ===================================================================
+      // Patch 2: Utilitários e lógica "Correlação por Período (Ano)"
+      // ===================================================================
+
+      // ===================================================================
+      // Patch 3: Utilitários "Correlação com Defasagem (Lag)"
+      // ===================================================================
+
+      /**
+       * parseLagInput(str): converte string "a,b,c" em array de inteiros únicos e ordenados,
+       * limitados ao intervalo [-10,10]. Ignora espaços e entradas inválidas.
+       * Se vazio/indefinido, retorna padrão [-2,-1,0,1,2].
+       */
+      function parseLagInput(str) {
+        const DEFAULT = [-2,-1,0,1,2];
+        if (!str || typeof str !== 'string') return DEFAULT;
+        const vals = str.split(',')
+          .map(s => parseInt(s.trim(), 10))
+          .filter(n => !isNaN(n) && n >= -10 && n <= 10);
+        const uniq = Array.from(new Set(vals));
+        if (uniq.length === 0) return DEFAULT;
+        return uniq.sort((a,b)=>a-b);
+      }
+
+      /**
+       * preencherMunicipiosLag(): popula o select de município da sessão de defasagem
+       * com opção vazia "Todos" + municípios únicos encontrados em datasetData
+       * (usando unique_id || municipio || Municipio).
+       */
+      function preencherMunicipiosLag() {
+        const municipios = [...new Set(
+          datasetData.map(d => d.unique_id || d.municipio || d.Municipio).filter(Boolean)
+        )].sort();
+        populateSelect('correlationLagMunicipioSelect', municipios, { prompt: '', includeAll: 'Todos', empty: 'Nenhum município' });
+      }
+
+      /**
+       * preencherAnosCorrelacaoLag(): popula selects de ano inicial/final da sessão de defasagem
+       * com range min..max observado na coluna Ano do datasetData. Define defaults como primeiro/último.
+       */
+      function preencherAnosCorrelacaoLag() {
+        const anos = [...new Set(
+          datasetData.map(d => parseInt(d.Ano)).filter(a => !isNaN(a))
+        )].sort((a,b)=>a-b);
+        populateSelect('lagAnoInicialSelect', anos, { empty: 'Nenhum ano' });
+        populateSelect('lagAnoFinalSelect', anos, { empty: 'Nenhum ano' });
+        if (anos.length > 0) {
+          document.getElementById('lagAnoInicialSelect').value = anos[0];
+          document.getElementById('lagAnoFinalSelect').value = anos[anos.length - 1];
+        }
+      }
+
+      // Estado de seleção do checklist da sessão de LAG (para preservar entre recalculagens)
+      let lagSelectedVars = new Set();
+
+      /**
+       * Constrói/atualiza o checklist de variáveis numéricas da sessão de defasagem,
+       * excluindo target/Ano/Mês. Na primeira renderização, seleciona todas e
+       * atualizações preservam a seleção anterior. Integra o "Selecionar Todas".
+       */
+      function construirChecklistLag(targetCol) {
+        const container = document.getElementById('lag-corr-column-selector-container');
+        const grid = document.getElementById('lag-corr-column-selector');
+        if (!container || !grid) return;
+
+        const sample = datasetData.find(d => d && typeof d === 'object') || {};
+        const cols = Object.keys(sample);
+        const colNumericas = cols.filter(c => datasetData.some(d => !isNaN(parseFloat(d[c]))));
+        const variaveis = colNumericas.filter(c => c !== targetCol && !['Ano','Mês'].includes(c)).sort();
+
+        // Preserva seleção
+        if (lagSelectedVars.size === 0) {
+          variaveis.forEach(v => lagSelectedVars.add(v));
+        } else {
+          // remove chaves inexistentes
+          lagSelectedVars.forEach(v => { if (!variaveis.includes(v)) lagSelectedVars.delete(v); });
+        }
+
+        grid.innerHTML = '';
+        variaveis.forEach(v => {
+          const itemDiv = document.createElement('div');
+          itemDiv.className = 'column-selector-item';
+          const cb = document.createElement('input');
+          cb.type = 'checkbox';
+          cb.id = `lag-corr-check-${v}`;
+          cb.value = v;
+          cb.checked = lagSelectedVars.has(v);
+          cb.addEventListener('change', () => {
+            if (cb.checked) lagSelectedVars.add(v); else lagSelectedVars.delete(v);
+            exibirCorrelacaoLag();
+          });
+          const label = document.createElement('label');
+          label.htmlFor = `lag-corr-check-${v}`;
+          label.textContent = v;
+          itemDiv.appendChild(cb);
+          itemDiv.appendChild(label);
+          grid.appendChild(itemDiv);
+        });
+
+        container.style.display = variaveis.length > 0 ? 'block' : 'none';
+
+        // Select-all
+        const selectAll = document.getElementById('corr-lag-select-all');
+        if (selectAll) {
+          selectAll.onchange = (e) => {
+            grid.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+              cb.checked = e.target.checked;
+              if (cb.checked) lagSelectedVars.add(cb.value); else lagSelectedVars.delete(cb.value);
+            });
+            exibirCorrelacaoLag();
+          };
+        }
+
+        // Ajuste responsivo
+        requestAnimationFrame(updateCorrelationChecklistLayout);
+      }
+
+      /**
+       * exibirCorrelacaoLag(): valida entradas, prepara pares (target_t, var_(t+k))
+       * e renderiza gráfico de barras agrupadas por lag (datasets por k).
+       * Regras:
+       * - Filtro por período [lagAnoInicial, lagAnoFinal]
+       * - Município específico ou "Todos" (empilha pares de todos)
+       * - targetCol heurística: candidatos ['target','y','producao','produção','safra','ton'], fallback 'y'
+       * - Eixo Y com margem 10% e clamp [-1,1]
+       */
+      function exibirCorrelacaoLag() {
+        destroyChart('graficoCorrelacaoLag');
+        const canvas = document.getElementById('graficoCorrelacaoLag');
+        const ctx = canvas.getContext('2d');
+        const msg = document.getElementById('mensagemSemDadoCorrLag');
+        const geminiContainer = document.getElementById('gemini-lag-corr-container');
+
+        // Base
+        if (datasetData.length === 0) {
+          msg.textContent = 'Carregue o dataset adicional para visualizar esta análise.';
+          msg.style.display = 'block';
+          canvas.style.display = 'none';
+          geminiContainer.style.display = 'none';
+          return;
+        }
+
+        const anoIniSel = parseInt(document.getElementById('lagAnoInicialSelect')?.value);
+        const anoFimSel = parseInt(document.getElementById('lagAnoFinalSelect')?.value);
+        if (isNaN(anoIniSel) || isNaN(anoFimSel)) {
+          msg.textContent = 'Selecione um período válido (Ano Inicial e Ano Final).';
+          msg.style.display = 'block';
+          canvas.style.display = 'none';
+          geminiContainer.style.display = 'none';
+          return;
+        }
+        const anoIni = Math.min(anoIniSel, anoFimSel);
+        const anoFim = Math.max(anoIniSel, anoFimSel);
+
+        const lags = parseLagInput(document.getElementById('lagInput')?.value);
+        const municipio = document.getElementById('correlationLagMunicipioSelect')?.value || '';
+        const labels = Array.from(lagSelectedVars);
+        if (labels.length === 0) {
+          msg.textContent = 'Nenhuma variável selecionada para exibir no eixo X.';
+          msg.style.display = 'block';
+          canvas.style.display = 'none';
+          geminiContainer.style.display = 'none';
+          return;
+        }
+
+        // Filtra período
+        const dadosPeriodo = datasetData.filter(d => {
+          const a = parseInt(d.Ano);
+          return !isNaN(a) && a >= anoIni && a <= anoFim;
+        });
+
+        if (dadosPeriodo.length === 0) {
+          msg.textContent = `Nenhum dado no período ${anoIni}-${anoFim}.`;
+          msg.style.display = 'block';
+          canvas.style.display = 'none';
+          geminiContainer.style.display = 'none';
+          return;
+        }
+
+        // Detecta target
+        const cols = Object.keys(dadosPeriodo[0] || {});
+        const colNumericas = cols.filter(c => dadosPeriodo.some(d => !isNaN(parseFloat(d[c]))));
+        const targetCandidates = ['target','y','producao','produção','safra','ton'];
+        const targetCol = colNumericas.find(c => targetCandidates.some(t => c.toLowerCase().includes(t))) || 'y';
+
+        // Indexação por (municipioKey, Ano)
+        const muniKey = (row) => row.unique_id || row.municipio || row.Municipio;
+        const porChave = {};
+        dadosPeriodo.forEach(d => {
+          const key = `${muniKey(d) || 'N/A'}|${parseInt(d.Ano)}`;
+          porChave[key] = d;
+        });
+
+        // Anos existentes para ordenação
+        const anosNoPeriodo = [...new Set(dadosPeriodo.map(d => parseInt(d.Ano)).filter(a => !isNaN(a)))].sort((a,b)=>a-b);
+
+        // Função para pegar linha de um município em ano específico
+        function linha(uid, ano) {
+          return porChave[`${uid}|${ano}`];
+        }
+
+        // Constrói datasets por lag
+        const datasets = [];
+        let minCorr = Infinity, maxCorr = -Infinity;
+
+        lags.forEach((k, idx) => {
+          const dataForLag = [];
+
+          labels.forEach(v => {
+            const pares = [];
+
+            if (!municipio || municipio === 'Todos') {
+              // Agregado: empilha pares de todos os municípios
+              const uids = [...new Set(dadosPeriodo.map(d => muniKey(d)).filter(Boolean))];
+              uids.forEach(uid => {
+                anosNoPeriodo.forEach(t => {
+                  const rowT = linha(uid, t);
+                  const rowK = linha(uid, t + k);
+                  if (!rowT || !rowK) return;
+                  const tx = parseFloat(rowT[targetCol]);
+                  const vy = parseFloat(rowK[v]);
+                  if (isNaN(tx) || isNaN(vy)) return;
+                  pares.push({ x: tx, y: vy });
+                });
+              });
+            } else {
+              // Município específico
+              anosNoPeriodo.forEach(t => {
+                const rowT = linha(municipio, t);
+                const rowK = linha(municipio, t + k);
+                if (!rowT || !rowK) return;
+                const tx = parseFloat(rowT[targetCol]);
+                const vy = parseFloat(rowK[v]);
+                if (isNaN(tx) || isNaN(vy)) return;
+                pares.push({ x: tx, y: vy });
+              });
+            }
+
+            let corrVal = null;
+            if (pares.length >= 2) {
+              const x = pares.map(p => p.x);
+              const y = pares.map(p => p.y);
+              const c = calcularCorrelacao(x, y);
+              corrVal = Number.isFinite(c) ? c : null;
+            }
+            dataForLag.push(corrVal === null ? 0 : corrVal);
+            if (corrVal !== null) {
+              if (corrVal < minCorr) minCorr = corrVal;
+              if (corrVal > maxCorr) maxCorr = corrVal;
+            }
+          });
+
+          const hue = Math.round((idx * 360) / Math.max(1, lags.length));
+          const labelLag = k === 0 ? 'Lag 0' : (k > 0 ? `Lag +${k}` : `Lag ${k}`);
+          datasets.push({
+            label: labelLag,
+            data: dataForLag,
+            backgroundColor: `hsla(${hue},65%,55%,0.8)`,
+            borderColor: `hsla(${hue},65%,35%,1)`
+          });
+        });
+
+        if (minCorr === Infinity) { minCorr = -1; }
+        if (maxCorr === -Infinity) { maxCorr = 1; }
+        const range = maxCorr - minCorr;
+        const margin = range === 0 ? 0.1 : range * 0.1;
+        let yMin = Math.max(-1, minCorr - margin);
+        let yMax = Math.min(1, maxCorr + margin);
+
+        // Exibição
+        msg.style.display = 'none';
+        canvas.style.display = 'block';
+        geminiContainer.style.display = 'block';
+
+        chartInstances['graficoCorrelacaoLag'] = new Chart(ctx, {
+          type: 'bar',
+          data: { labels, datasets },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              title: {
+                display: true,
+                text: `Correlação com Defasagem: ${municipio && municipio !== 'Todos' ? municipio : 'Todos os municípios'} (${anoIni}-${anoFim})`
+              },
+              legend: { position: 'top' },
+              tooltip: {
+                callbacks: {
+                  label: (context) => {
+                    const v = context.parsed.y;
+                    return `${context.dataset.label}: ${Number.isFinite(v) ? v.toFixed(3) : 'N/A'}`;
+                  }
+                }
+              }
+            },
+            scales: {
+              x: { ticks: { maxRotation: 45, minRotation: 45 } },
+              y: {
+                title: { display: true, text: `Correlação com ${targetCol}(t) vs variáveis(t+k)` },
+                min: yMin,
+                max: yMax
+              }
+            }
+          }
+        });
+      }
+
+      /**
+       * updateLagCorrPage(): orquestra preenchimento de selects/checklist e desenha gráfico inicial.
+       */
+      function updateLagCorrPage() {
+        if (datasetData.length === 0) return;
+        preencherMunicipiosLag();
+        preencherAnosCorrelacaoLag();
+
+        // Detecta target para checklist
+        const sample = datasetData.find(d => d && typeof d === 'object') || {};
+        const cols = Object.keys(sample);
+        const colNumericas = cols.filter(c => datasetData.some(d => !isNaN(parseFloat(d[c]))));
+        const targetCandidates = ['target','y','producao','produção','safra','ton'];
+        const targetCol = colNumericas.find(c => targetCandidates.some(t => c.toLowerCase().includes(t))) || 'y';
+
+        construirChecklistLag(targetCol);
+        exibirCorrelacaoLag();
+      }
+
+      /**
+       * handleLagCorrelationAnalysis(): gera análise textual baseada no gráfico atual de LAG.
+       */
+      function handleLagCorrelationAnalysis() {
+        const chart = chartInstances['graficoCorrelacaoLag'];
+        if (!chart) return;
+
+        const municipio = document.getElementById('correlationLagMunicipioSelect')?.value || 'Todos';
+        const anoIni = document.getElementById('lagAnoInicialSelect')?.value;
+        const anoFim = document.getElementById('lagAnoFinalSelect')?.value;
+        const lags = parseLagInput(document.getElementById('lagInput')?.value);
+
+        const variables = chart.data.labels;
+        const datasets = chart.data.datasets;
+        const seriesText = datasets.map(ds => {
+          const pairs = variables.map((v, i) => `${v}: ${Number.isFinite(ds.data[i]) ? Number(ds.data[i]).toFixed(3) : 'N/A'}`).join(', ');
+          return `${ds.label}: [${pairs}]`;
+        }).join('\n');
+
+        const prompt = `
+Você é um especialista em séries temporais. A análise a seguir calcula correlações com defasagem entre a target no tempo t e variáveis no tempo t+k.
+Contexto:
+- Município: ${municipio || 'Todos'}
+- Período: ${anoIni}–${anoFim}
+- Lags considerados: ${lags.join(', ')}
+
+Interprete em português:
+- Para quais variáveis há maior correlação em lags positivos (variável futura) vs negativos (variável passada)?
+- Existem indícios de causalidade temporal ou antecipação (variáveis antecedendo movimentos da target)?
+- Quais cautelas devem ser consideradas (não causalidade, estacionariedade, tamanho de amostra)?
+
+Dados (variável → correlação por lag):
+${seriesText}
+        `;
+
+        generateAiAnalysis(prompt, 'generate-lag-corr-analysis-btn', 'gemini-lag-corr-loader', 'gemini-lag-corr-response');
+      }
+
+      /**
+       * Popula os selects dedicados da sessão por Ano com o range de anos disponível em datasetData.
+       * Define como padrão o menor ano no "Inicial" e o maior no "Final".
+       */
+      function preencherAnosCorrelacaoPorAno() {
+        const anos = [...new Set(
+          datasetData
+            .map(d => parseInt(d.Ano))
+            .filter(a => !isNaN(a))
+        )].sort((a,b) => a - b);
+
+        populateSelect('yearAnoInicialSelect', anos, { empty: 'Nenhum ano disponível' });
+        populateSelect('yearAnoFinalSelect', anos, { empty: 'Nenhum ano disponível' });
+
+        if (anos.length > 0) {
+          const iniSel = document.getElementById('yearAnoInicialSelect');
+          const fimSel = document.getElementById('yearAnoFinalSelect');
+          iniSel.value = anos[0];
+          fimSel.value = anos[anos.length - 1];
+        }
+      }
+
+      /**
+       * Inicializa/Atualiza a sessão "Correlação por Período (Ano)":
+       * - Preenche os selects de ano
+       * - Constrói/preserva o checklist de variáveis numéricas
+       * - Renderiza o gráfico inicial, se possível
+       */
+      function updateAnoCorrPage() {
+        if (datasetData.length === 0) return;
+
+        preencherAnosCorrelacaoPorAno();
+
+        // Detecta target e colunas numéricas
+        const sample = datasetData.find(d => d && typeof d === 'object') || {};
+        const colunas = Object.keys(sample);
+        const colNumericas = colunas.filter(col => datasetData.some(d => !isNaN(parseFloat(d[col]))));
+        const targetCandidates = ['target', 'y', 'producao', 'produção', 'safra', 'ton'];
+        let targetCol = colNumericas.find(col => targetCandidates.some(c => col.toLowerCase().includes(c))) || 'y';
+
+        // Monta checklist de variáveis (exclui target, Ano, Mês), preservando seleção prévia
+        const grid = document.getElementById('year-corr-column-selector');
+        const container = document.getElementById('year-corr-column-selector-container');
+        if (!grid || !container) return;
+
+        const todasVariaveis = colNumericas.filter(c => c !== targetCol && !['Ano','Mês'].includes(c)).sort();
+
+        const prevChecked = new Set();
+        const existing = grid.querySelectorAll('input[type="checkbox"]');
+        if (existing.length > 0) {
+          existing.forEach(cb => { if (cb.checked) prevChecked.add(cb.value); });
+        } else {
+          todasVariaveis.forEach(v => prevChecked.add(v)); // primeira montagem: todas selecionadas
+        }
+
+        grid.innerHTML = '';
+        todasVariaveis.forEach(v => {
+          const itemDiv = document.createElement('div');
+          itemDiv.className = 'column-selector-item';
+          const cb = document.createElement('input');
+          cb.type = 'checkbox';
+          cb.id = `year-corr-check-${v}`;
+          cb.value = v;
+          cb.checked = prevChecked.has(v);
+          cb.addEventListener('change', exibirCorrelacaoPorAno);
+          const label = document.createElement('label');
+          label.htmlFor = `year-corr-check-${v}`;
+          label.textContent = v;
+          itemDiv.appendChild(cb);
+          itemDiv.appendChild(label);
+          grid.appendChild(itemDiv);
+        });
+
+        container.style.display = todasVariaveis.length > 0 ? 'block' : 'none';
+
+        // Ajuste de layout responsivo
+        requestAnimationFrame(updateCorrelationChecklistLayout);
+
+        // Render inicial
+        exibirCorrelacaoPorAno();
+      }
+
+      /**
+       * Renderiza o gráfico de correlação por Ano (barras agrupadas por ano).
+       * Regras:
+       * - Range de anos inclusive [Inicial, Final], limitado aos anos presentes no dataset
+       * - Um dataset por ano com label "Ano YYYY"
+       * - Eixo Y com margem de 10% e clamp [-1, 1]
+       * - Mensagens de "sem dados" quando aplicável
+       */
+      function exibirCorrelacaoPorAno() {
+        destroyChart('graficoCorrelacaoPorAno');
+        const canvas = document.getElementById('graficoCorrelacaoPorAno');
+        const ctx = canvas.getContext('2d');
+        const msg = document.getElementById('mensagemSemDadoCorrAno');
+        const checklistContainer = document.getElementById('year-corr-column-selector-container');
+        const grid = document.getElementById('year-corr-column-selector');
+        const geminiContainer = document.getElementById('gemini-year-corr-container');
+
+        // Valida base
+        if (datasetData.length === 0) {
+          msg.textContent = 'Carregue o dataset adicional para visualizar esta análise.';
+          msg.style.display = 'block';
+          canvas.style.display = 'none';
+          checklistContainer.style.display = 'none';
+          geminiContainer.style.display = 'none';
+          return;
+        }
+
+        const anoIniSel = parseInt(document.getElementById('yearAnoInicialSelect')?.value);
+        const anoFimSel = parseInt(document.getElementById('yearAnoFinalSelect')?.value);
+        if (isNaN(anoIniSel) || isNaN(anoFimSel)) {
+          msg.textContent = 'Selecione um período válido (Ano Inicial e Ano Final).';
+          msg.style.display = 'block';
+          canvas.style.display = 'none';
+          checklistContainer.style.display = 'none';
+          geminiContainer.style.display = 'none';
+          return;
+        }
+        const anoIni = Math.min(anoIniSel, anoFimSel);
+        const anoFim = Math.max(anoIniSel, anoFimSel);
+
+        const selecionadas = Array.from(grid.querySelectorAll('input:checked')).map(cb => cb.value);
+        if (selecionadas.length === 0) {
+          msg.textContent = 'Nenhuma variável selecionada para exibir no eixo X.';
+          msg.style.display = 'block';
+          canvas.style.display = 'none';
+          checklistContainer.style.display = 'block';
+          geminiContainer.style.display = 'none';
+          return;
+        }
+
+        // Detecta target e constrói lista de anos existentes no dataset
+        const sample = datasetData.find(d => d && typeof d === 'object') || {};
+        const colunas = Object.keys(sample);
+        const colNumericas = colunas.filter(col => datasetData.some(d => !isNaN(parseFloat(d[col]))));
+        const targetCandidates = ['target', 'y', 'producao', 'produção', 'safra', 'ton'];
+        let targetCol = colNumericas.find(col => targetCandidates.some(c => col.toLowerCase().includes(c))) || 'y';
+
+        const anosNoDataset = [...new Set(
+          datasetData.map(d => parseInt(d.Ano)).filter(a => !isNaN(a))
+        )].sort((a,b)=>a-b).filter(a => a >= anoIni && a <= anoFim);
+
+        if (anosNoDataset.length === 0) {
+          msg.textContent = `Nenhum dado no período ${anoIni}-${anoFim}.`;
+          msg.style.display = 'block';
+          canvas.style.display = 'none';
+          checklistContainer.style.display = 'block';
+          geminiContainer.style.display = 'none';
+          return;
+        }
+
+        // Cálculo de correlações: um dataset por ano
+        const labels = selecionadas.slice(); // ordem das variáveis no eixo X
+        const datasets = [];
+        let minCorr = Infinity;
+        let maxCorr = -Infinity;
+
+        anosNoDataset.forEach((ano, idx) => {
+          const dadosAno = datasetData.filter(d => parseInt(d.Ano) === ano);
+          const corrPorVariavel = labels.map(v => {
+            // Monta pares target vs variável descartando NaN por linha
+            const pares = dadosAno.map(d => {
+              const tx = parseFloat(d[targetCol]);
+              const ty = parseFloat(d[v]);
+              return (isNaN(tx) || isNaN(ty)) ? null : { x: tx, y: ty };
+            }).filter(p => p !== null);
+
+            if (pares.length < 2) return null;
+            const x = pares.map(p => p.x);
+            const y = pares.map(p => p.y);
+            const c = calcularCorrelacao(x, y);
+            return Number.isFinite(c) ? c : null;
+          });
+
+          // Atualiza min/max globais considerando valores não nulos
+          corrPorVariavel.forEach(val => {
+            if (val === null) return;
+            if (val < minCorr) minCorr = val;
+            if (val > maxCorr) maxCorr = val;
+          });
+
+          // Paleta HSL determinística por índice
+          const hue = Math.round((idx * 360) / Math.max(1, anosNoDataset.length));
+          const bg = `hsla(${hue}, 65%, 55%, 0.8)`;
+          const border = `hsla(${hue}, 65%, 35%, 1)`;
+
+          datasets.push({
+            label: `Ano ${ano}`,
+            data: corrPorVariavel.map(v => v === null ? 0 : v), // null tratado como 0 apenas para plotar
+            backgroundColor: bg,
+            borderColor: border
+          });
+        });
+
+        // Ajuste eixo Y com margem e clamp [-1, 1]
+        if (minCorr === Infinity) { minCorr = -1; }
+        if (maxCorr === -Infinity) { maxCorr = 1; }
+        const range = maxCorr - minCorr;
+        const margin = range === 0 ? 0.1 : range * 0.1;
+        let yMin = Math.max(-1, minCorr - margin);
+        let yMax = Math.min(1, maxCorr + margin);
+
+        // Exibe containers e gráfico
+        msg.style.display = 'none';
+        canvas.style.display = 'block';
+        checklistContainer.style.display = 'block';
+        geminiContainer.style.display = 'block';
+
+        chartInstances['graficoCorrelacaoPorAno'] = new Chart(ctx, {
+          type: 'bar',
+          data: { labels, datasets },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              title: { display: true, text: `Correlação (Target vs Variáveis) por Ano (${anoIni}-${anoFim})` },
+              legend: { position: 'top' },
+              tooltip: {
+                callbacks: {
+                  label: (context) => {
+                    const v = context.parsed.y;
+                    return `${context.dataset.label}: ${Number.isFinite(v) ? v.toFixed(3) : 'N/A'}`;
+                  }
+                }
+              }
+            },
+            scales: {
+              x: { ticks: { maxRotation: 45, minRotation: 45 } },
+              y: {
+                title: { display: true, text: `Correlação com ${targetCol}` },
+                min: yMin,
+                max: yMax
+              }
+            }
+          }
+        });
+      }
+
+      /**
+       * Handler IA para a sessão por Ano: resume labels e datasets por ano.
+       * Reutiliza generateAiAnalysis com prompt focado em tendências temporais e inversões de sinal.
+       */
+      function handleYearCorrelationAnalysis() {
+        const chart = chartInstances['graficoCorrelacaoPorAno'];
+        if (!chart) return;
+
+        const title = chart.options.plugins.title.text;
+        const variables = chart.data.labels;
+        const datasets = chart.data.datasets;
+
+        const seriesText = datasets.map(ds => {
+          const pairs = variables.map((v, i) => `${v}: ${Number.isFinite(ds.data[i]) ? ds.data[i].toFixed(3) : 'N/A'}`).join(', ');
+          return `${ds.label}: [${pairs}]`;
+        }).join('\n');
+
+        const prompt = `
+Você é um especialista em análise de dados. O gráfico "${title}" mostra a correlação de Pearson entre a variável alvo (target)
+e variáveis explicativas, discriminadas por ano no período selecionado. Cada variável tem N barras, uma para cada ano.
+
+Analise em português:
+- Quais variáveis mantêm correlação estável ao longo do tempo?
+- Existem inversões de sinal (de positivo para negativo ou vice-versa)? Em quais anos e variáveis?
+- Quais variáveis mostram tendência de aumento ou redução da correlação no período?
+- Hipóteses para explicar variações observadas (mudanças climáticas, políticas agrícolas, etc.).
+
+Dados do Gráfico:
+${seriesText}
+        `;
+
+        generateAiAnalysis(prompt, 'generate-year-corr-analysis-btn', 'gemini-year-corr-loader', 'gemini-year-corr-response');
+      }
+      // =============================== Fim Patch 2 (JS utilitários/lógica) ===============================
+
+      async function generateAiAnalysis(prompt, buttonId, loaderId, responseId) {
+        const button = document.getElementById(buttonId);
+        const loader = document.getElementById(loaderId);
+        const responseContainer = document.getElementById(responseId);
+        const contentContainer = document.getElementById(responseId).parentElement;
+
+        if (contentContainer) {
+            contentContainer.style.display = 'block';
+        }
+
+        button.disabled = true;
+        loader.style.display = 'block';
+        responseContainer.innerHTML = '';
+        let fullResponse = "";
+
+        try {
+            const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+                method: "POST",
+                headers: {
+                    "Authorization": "Bearer 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",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    "model": "deepseek/deepseek-r1-0528:free",
+                    "messages": [{ "role": "user", "content": prompt }],
+                    "stream": true
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error(`API Error: ${response.status} ${response.statusText}`);
+            }
+            
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+
+                const chunk = decoder.decode(value);
+                const lines = chunk.split('\n').filter(line => line.trim() !== '');
+
+                for (const line of lines) {
+                    if (line.startsWith('data: ')) {
+                        const data = line.substring(6);
+                        if (data.trim() === '[DONE]') {
+                            break;
+                        }
+                        try {
+                            const parsed = JSON.parse(data);
+                            const content = parsed.choices[0]?.delta?.content || '';
+                            if (content) {
+                                fullResponse += content;
+                                responseContainer.innerHTML = markdownConverter.makeHtml(fullResponse);
+                            }
+                        } catch (e) {
+                            console.error("Error parsing stream data:", e, data);
+                        }
+                    }
+                }
+            }
+            // Final conversion to ensure everything is rendered correctly
+            responseContainer.innerHTML = markdownConverter.makeHtml(fullResponse);
+
+        } catch (error) {
+            console.error("Erro ao chamar a API:", error);
+            responseContainer.innerText = `Ocorreu um erro ao gerar a análise: ${error.message}. Tente novamente.`;
+        } finally {
+            button.disabled = false;
+            loader.style.display = 'none';
+        }
+      }
+
+      function handleMetricsAnalysis() {
+        const dataAsString = metricasData.map(row => 
+            `Identificador do treinamento: ${row['Treino ID']}, Modelo: ${row['Modelo']}, split: ${row['Flag']}, RMSE: ${row['RMSE'].toFixed(2)}, WMAPE: ${row['WMAPE (%)'].toFixed(2)}%, R²: ${row['R²'].toFixed(4)}`
+        ).join('\n');
+
+        const prompt = `
+            Você é um especialista em análise de dados focado em agricultura. Analise a tabela de métricas de desempenho de modelos de previsão de safra de café a seguir.
+            Os dados estão no formato: 'Identificador do treinamento, Modelo, split, RMSE, WMAPE, R²'.
+            - Identificador do treinamento: O ID usado para diferenciar os treinamentos, pois cada um pode ter datasets ou parâmetros diferentes.
+            - Modelo: O algoritmo usado (ex: LSTM, XGBoost).
+            - split: Indica se as métricas são dos dados de treinamento, validação ou teste.
+            - RMSE: Erro médio, quanto menor, melhor.
+            - WMAPE (%): Erro percentual ponderado, quanto menor, melhor.
+            - R² (R-quadrado): Ajuste do modelo, quanto mais próximo de 1, melhor.
+
+            Com base nos dados abaixo, escreva um resumo executivo em português. Analise o desempenho geral de cada modelo (combinação de Identificador do treinamento e Modelo) considerando todos os splits. Destaque os 2 melhores e os 2 piores modelos, justificando suas escolhas com base no equilíbrio das métricas no split de 'Teste' e na presença de overfitting (grande diferença entre as métricas de 'Treino' e 'Teste').
+
+            Dados:
+            ${dataAsString}
+        `;
+
+        generateAiAnalysis(prompt, 'generate-metrics-analysis-btn', 'gemini-metrics-loader', 'gemini-metrics-response');
+      }
+
+      function handleSeriesAnalysis() {
+        const chart = chartInstances['graficoSeries'];
+        if (!chart) return;
+
+        const title = chart.options.plugins.title.text;
+        let dataSummary = chart.data.datasets.map(dataset => {
+            const label = dataset.label;
+            const points = dataset.data.map(p => `Ano: ${new Date(p.x).getFullYear()}, Valor: ${p.y.toFixed(2)}`).join('; ');
+            return `${label}: [${points}]`;
+        }).join('\n');
+
+        const prompt = `
+            Você é um especialista em análise de dados focado em agricultura. Analise os dados do gráfico "${title}" a seguir.
+            Os dados representam a produção de café ao longo do tempo. "Histórico Real" são os dados verdadeiros. As outras séries são previsões do modelo.
+            Com base nos dados, escreva uma análise em português sobre o desempenho do modelo.
+            - Compare a linha "Histórico Real" com as linhas de previsão.
+            - O modelo consegue capturar as tendências (subidas e descidas) do histórico real?
+            - Aponte os anos onde o modelo teve maior acerto e maior erro.
+
+            Dados do Gráfico:
+            ${dataSummary}
+        `;
+        
+        generateAiAnalysis(prompt, 'generate-series-analysis-btn', 'gemini-series-loader', 'gemini-series-response');
+      }
+
+      function handleDistributionAnalysis() {
+        const chart = chartInstances['graficoDistribuicao'];
+        if (!chart) return;
+        const title = chart.options.plugins.title.text;
+        const treinoId = document.getElementById('treinoSelect').value;
+        const ano = document.getElementById('anoDistribuicaoSelect').value;
+
+        let dataSummary = chart.data.labels.map((label, i) => 
+            `Faixa de Erro: "${label}", Proporção: ${chart.data.datasets[0].data[i].toFixed(2)}%`
+        ).join('\n');
+
+        const prompt = `
+            Você é um especialista em análise de dados. O gráfico "${title}" mostra a distribuição dos erros percentuais de um modelo de previsão para um contexto específico.
+            Cada barra representa uma faixa de erro e sua altura indica a porcentagem de previsões que caíram nessa faixa.
+            Analise os dados abaixo e responda em português:
+            - Qual é a faixa de erro mais comum (com maior proporção)?
+            - O modelo tende a ter erros pequenos (próximos de 0%) ou grandes?
+            - Existe alguma assimetria na distribuição (mais erros positivos que negativos, ou vice-versa)?
+
+            Contexto da Análise:
+            Identificador do treino: ${treinoId}
+            Ano: ${ano}
+            Dados do Gráfico:
+            ${dataSummary}
+        `;
+        generateAiAnalysis(prompt, 'generate-distribution-analysis-btn', 'gemini-distribution-loader', 'gemini-distribution-response');
+      }
+
+      function handleAnnualComparisonAnalysis() {
+          const chart = chartInstances['graficoSafraAnual'];
+          if (!chart) return;
+          const title = chart.options.plugins.title.text;
+          const labels = chart.data.labels;
+          const realData = chart.data.datasets.find(ds => ds.label === 'Real').data;
+          const preditoData = chart.data.datasets.find(ds => ds.label === 'Predito').data;
+          const diffData = chart.data.datasets.find(ds => ds.label === 'Diferença (%)').data;
+
+          let dataSummary = labels.map((label, i) => 
+              `Treino: ${label}, Valor Real: ${realData[i].toFixed(2)}, Valor Previsto: ${preditoData[i].toFixed(2)}, Diferença: ${diffData[i].toFixed(2)}%`
+          ).join('\n');
+
+          const prompt = `
+              Você é um especialista em análise de dados agrícolas. O gráfico de comparação de safra anual mostra os valores totais (real vs. previsto) para diferentes modelos de treino em um ano específico.
+              Analise os dados abaixo e, em português, responda:
+              - Qual modelo de treino teve a previsão mais próxima do valor real (menor diferença percentual)?
+              - Qual modelo teve o pior desempenho?
+              - Em geral, os modelos estão superestimando ou subestimando a safra?
+
+              Dados do Gráfico:
+              ${dataSummary}
+          `;
+          generateAiAnalysis(prompt, 'generate-safra-analysis-btn', 'gemini-safra-loader', 'gemini-safra-response');
+      }
+
+      function handleDispersionAnalysis() {
+          const chart = chartInstances['graficoDispersao'];
+          if (!chart) return;
+          const title = chart.options.plugins.title.text;
+          const pontos = chart.data.datasets.find(ds => ds.label.includes('Pontos')).data;
+          let dataSummary = pontos.slice(0, 50).map(p => `(Real: ${p.x.toFixed(2)}, Previsto: ${p.y.toFixed(2)})`).join(', ');
+          if (pontos.length > 50) dataSummary += '... (e mais pontos)';
+
+          const prompt = `
+              Você é um especialista em análise de dados. O gráfico de dispersão "${title}" compara os valores previstos pelo modelo (eixo Y) com os valores reais (eixo X). Pontos na linha diagonal cinza representam previsões perfeitas.
+              Com base na amostra de dados abaixo, analise o desempenho do modelo em português:
+              - Os pontos estão, em geral, próximos da linha ideal? Isso indica um bom modelo?
+              - O modelo tende a superestimar (pontos acima da linha) ou subestimar (pontos abaixo da linha)?
+              - Existem outliers claros (pontos muito distantes da linha) que merecem atenção?
+
+              Amostra de Dados (até 50 pontos):
+              ${dataSummary}
+          `;
+          generateAiAnalysis(prompt, 'generate-dispersion-analysis-btn', 'gemini-dispersion-loader', 'gemini-dispersion-response');
+      }
+
+      function handleCorrelationAnalysis() {
+          const chart = chartInstances['graficoCorrelacao'];
+          if (!chart) return;
+          const title = chart.options.plugins.title.text;
+          const variables = chart.data.labels;
+          let dataSummary = chart.data.datasets.map(ds => {
+              const correlations = variables.map((variable, i) => `${variable}: ${ds.data[i].toFixed(3)}`).join(', ');
+              return `Faixa de Erro "${ds.label}": [${correlations}]`;
+          }).join('\n');
+
+          const prompt = `
+              Você é um especialista em análise de dados. O gráfico "${title}" mostra a correlação de Pearson entre diversas variáveis e a variável alvo (produção de café).
+              Uma correlação próxima de 1 ou -1 é forte; próxima de 0 é fraca.
+              As barras são agrupadas por "Faixas de Erro". Essas faixas são criadas da seguinte forma: calculamos a diferença percentual absoluta entre o valor real e o previsto para cada município. Os municípios são então agrupados nessas faixas (ex: municípios com erro de 0-10%). A categoria "Tudo" inclui todos os municípios, sem filtro de erro. Isso nos ajuda a entender se a importância de uma variável muda para previsões que já são boas (erro baixo) versus previsões que são ruins (erro alto).
+
+              Analise os dados abaixo e, em português, responda:
+              - Quais são as 3 variáveis com a correlação mais forte (positiva ou negativa) considerando cadaa categoria?
+              - A força ou direção da correlação de alguma variável muda significativamente entre as diferentes faixas de erro? Se sim, qual e como? (Ex: uma variável é fortemente correlacionada em municípios com erro baixo, mas fracamente em municípios com erro alto).
+              - Com base nessas correlações, quais variáveis parecem ser mais importantes para o modelo em geral e quais parecem ser importantes para corrigir erros grandes (>=50%)?
+
+              Dados do Gráfico:
+              ${dataSummary}
+          `;
+          generateAiAnalysis(prompt, 'generate-correlation-analysis-btn', 'gemini-correlation-loader', 'gemini-correlation-response');
+      }
+
+      // ===================================================================
+      // SESSÃO: CORRELAÇÃO POR MUNICÍPIO (Target vs Variáveis)
+      // ===================================================================
+
+      /**
+       * Preenche o select de municípios específico da sessão por município,
+       * usando colunas possíveis (unique_id, municipio, Municipio) presentes em datasetData.
+       */
+      function preencherMunicipiosDataset() {
+        const municipios = [...new Set(
+          datasetData
+            .map(d => d.unique_id || d.municipio || d.Municipio)
+            .filter(Boolean)
+        )].sort();
+        // Inclui opção "Todos" no dropdown
+        populateSelect('correlationMunicipioSelect', municipios, { includeAll: 'Todos', empty: 'Nenhum município disponível' });
+      
+        // Preenche anos dedicados à sessão por município com base em datasetData
+        const anos = [...new Set(
+          datasetData
+            .map(d => parseInt(d.Ano))
+            .filter(a => !isNaN(a))
+        )].sort((a,b) => a-b);
+        populateSelect('muniAnoInicialSelect', anos, { empty: 'Nenhum ano' });
+        populateSelect('muniAnoFinalSelect', anos, { empty: 'Nenhum ano' });
+        if (anos.length > 0) {
+          document.getElementById('muniAnoInicialSelect').value = anos[0];
+          document.getElementById('muniAnoFinalSelect').value = anos[anos.length - 1];
+        }
+      }
+
+      /**
+       * Renderiza/Atualiza o gráfico da sessão por município.
+       * - Filtra datasetData por município selecionado e período [muniAnoInicial, muniAnoFinal]
+       * - Detecta targetCol (candidatos) e calcula correlação de Pearson com as variáveis numéricas selecionadas
+       * - Gera gráfico de barras com eixo Y limitado a [-1, 1] com margem
+       */
+      function exibirCorrelacaoMunicipio() {
+        // Limpa gráfico anterior
+        destroyChart('graficoCorrelacaoMunicipio');
+        const canvas = document.getElementById('graficoCorrelacaoMunicipio');
+        const ctx = canvas.getContext('2d');
+        const msg = document.getElementById('mensagemSemDadoCorrMunicipio');
+        const checklistContainer = document.getElementById('muni-corr-column-selector-container');
+        const selectorDiv = document.getElementById('muni-corr-column-selector');
+        const geminiContainer = document.getElementById('gemini-muni-corr-container');
+      
+        // Valida dados base
+        if (datasetData.length === 0) {
+          msg.textContent = 'Carregue o dataset adicional para visualizar esta análise.';
+          msg.style.display = 'block';
+          canvas.style.display = 'none';
+          checklistContainer.style.display = 'none';
+          geminiContainer.style.display = 'none';
+          return;
+        }
+      
+        const municipio = document.getElementById('correlationMunicipioSelect').value;
+        const anoIni = parseInt(document.getElementById('muniAnoInicialSelect').value);
+        const anoFim = parseInt(document.getElementById('muniAnoFinalSelect').value);
+      
+        // Agora permitimos "Todos" como município válido; apenas valida período
+        if (isNaN(anoIni) || isNaN(anoFim)) {
+          msg.textContent = 'Selecione um período válido.';
+          msg.style.display = 'block';
+          canvas.style.display = 'none';
+          checklistContainer.style.display = 'none';
+          geminiContainer.style.display = 'none';
+          return;
+        }
+      
+        // Filtra por período e, se aplicável, por município
+        const dadosPeriodo = datasetData.filter(d => {
+          const a = parseInt(d.Ano);
+          return !isNaN(a) && a >= anoIni && a <= anoFim;
+        });
+        const dadosMunicipio = (municipio === 'Todos')
+          ? dadosPeriodo
+          : dadosPeriodo.filter(d => (d.unique_id || d.municipio || d.Municipio) === municipio);
+      
+        if (dadosMunicipio.length < 2) {
+          msg.textContent = (municipio === 'Todos')
+            ? 'Dados insuficientes para calcular correlação no período selecionado.'
+            : 'Dados insuficientes para calcular correlação neste município e período.';
+          msg.style.display = 'block';
+          canvas.style.display = 'none';
+          checklistContainer.style.display = 'none';
+          geminiContainer.style.display = 'none';
+          return;
+        }
+      
+        // Descobre colunas numéricas e a target
+        const colunas = Object.keys(dadosMunicipio[0]);
+        const colNumericas = colunas.filter(col => dadosMunicipio.some(d => !isNaN(parseFloat(d[col]))));
+        const targetCandidates = ['target', 'y', 'producao', 'produção', 'safra', 'ton'];
+        let targetCol = colNumericas.find(col => targetCandidates.some(c => col.toLowerCase().includes(c))) || 'y';
+      
+        // Constrói checklist de variáveis selecionáveis (exclui target, Ano, Mês)
+        const variaveis = colNumericas.filter(c => c !== targetCol && !['Ano','Mês'].includes(c));
+        // Preserva seleção prévia
+        const prevChecked = new Set();
+        const existing = selectorDiv.querySelectorAll('input[type="checkbox"]');
+        if (existing.length > 0) {
+          existing.forEach(cb => { if (cb.checked) prevChecked.add(cb.value); });
+        } else {
+          variaveis.forEach(v => prevChecked.add(v)); // primeira vez: seleciona todas
+        }
+        selectorDiv.innerHTML = '';
+        variaveis.sort().forEach(v => {
+          const itemDiv = document.createElement('div');
+          itemDiv.className = 'column-selector-item';
+          const cb = document.createElement('input');
+          cb.type = 'checkbox';
+          cb.id = `muni-corr-check-${v}`;
+          cb.value = v;
+          cb.checked = prevChecked.has(v);
+          cb.addEventListener('change', exibirCorrelacaoMunicipio);
+          const label = document.createElement('label');
+          label.htmlFor = `muni-corr-check-${v}`;
+          label.textContent = v;
+          itemDiv.appendChild(cb);
+          itemDiv.appendChild(label);
+          selectorDiv.appendChild(itemDiv);
+        });
+      
+        // Select-all
+        document.getElementById('corr-muni-select-all').onchange = (e) => {
+          selectorDiv.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = e.target.checked);
+          exibirCorrelacaoMunicipio();
+        };
+      
+        // Ajusta layout do checklist de forma responsiva
+        requestAnimationFrame(updateCorrelationChecklistLayout);
+      
+        // Lê variáveis selecionadas
+        const selecionadas = Array.from(selectorDiv.querySelectorAll('input:checked')).map(cb => cb.value);
+        if (selecionadas.length === 0) {
+          msg.textContent = 'Nenhuma variável selecionada para exibir no eixo X.';
+          msg.style.display = 'block';
+          canvas.style.display = 'none';
+          checklistContainer.style.display = 'block';
+          geminiContainer.style.display = 'none';
+          return;
+        }
+      
+        // Prepara vetores por variável e calcula correlações agregando conforme seleção
+        const labels = selecionadas;
+        const data = [];
+      
+        labels.forEach(col => {
+          // pares globais target vs variável para o conjunto escolhido (município específico ou todos)
+          const pares = dadosMunicipio.map(d => {
+            const tx = parseFloat(d[targetCol]);
+            const vy = parseFloat(d[col]);
+            return (isNaN(tx) || isNaN(vy)) ? null : { x: tx, y: vy };
+          }).filter(p => p !== null);
+      
+          let corr = null;
+          if (pares.length >= 2) {
+            const x = pares.map(p => p.x);
+            const y = pares.map(p => p.y);
+            corr = calcularCorrelacao(x, y);
+          }
+          data.push(corr ?? 0);
+        });
+      
+        // Cálculo de limites Y dinâmicos com margem e clamp [-1, 1]
+        let minCorr = Math.min(...data);
+        let maxCorr = Math.max(...data);
+        if (!isFinite(minCorr)) { minCorr = -1; }
+        if (!isFinite(maxCorr)) { maxCorr = 1; }
+        const range = maxCorr - minCorr;
+        const margin = range === 0 ? 0.1 : range * 0.1;
+        let yMin = Math.max(-1, minCorr - margin);
+        let yMax = Math.min(1, maxCorr + margin);
+      
+        // Exibe gráfico e containers
+        msg.style.display = 'none';
+        canvas.style.display = 'block';
+        checklistContainer.style.display = 'block';
+        geminiContainer.style.display = 'block';
+      
+        const tituloMunicipio = (municipio === 'Todos') ? 'Todos os municípios' : municipio;
+      
+        chartInstances['graficoCorrelacaoMunicipio'] = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels,
+            datasets: [{
+              label: `Correlação com ${targetCol}`,
+              data,
+              backgroundColor: '#3498db'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              title: { display: true, text: `Correlação (Target vs Variáveis) - Município: ${tituloMunicipio} (${anoIni}-${anoFim})` },
+              legend: { display: true }
+            },
+            scales: {
+              x: { ticks: { maxRotation: 45, minRotation: 45 } },
+              y: {
+                title: { display: true, text: `Correlação com ${targetCol}` },
+                min: yMin,
+                max: yMax
+              }
+            }
+          }
+        });
+      }
+
+      /**
+       * Atualiza a sessão por município ao entrar na aba Dataset ou quando dados mudam.
+       * Preenche seletores e desenha o gráfico inicial, se possível.
+       */
+      function updateMunicipioCorrPage() {
+        // Preenche seletores da sessão
+        preencherMunicipiosDataset();
+        // Desenha gráfico caso haja município selecionado
+        exibirCorrelacaoMunicipio();
+      }
+
+      /**
+       * Handler IA: gera análise textual para o gráfico da sessão por município.
+       * Reaproveita generateAiAnalysis com um prompt descrevendo o contexto.
+       */
+      function handleMunicipioCorrelationAnalysis() {
+        const chart = chartInstances['graficoCorrelacaoMunicipio'];
+        if (!chart) return;
+
+        const municipio = document.getElementById('correlationMunicipioSelect').value;
+        const anoIni = document.getElementById('muniAnoInicialSelect').value;
+        const anoFim = document.getElementById('muniAnoFinalSelect').value;
+
+        const title = chart.options.plugins.title.text;
+        const variables = chart.data.labels;
+        const data = chart.data.datasets[0].data;
+
+        const pairs = variables.map((v, i) => `${v}: ${Number.isFinite(data[i]) ? data[i].toFixed(3) : 'N/A'}`).join(', ');
+        const prompt = `
+Você é um especialista em análise de dados. O gráfico "${title}" mostra correlações de Pearson entre a variável alvo (target) e variáveis explicativas, para um município específico.
+
+Contexto:
+- Município: ${municipio}
+- Período: ${anoIni}–${anoFim}
+
+Interprete:
+- Quais variáveis apresentam relação mais forte (positiva/negativa) com a target?
+- Há variáveis com correlação próxima de zero (pouca relação linear)?
+- Comente possíveis explicações ou hipóteses (ex.: variáveis redundantes, tendência temporal).
+Dados:
+${pairs}
+        `;
+
+        generateAiAnalysis(prompt, 'generate-muni-corr-analysis-btn', 'gemini-muni-corr-loader', 'gemini-muni-corr-response');
+      }
+
+      // ===================================================================
+      // INTEGRAÇÃO DOS LISTENERS DA SESSÃO POR MUNICÍPIO
+      // ===================================================================
+
+      // Estende os listeners existentes após a configuração base
+      (function attachMunicipioCorrListeners() {
+        // Observa mudanças específicas dos selects dessa sessão
+        const muniSelect = document.getElementById('correlationMunicipioSelect');
+        const muniAnoIni = document.getElementById('muniAnoInicialSelect');
+        const muniAnoFim = document.getElementById('muniAnoFinalSelect');
+        const muniBtnIa = document.getElementById('generate-muni-corr-analysis-btn');
+
+        if (muniSelect) muniSelect.addEventListener('change', exibirCorrelacaoMunicipio);
+        if (muniAnoIni) muniAnoIni.addEventListener('change', exibirCorrelacaoMunicipio);
+        if (muniAnoFim) muniAnoFim.addEventListener('change', exibirCorrelacaoMunicipio);
+        if (muniBtnIa) muniBtnIa.addEventListener('click', handleMunicipioCorrelationAnalysis);
+      })();
+
+      // ===================================================================
+      // INTEGRAÇÃO DOS LISTENERS DA SESSÃO POR ANO (Patch 2)
+      // ===================================================================
+      (function attachYearCorrListeners() {
+        const anoIni = document.getElementById('yearAnoInicialSelect');
+        const anoFim = document.getElementById('yearAnoFinalSelect');
+        const btnIa = document.getElementById('generate-year-corr-analysis-btn');
+
+        if (anoIni) anoIni.addEventListener('change', exibirCorrelacaoPorAno);
+        if (anoFim) anoFim.addEventListener('change', exibirCorrelacaoPorAno);
+        if (btnIa) btnIa.addEventListener('click', handleYearCorrelationAnalysis);
+      })();
+
+      // Listeners da sessão LAG (Patch 3)
+      (function attachLagCorrListeners() {
+        const muniSel = document.getElementById('correlationLagMunicipioSelect');
+        const anoIni = document.getElementById('lagAnoInicialSelect');
+        const anoFim = document.getElementById('lagAnoFinalSelect');
+        const lagInput = document.getElementById('lagInput');
+        const btnIa = document.getElementById('generate-lag-corr-analysis-btn');
+
+        if (muniSel) muniSel.addEventListener('change', exibirCorrelacaoLag);
+        if (anoIni) anoIni.addEventListener('change', exibirCorrelacaoLag);
+        if (anoFim) anoFim.addEventListener('change', exibirCorrelacaoLag);
+        if (lagInput) {
+          let lagTimer = null;
+          const trigger = () => { clearTimeout(lagTimer); lagTimer = setTimeout(exibirCorrelacaoLag, 300); };
+          lagInput.addEventListener('input', trigger);
+          lagInput.addEventListener('change', trigger);
+        }
+        if (btnIa) btnIa.addEventListener('click', handleLagCorrelationAnalysis);
+      })();
+
+      // Hook no updateDatasetPage existente para inicializar sessões
+      const _updateDatasetPage_orig = updateDatasetPage;
+      updateDatasetPage = function() {
+        _updateDatasetPage_orig.apply(this, arguments);
+        if (datasetData.length > 0) {
+          updateMunicipioCorrPage();
+          updateAnoCorrPage();   // Patch 2
+          updateLagCorrPage();   // Patch 3
+        }
+      };
+
+      // ===================================================================
+      // PONTO DE ENTRADA
+      // ===================================================================
+      setupEventListeners();
+
+    });
+  </script>
+
+</body>
+</html>
