@@ -1,0 +1,22 @@
+Treino ID: cluster_2_(2025)
+Dataset: V31
+Data: 2025-09-30T10:28:22
+
+Comentario: cluster_2_(2025)
+    Modelo LSTM treinado com dados de 2012 a 2023, validado com os dados de 2024 e testado com os dados de 2025.
+    Para esse treinamento foi utilizado o dataset V31, dividido em 5 Clusters.
+    Os anos de 2020-2026 usam dados climaticos estimados ao inves de reais.
+
+    O modelo foi treinado com as seguintes configurações:
+    input_size: 3
+
+    encoder_n_layers = 8
+    learning_rate: 0.00010104358139525024
+    encoder_hidden_size: 64
+    decoder_layers: 3
+    decoder_hidden_size: 128
+    batch_size: 32
+    dropout: 0.3
+    weight_decay: 0.01
+    steps: 100
+    
