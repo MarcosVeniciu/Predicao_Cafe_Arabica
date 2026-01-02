@@ -1,0 +1,8 @@
+
+Esse grafico se refere a primeira tarefas definida na Ata reunião 16/12 - Tarefas. 
+Em que para cada cluster de cada ano teria seu proprio conjunto de hiperparametros ao inves de um conjunto global.
+Para os ajustes foram realizados 150 teste para cada cluster de cada ano. 
+E foi ajustado a taxa de aprendizado, com os demais parametros de configuração do tamanho do modelo ficando o mesmo.
+
+Os valores para a área destinada a colheita foi usado o dataset: Area_colhida_V2.csv
+Todos os modelos foram treinados usando o mesmo conjunto de hiperparametros.
