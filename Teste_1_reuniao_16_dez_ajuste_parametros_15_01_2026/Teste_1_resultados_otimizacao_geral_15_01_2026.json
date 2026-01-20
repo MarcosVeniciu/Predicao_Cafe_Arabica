@@ -1,0 +1,116 @@
+[
+    {
+        "ano_val": 2023,
+        "dataset_file": "V43_cluster_0.csv",
+        "best_value": 0.10328217404516842,
+        "best_params": {
+            "learning_rate": 1.0000015244975452e-05,
+            "n_layers": 2,
+            "hidden_size": 32,
+            "dropout": 0.34548689800016336
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 10,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "dataset_path": "../Dataset/V44/2024/V43_cluster_0.csv",
+        "comentario": "15_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTestei apenas com o ano de 2023 para validação para ser mais rapido e ter uma serie historica maior.\nNeste não sera usada a transformação logarítmica.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2023,
+        "dataset_file": "V43_cluster_1.csv",
+        "best_value": 0.16176922513530975,
+        "best_params": {
+            "learning_rate": 0.00016014700439790706,
+            "n_layers": 3,
+            "hidden_size": 16,
+            "dropout": 0.49789685093335034
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 10,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "dataset_path": "../Dataset/V44/2024/V43_cluster_1.csv",
+        "comentario": "15_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTestei apenas com o ano de 2023 para validação para ser mais rapido e ter uma serie historica maior.\nNeste não sera usada a transformação logarítmica.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2023,
+        "dataset_file": "V43_cluster_2.csv",
+        "best_value": 0.1628709387998361,
+        "best_params": {
+            "learning_rate": 0.00015578810002824526,
+            "n_layers": 1,
+            "hidden_size": 16
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 10,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "dataset_path": "../Dataset/V44/2024/V43_cluster_2.csv",
+        "comentario": "15_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTestei apenas com o ano de 2023 para validação para ser mais rapido e ter uma serie historica maior.\nNeste não sera usada a transformação logarítmica.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2023,
+        "dataset_file": "V43_cluster_3.csv",
+        "best_value": 0.09765886042583159,
+        "best_params": {
+            "learning_rate": 0.00011784041988211478,
+            "n_layers": 3,
+            "hidden_size": 96,
+            "dropout": 0.27135926082332384
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 10,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "dataset_path": "../Dataset/V44/2024/V43_cluster_3.csv",
+        "comentario": "15_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTestei apenas com o ano de 2023 para validação para ser mais rapido e ter uma serie historica maior.\nNeste não sera usada a transformação logarítmica.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2023,
+        "dataset_file": "V43_cluster_4.csv",
+        "best_value": 0.08047633189039231,
+        "best_params": {
+            "learning_rate": 0.0004457650731577964,
+            "n_layers": 2,
+            "hidden_size": 128,
+            "dropout": 0.11614915810390897
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 10,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "dataset_path": "../Dataset/V44/2024/V43_cluster_4.csv",
+        "comentario": "15_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTestei apenas com o ano de 2023 para validação para ser mais rapido e ter uma serie historica maior.\nNeste não sera usada a transformação logarítmica.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    }
+]

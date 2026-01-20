@@ -1,0 +1,10 @@
+[
+    {
+        "best_value": 0.13996083165655612,
+        "best_params": {
+            "random_seed": 42
+        },
+        "transf_log": false,
+        "comentario": "14_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTestei apenas com o ano de 2023 para validação para ser mais rapido e ter uma serie historica maior.\nNeste não sera usada a transformação logarítmica.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    }
+]

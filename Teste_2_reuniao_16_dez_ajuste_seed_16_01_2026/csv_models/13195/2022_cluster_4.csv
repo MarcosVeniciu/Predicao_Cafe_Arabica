@@ -1,0 +1,925 @@
+treino_id,unique_id,ds,y,y_pred,diferença_%,flag,dataset,modelo,comentario,data_treino
+2022_cluster_4,Abadia_dos_Dourados,2022-12-31T00:00:00,2.038461538461538,2.0783436,1.96,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Acucena,2022-12-31T00:00:00,1.0,1.0350962,3.51,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Agua_Boa,2022-12-31T00:00:00,0.9136363636363636,1.2163336,33.13,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Aguas_Vermelhas,2022-12-31T00:00:00,3.0,3.4070058,13.57,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Angelandia,2022-12-31T00:00:00,1.979912663755458,1.7010884,14.08,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Aricanduva,2022-12-31T00:00:00,1.2,1.2057549,0.48,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Ataleia,2022-12-31T00:00:00,0.7142857142857143,1.0155702,42.18,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Bandeira,2022-12-31T00:00:00,1.5,1.0863246,27.58,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Berilo,2022-12-31T00:00:00,1.5625,1.4035242,10.17,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Berizal,2022-12-31T00:00:00,3.570967741935484,3.4351203,3.8,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Bonfinopolis_de_Minas,2022-12-31T00:00:00,3.3,2.6059623,21.03,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Buritis,2022-12-31T00:00:00,3.0,3.2573795,8.58,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Buritizeiro,2022-12-31T00:00:00,3.0,3.1380653,4.6,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Capelinha,2022-12-31T00:00:00,1.576751592356688,1.556188,1.3,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Carai,2022-12-31T00:00:00,1.2,1.4088845,17.41,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Caranaiba,2022-12-31T00:00:00,3.405405405405405,2.0253851,40.52,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Catuji,2022-12-31T00:00:00,1.323076923076923,1.4816746,11.99,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Congonhas_do_Norte,2022-12-31T00:00:00,0.9,1.1923788,32.49,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Coroaci,2022-12-31T00:00:00,2.1,1.7448437,16.91,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Cuparaque,2022-12-31T00:00:00,1.02,1.2697868,24.49,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Diamantina,2022-12-31T00:00:00,2.965183752417795,3.1452985,6.07,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Formoso,2022-12-31T00:00:00,3.360714285714286,2.8594973,14.91,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Franciscopolis,2022-12-31T00:00:00,1.255555555555556,2.3227613,85.0,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Frei_Gaspar,2022-12-31T00:00:00,1.133333333333333,1.2746669,12.47,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Grao_Mogol,2022-12-31T00:00:00,1.177777777777778,1.3786954,17.06,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Indaiabira,2022-12-31T00:00:00,2.172340425531915,2.9420638,35.43,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Itabirinha,2022-12-31T00:00:00,0.8674242424242424,1.0605931,22.27,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Itacambira,2022-12-31T00:00:00,0.75,1.2033621,60.45,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Itaipe,2022-12-31T00:00:00,0.9604651162790696,1.0356061,7.82,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Itamarandiba,2022-12-31T00:00:00,2.136,1.7871706,16.33,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Itambacuri,2022-12-31T00:00:00,0.9620253164556962,1.0814006,12.41,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Jequitinhonha,2022-12-31T00:00:00,2.4,2.0896223,12.93,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Joao_Pinheiro,2022-12-31T00:00:00,2.4,2.6512113,10.47,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Jose_Goncalves_de_Minas,2022-12-31T00:00:00,1.5,1.7092775,13.95,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Juiz_de_Fora,2022-12-31T00:00:00,1.571428571428571,1.4666524,6.67,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Ladainha,2022-12-31T00:00:00,0.6,1.1044812,84.08,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Malacacheta,2022-12-31T00:00:00,1.55952380952381,1.8320938,17.48,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Mantena,2022-12-31T00:00:00,0.75,0.6944045,7.41,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Minas_Novas,2022-12-31T00:00:00,1.784810126582278,1.5072904,15.55,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Monte_Formoso,2022-12-31T00:00:00,0.6,0.95934737,59.89,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Ninheira,2022-12-31T00:00:00,2.940119760479042,2.9626083,0.76,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Nova_Belem,2022-12-31T00:00:00,0.96,1.1435033,19.11,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Novo_Cruzeiro,2022-12-31T00:00:00,1.180722891566265,1.2726313,7.78,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Novorizonte,2022-12-31T00:00:00,1.461538461538461,1.4913628,2.04,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Ouro_Verde_de_Minas,2022-12-31T00:00:00,2.0,1.6126374,19.37,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Padre_Paraiso,2022-12-31T00:00:00,0.6,0.704589,17.43,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Paracatu,2022-12-31T00:00:00,2.4,2.4448805,1.87,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Pedra_Azul,2022-12-31T00:00:00,1.533333333333333,1.3278767,13.4,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Pirapora,2022-12-31T00:00:00,3.359550561797753,3.5513275,5.71,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Pote,2022-12-31T00:00:00,1.2,0.7659242,36.17,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Rio_Pardo_de_Minas,2022-12-31T00:00:00,2.515254237288135,3.5575385,41.44,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Santa_Barbara_do_Monte_Verde,2022-12-31T00:00:00,1.3,1.3999903,7.69,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Santa_Maria_do_Suacui,2022-12-31T00:00:00,1.0,0.8911476,10.89,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Santo_Antonio_do_Retiro,2022-12-31T00:00:00,1.2,1.610054,34.17,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Sao_Goncalo_do_Rio_Preto,2022-12-31T00:00:00,3.0,4.741261,58.04,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Sao_Joao_do_Manteninha,2022-12-31T00:00:00,1.2,0.9096056,24.2,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Sao_Joao_do_Paraiso,2022-12-31T00:00:00,3.09016393442623,3.368133,9.0,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Sao_Sebastiao_do_Maranhao,2022-12-31T00:00:00,1.141666666666667,0.99663985,12.7,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Senador_Modestino_Goncalves,2022-12-31T00:00:00,2.7,3.0699615,13.7,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Setubinha,2022-12-31T00:00:00,1.079761904761905,1.1448529,6.03,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Taiobeiras,2022-12-31T00:00:00,3.14031971580817,3.958721,26.06,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Teofilo_Otoni,2022-12-31T00:00:00,0.8181818181818182,0.93725157,14.55,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Turmalina,2022-12-31T00:00:00,1.205163043478261,1.8187914,50.92,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Urucuia,2022-12-31T00:00:00,1.919324577861163,2.0428634,6.44,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Vargem_Grande_do_Rio_Pardo,2022-12-31T00:00:00,1.8,2.1171505,17.62,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Varzea_da_Palma,2022-12-31T00:00:00,2.52,2.5762384,2.23,validacao,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Abadia_dos_Dourados,2023-12-31T00:00:00,2.103030303030303,1.687942,19.74,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Acucena,2023-12-31T00:00:00,1.666666666666667,1.007208,39.57,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Agua_Boa,2023-12-31T00:00:00,1.213636363636364,1.0539694,13.16,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Aguas_Vermelhas,2023-12-31T00:00:00,3.0,2.9378111,2.07,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Angelandia,2023-12-31T00:00:00,2.095663265306122,1.6603507,20.77,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Aricanduva,2023-12-31T00:00:00,1.2,1.1068974,7.76,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Ataleia,2023-12-31T00:00:00,0.6833333333333333,0.88562423,29.6,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Bandeira,2023-12-31T00:00:00,0.95,1.2178167,28.19,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Berilo,2023-12-31T00:00:00,1.798882681564246,1.6190941,9.99,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Berizal,2023-12-31T00:00:00,3.570967741935484,2.968041,16.88,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Bonfinopolis_de_Minas,2023-12-31T00:00:00,3.0,2.6327562,12.24,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Buritis,2023-12-31T00:00:00,3.0,2.829302,5.69,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Buritizeiro,2023-12-31T00:00:00,3.0,2.6551254,11.5,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Capelinha,2023-12-31T00:00:00,1.541750580945004,1.371937,11.01,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Carai,2023-12-31T00:00:00,1.2,1.3871088,15.59,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Caranaiba,2023-12-31T00:00:00,1.45,1.5031528,3.67,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Catuji,2023-12-31T00:00:00,1.384615384615385,1.4143403,2.15,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Congonhas_do_Norte,2023-12-31T00:00:00,1.111111111111111,0.8509413,23.42,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Coroaci,2023-12-31T00:00:00,2.4,1.6891271,29.62,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Cuparaque,2023-12-31T00:00:00,1.318367346938776,1.1377362,13.7,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Diamantina,2023-12-31T00:00:00,2.965183752417795,2.1093876,28.86,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Formoso,2023-12-31T00:00:00,3.380392156862745,2.6707213,20.99,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Franciscopolis,2023-12-31T00:00:00,1.2,1.8844587,57.04,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Frei_Gaspar,2023-12-31T00:00:00,1.2,1.3115809,9.3,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Grao_Mogol,2023-12-31T00:00:00,1.155555555555555,1.7548904,51.87,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Indaiabira,2023-12-31T00:00:00,1.932075471698113,2.4625847,27.46,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Itabirinha,2023-12-31T00:00:00,1.027027027027027,0.9209418,10.33,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Itacambira,2023-12-31T00:00:00,0.75,1.8916912,152.23,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Itaipe,2023-12-31T00:00:00,0.9598214285714286,0.95746803,0.25,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Itamarandiba,2023-12-31T00:00:00,2.4,1.5910231,33.71,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Itambacuri,2023-12-31T00:00:00,0.8987341772151899,1.0124618,12.65,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Jequitinhonha,2023-12-31T00:00:00,2.7,2.2467148,16.79,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Joao_Pinheiro,2023-12-31T00:00:00,3.3,2.6321652,20.24,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Jose_Goncalves_de_Minas,2023-12-31T00:00:00,1.321052631578947,1.7103307,29.47,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Juiz_de_Fora,2023-12-31T00:00:00,0.7142857142857143,0.8229292,15.21,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Ladainha,2023-12-31T00:00:00,1.081818181818182,1.0442489,3.47,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Malacacheta,2023-12-31T00:00:00,1.619230769230769,1.6867323,4.17,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Mantena,2023-12-31T00:00:00,1.2,0.67167753,44.03,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Minas_Novas,2023-12-31T00:00:00,1.26,1.6920478,34.29,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Monte_Formoso,2023-12-31T00:00:00,0.6,1.0261724,71.03,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Ninheira,2023-12-31T00:00:00,3.0,2.838241,5.39,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Nova_Belem,2023-12-31T00:00:00,0.96,0.96143293,0.15,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Novo_Cruzeiro,2023-12-31T00:00:00,1.209891435464415,1.2202761,0.86,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Novorizonte,2023-12-31T00:00:00,1.333333333333333,1.398725,4.9,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Ouro_Verde_de_Minas,2023-12-31T00:00:00,2.5,1.4977651,40.09,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Padre_Paraiso,2023-12-31T00:00:00,0.7212121212121212,0.72568595,0.62,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Paracatu,2023-12-31T00:00:00,2.4,2.4417472,1.74,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Pedra_Azul,2023-12-31T00:00:00,1.166666666666667,1.3378158,14.67,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Pirapora,2023-12-31T00:00:00,3.6,3.0190372,16.14,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Pote,2023-12-31T00:00:00,1.125,0.8408954,25.25,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Rio_Pardo_de_Minas,2023-12-31T00:00:00,2.568224299065421,2.7636526,7.61,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Santa_Barbara_do_Monte_Verde,2023-12-31T00:00:00,1.4,0.9457159,32.45,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Santa_Maria_do_Suacui,2023-12-31T00:00:00,0.6666666666666666,0.85481673,28.22,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Santo_Antonio_do_Retiro,2023-12-31T00:00:00,1.02,1.4614463,43.28,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Sao_Goncalo_do_Rio_Preto,2023-12-31T00:00:00,2.868421052631579,2.046101,28.67,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Sao_Joao_do_Manteninha,2023-12-31T00:00:00,1.2,0.94437194,21.3,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Sao_Joao_do_Paraiso,2023-12-31T00:00:00,3.601190476190476,3.273041,9.11,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Sao_Sebastiao_do_Maranhao,2023-12-31T00:00:00,1.2,0.9497909,20.85,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Senador_Modestino_Goncalves,2023-12-31T00:00:00,2.7,2.1591396,20.03,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Setubinha,2023-12-31T00:00:00,1.2,1.0760565,10.33,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Taiobeiras,2023-12-31T00:00:00,3.0,3.2839146,9.46,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Teofilo_Otoni,2023-12-31T00:00:00,1.2,0.8710793,27.41,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Turmalina,2023-12-31T00:00:00,1.360606060606061,1.7138991,25.97,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Urucuia,2023-12-31T00:00:00,2.099457504520795,1.7745055,15.48,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Vargem_Grande_do_Rio_Pardo,2023-12-31T00:00:00,2.1,1.7438356,16.96,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45
+2022_cluster_4,Varzea_da_Palma,2023-12-31T00:00:00,3.3,2.5564427,22.53,teste,V44,LSTM,"/media/marcos/Marcos/Codigos/Predicao_Cafe_Arabica/Teste_2_reuniao_16_dez_ajuste_seed_16_01_2026/temp_models/trial_22
+Modelo LSTM. Treino: 2012 a 2021. Validação: 2022. Teste: 2023.
+Dataset: V44. Log Transform: Não.
+Obs: ajuste de seed
+
+Hyperparams:
+input_size: 9, h: 1, lr: 0.00025790614913059884, batch: 32, encoder n layers: 2, decoder layers: 2",2026-01-18T13:07:45

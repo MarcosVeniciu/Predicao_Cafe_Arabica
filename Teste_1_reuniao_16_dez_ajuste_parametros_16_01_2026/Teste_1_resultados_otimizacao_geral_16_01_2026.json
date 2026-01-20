@@ -1,0 +1,713 @@
+[
+    {
+        "ano_val": 2019,
+        "dataset_file": "V43_cluster_0.csv",
+        "best_value": 0.11801251976572097,
+        "best_params": {
+            "learning_rate": 1.2250088069602024e-05,
+            "n_layers": 1,
+            "hidden_size": 32
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 6,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2020/V43_cluster_0.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2019,
+        "dataset_file": "V43_cluster_1.csv",
+        "best_value": 0.16959098370954173,
+        "best_params": {
+            "learning_rate": 2.1752068834382616e-05,
+            "n_layers": 1,
+            "hidden_size": 16
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 6,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2020/V43_cluster_1.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2019,
+        "dataset_file": "V43_cluster_2.csv",
+        "best_value": 0.13506981061681292,
+        "best_params": {
+            "learning_rate": 2.1510821470459326e-05,
+            "n_layers": 2,
+            "hidden_size": 64,
+            "dropout": 0.16251211413932784
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 6,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2020/V43_cluster_2.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2019,
+        "dataset_file": "V43_cluster_3.csv",
+        "best_value": 0.09321497509080419,
+        "best_params": {
+            "learning_rate": 1.4527599821371425e-05,
+            "n_layers": 1,
+            "hidden_size": 128
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 6,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2020/V43_cluster_3.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2019,
+        "dataset_file": "V43_cluster_4.csv",
+        "best_value": 0.1120911083948403,
+        "best_params": {
+            "learning_rate": 8.269140839907709e-05,
+            "n_layers": 2,
+            "hidden_size": 64,
+            "dropout": 0.2349812727745195
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 6,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2020/V43_cluster_4.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2020,
+        "dataset_file": "V43_cluster_0.csv",
+        "best_value": 0.18527228836961654,
+        "best_params": {
+            "learning_rate": 0.00014009843380731517,
+            "n_layers": 3,
+            "hidden_size": 128,
+            "dropout": 0.19461722491708888
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 7,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2021/V43_cluster_0.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2020,
+        "dataset_file": "V43_cluster_1.csv",
+        "best_value": 0.09909499442252408,
+        "best_params": {
+            "learning_rate": 0.0001019534127611975,
+            "n_layers": 2,
+            "hidden_size": 16,
+            "dropout": 0.4736693728883945
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 7,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2021/V43_cluster_1.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2020,
+        "dataset_file": "V43_cluster_2.csv",
+        "best_value": 0.23875706645827013,
+        "best_params": {
+            "learning_rate": 0.00026697921934185043,
+            "n_layers": 2,
+            "hidden_size": 64,
+            "dropout": 0.4940644677896193
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 7,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2021/V43_cluster_2.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2020,
+        "dataset_file": "V43_cluster_3.csv",
+        "best_value": 0.12468637047949482,
+        "best_params": {
+            "learning_rate": 0.0003238039235894744,
+            "n_layers": 3,
+            "hidden_size": 32,
+            "dropout": 0.2370442399097197
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 7,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2021/V43_cluster_3.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2020,
+        "dataset_file": "V43_cluster_4.csv",
+        "best_value": 0.11066441309424073,
+        "best_params": {
+            "learning_rate": 9.367127784396946e-05,
+            "n_layers": 2,
+            "hidden_size": 96,
+            "dropout": 0.24083047590992426
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 7,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2021/V43_cluster_4.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2021,
+        "dataset_file": "V43_cluster_0.csv",
+        "best_value": 0.1613057468856972,
+        "best_params": {
+            "learning_rate": 1.0000565524118526e-05,
+            "n_layers": 1,
+            "hidden_size": 32
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 8,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2022/V43_cluster_0.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2021,
+        "dataset_file": "V43_cluster_1.csv",
+        "best_value": 0.2203186024074569,
+        "best_params": {
+            "learning_rate": 1.0000015324666938e-05,
+            "n_layers": 2,
+            "hidden_size": 32,
+            "dropout": 0.4736084783124435
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 8,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2022/V43_cluster_1.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2021,
+        "dataset_file": "V43_cluster_2.csv",
+        "best_value": 0.10449861328716493,
+        "best_params": {
+            "learning_rate": 1.0005950619387695e-05,
+            "n_layers": 2,
+            "hidden_size": 32,
+            "dropout": 0.3666476189686576
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 8,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2022/V43_cluster_2.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2021,
+        "dataset_file": "V43_cluster_3.csv",
+        "best_value": 0.0908282208833616,
+        "best_params": {
+            "learning_rate": 2.753721280152834e-05,
+            "n_layers": 2,
+            "hidden_size": 16,
+            "dropout": 0.18995249113005458
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 8,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2022/V43_cluster_3.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2021,
+        "dataset_file": "V43_cluster_4.csv",
+        "best_value": 0.15420594414623587,
+        "best_params": {
+            "learning_rate": 0.00021862977786613812,
+            "n_layers": 2,
+            "hidden_size": 32,
+            "dropout": 0.26955629786844165
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 8,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2022/V43_cluster_4.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2022,
+        "dataset_file": "V43_cluster_0.csv",
+        "best_value": 0.16446549172192992,
+        "best_params": {
+            "learning_rate": 9.111128578776764e-05,
+            "n_layers": 3,
+            "hidden_size": 128,
+            "dropout": 0.13590025894167412
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 9,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2023/V43_cluster_0.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2022,
+        "dataset_file": "V43_cluster_1.csv",
+        "best_value": 0.13098260665019676,
+        "best_params": {
+            "learning_rate": 0.0002615131974401608,
+            "n_layers": 1,
+            "hidden_size": 64
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 9,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2023/V43_cluster_1.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2022,
+        "dataset_file": "V43_cluster_2.csv",
+        "best_value": 0.11334074069801457,
+        "best_params": {
+            "learning_rate": 3.659032757019938e-05,
+            "n_layers": 3,
+            "hidden_size": 128,
+            "dropout": 0.17185269659435892
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 9,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2023/V43_cluster_2.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2022,
+        "dataset_file": "V43_cluster_3.csv",
+        "best_value": 0.12820906447834812,
+        "best_params": {
+            "learning_rate": 0.00022621706503585798,
+            "n_layers": 3,
+            "hidden_size": 32,
+            "dropout": 0.281616756938409
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 9,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2023/V43_cluster_3.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2022,
+        "dataset_file": "V43_cluster_4.csv",
+        "best_value": 0.10447972774406133,
+        "best_params": {
+            "learning_rate": 0.00025790614913059884,
+            "n_layers": 2,
+            "hidden_size": 128,
+            "dropout": 0.17300251820493817
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 9,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2023/V43_cluster_4.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2023,
+        "dataset_file": "V43_cluster_0.csv",
+        "best_value": 0.10328217404516842,
+        "best_params": {
+            "learning_rate": 1.0000015244975452e-05,
+            "n_layers": 2,
+            "hidden_size": 32,
+            "dropout": 0.34548689800016336
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 10,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2024/V43_cluster_0.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2023,
+        "dataset_file": "V43_cluster_1.csv",
+        "best_value": 0.16176922513530975,
+        "best_params": {
+            "learning_rate": 0.00016014700439790706,
+            "n_layers": 3,
+            "hidden_size": 16,
+            "dropout": 0.49789685093335034
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 10,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2024/V43_cluster_1.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2023,
+        "dataset_file": "V43_cluster_2.csv",
+        "best_value": 0.1628709387998361,
+        "best_params": {
+            "learning_rate": 0.00015578810002824526,
+            "n_layers": 1,
+            "hidden_size": 16
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 10,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2024/V43_cluster_2.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2023,
+        "dataset_file": "V43_cluster_3.csv",
+        "best_value": 0.09765886042583159,
+        "best_params": {
+            "learning_rate": 0.00011784041988211478,
+            "n_layers": 3,
+            "hidden_size": 96,
+            "dropout": 0.27135926082332384
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 10,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2024/V43_cluster_3.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2023,
+        "dataset_file": "V43_cluster_4.csv",
+        "best_value": 0.08047633189039231,
+        "best_params": {
+            "learning_rate": 0.0004457650731577964,
+            "n_layers": 2,
+            "hidden_size": 128,
+            "dropout": 0.11614915810390897
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 10,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2024/V43_cluster_4.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2024,
+        "dataset_file": "V43_cluster_0.csv",
+        "best_value": 0.1019190865147758,
+        "best_params": {
+            "learning_rate": 0.0003414005444589117,
+            "n_layers": 1,
+            "hidden_size": 16
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 11,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2025/V43_cluster_0.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2024,
+        "dataset_file": "V43_cluster_1.csv",
+        "best_value": 0.12440123817191351,
+        "best_params": {
+            "learning_rate": 0.00025156923340511624,
+            "n_layers": 1,
+            "hidden_size": 16
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 11,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2025/V43_cluster_1.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2024,
+        "dataset_file": "V43_cluster_2.csv",
+        "best_value": 0.12019662796525238,
+        "best_params": {
+            "learning_rate": 4.698740016079992e-05,
+            "n_layers": 2,
+            "hidden_size": 16,
+            "dropout": 0.1282420152521082
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 11,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2025/V43_cluster_2.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2024,
+        "dataset_file": "V43_cluster_3.csv",
+        "best_value": 0.0638502144777092,
+        "best_params": {
+            "learning_rate": 0.0003186665847443033,
+            "n_layers": 3,
+            "hidden_size": 96,
+            "dropout": 0.3337900601897947
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 11,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2025/V43_cluster_3.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    },
+    {
+        "ano_val": 2024,
+        "dataset_file": "V43_cluster_4.csv",
+        "best_value": 0.09523475263108636,
+        "best_params": {
+            "learning_rate": 0.00026245399072470876,
+            "n_layers": 1,
+            "hidden_size": 96
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 11,
+            "batch_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000,
+            "dropout": 0.0
+        },
+        "transf_log": false,
+        "global_seed": 42,
+        "wmape_ponderado_area": true,
+        "dataset_path": "../Dataset/V44/2025/V43_cluster_4.csv",
+        "comentario": "16_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nNeste não sera usada a transformação logarítmica.\nNeste teste durante o ajustes de hiperparâmetros, o erro será calculado com a média simples do WMAPE ponderado pela área colhida.\nNeste teste a seed global também será usada no modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas. "
+    }
+]
