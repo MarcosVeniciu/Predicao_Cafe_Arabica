@@ -1,0 +1,15 @@
+27_01_2026: Teste final com dataset V44. Cada cluster tem seu proprio conjunto de features.
+Foi realizado um novo ajsute de hiperparametros com o Optuna, para o ajuste foram testados 311 combinações de seed.
+O dataset usado contem os 5 clusters.
+Neste não sera usada a transformação logarítmica.
+Neste teste o ajustes base foi feito apenas a ajuste dos hiperparâmetros.
+A Arquitetura foi alterada para que as camadas decodificador e decodificador sejam simétricas.
+Para esse teste foi usada uma seed especifica para cada modelo.
+Arquivo com os hiperparâmetros: Teste_2_seed_por_modelo/otimizacao_seed_por_modelo_21_01_2026.json.
+Seeds usadas:
+   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas.
+
+Configuraçẽos do dataset:
+   - Dataset: Dataset/V44
+   - transformação logarítmica: False
+   - ponderar erro por área: True

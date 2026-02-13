@@ -1,0 +1,2 @@
+Neste teste vou treinar o modelo com o dataset V45 em que no periodo de teste tem dados reais junto com dados estimados.
+Vou vou testar algumas seeds, para que o grafico final possa ter alem do valor do melhor modelo ele tenha uma estimativa da variação dos resultados quando mantemos os hiperparametros fixos e variamos a seed do modelo.

@@ -1,0 +1,19 @@
+10_02_2026: Teste final de variação da seed com dataset V45. Cada cluster tem seu proprio conjunto de features.
+Neste teste, foi feito o ajuste para o ano de 2026, mas como não temos dados reais de 2025 e 2026, foi necessário usar um horizonte de 2 anos,
+assim usamos 2023 e 2024 para validação, e 2025-2026 para teste.
+Como 2025 ja tem um modelo proprio, vou continuar usando os resultados anteriores para 2025 e do modelo novo vou usar apenas os dados de 2026.
+Foi realizado um novo ajsute de hiperparametros com o Optuna, apenas para o anos de 2025-2026.
+Foram realizados 50 testes para cada modelo. Para os anos anteriores a 2026 foram usados os parametros anteriores.
+O dataset usado contem os 5 clusters.
+Neste não sera usada a transformação logarítmica.
+Neste teste o ajustes base foi feito apenas a ajuste dos hiperparâmetros, sem alteração no dataset.
+A Arquitetura foi alterada para que as camadas decodificador e decodificador sejam simétricas.
+Arquivo com os hiperparâmetros: Teste_1_resultados_otimizacao_geral.json.
+Seeds usadas:
+   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas.
+   - seed modelos: 5809 # seed específica obtida via optuna para os modelos e set_reproducibility.
+
+Configuraçẽos do dataset:
+   - Dataset: Dataset/V45
+   - transformação logarítmica: True
+   - ponderar erro por área: False

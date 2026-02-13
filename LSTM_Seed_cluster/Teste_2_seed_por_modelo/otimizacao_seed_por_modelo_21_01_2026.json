@@ -1,0 +1,812 @@
+[
+    {
+        "ano_val": 2019,
+        "dataset_file": "V43_cluster_0.csv",
+        "global_seed": 42,
+        "best_value": 0.11319090820803734,
+        "best_params": {
+            "random_seed": 21608
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 6,
+            "batch_size": 32,
+            "dropout": 0.0,
+            "encoder_n_layers": 1,
+            "learning_rate": 1.2250088069602024e-05,
+            "encoder_hidden_size": 32,
+            "decoder_layers": 1,
+            "decoder_hidden_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2019,
+        "dataset_file": "V43_cluster_1.csv",
+        "global_seed": 42,
+        "best_value": 0.1417610072746476,
+        "best_params": {
+            "random_seed": 23151
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 6,
+            "batch_size": 32,
+            "dropout": 0.0,
+            "encoder_n_layers": 1,
+            "learning_rate": 2.1752068834382616e-05,
+            "encoder_hidden_size": 16,
+            "decoder_layers": 1,
+            "decoder_hidden_size": 16,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2019,
+        "dataset_file": "V43_cluster_2.csv",
+        "global_seed": 42,
+        "best_value": 0.13255294369096604,
+        "best_params": {
+            "random_seed": 90737
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 6,
+            "batch_size": 32,
+            "dropout": 0.16251211413932784,
+            "encoder_n_layers": 2,
+            "learning_rate": 2.1510821470459326e-05,
+            "encoder_hidden_size": 64,
+            "decoder_layers": 2,
+            "decoder_hidden_size": 64,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2019,
+        "dataset_file": "V43_cluster_3.csv",
+        "global_seed": 42,
+        "best_value": 0.08881797606122563,
+        "best_params": {
+            "random_seed": 47028
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 6,
+            "batch_size": 32,
+            "dropout": 0.0,
+            "encoder_n_layers": 1,
+            "learning_rate": 1.4527599821371425e-05,
+            "encoder_hidden_size": 128,
+            "decoder_layers": 1,
+            "decoder_hidden_size": 128,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2019,
+        "dataset_file": "V43_cluster_4.csv",
+        "global_seed": 42,
+        "best_value": 0.10862355504256331,
+        "best_params": {
+            "random_seed": 34475
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 6,
+            "batch_size": 32,
+            "dropout": 0.2349812727745195,
+            "encoder_n_layers": 2,
+            "learning_rate": 8.269140839907709e-05,
+            "encoder_hidden_size": 64,
+            "decoder_layers": 2,
+            "decoder_hidden_size": 64,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2020,
+        "dataset_file": "V43_cluster_0.csv",
+        "global_seed": 42,
+        "best_value": 0.12589579674796597,
+        "best_params": {
+            "random_seed": 43057
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 7,
+            "batch_size": 32,
+            "dropout": 0.19461722491708888,
+            "encoder_n_layers": 3,
+            "learning_rate": 0.00014009843380731517,
+            "encoder_hidden_size": 128,
+            "decoder_layers": 3,
+            "decoder_hidden_size": 128,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2020,
+        "dataset_file": "V43_cluster_1.csv",
+        "global_seed": 42,
+        "best_value": 0.09909499442252408,
+        "best_params": {
+            "random_seed": 42
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 7,
+            "batch_size": 32,
+            "dropout": 0.4736693728883945,
+            "encoder_n_layers": 2,
+            "learning_rate": 0.0001019534127611975,
+            "encoder_hidden_size": 16,
+            "decoder_layers": 2,
+            "decoder_hidden_size": 16,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2020,
+        "dataset_file": "V43_cluster_2.csv",
+        "global_seed": 42,
+        "best_value": 0.23246033876640362,
+        "best_params": {
+            "random_seed": 83404
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 7,
+            "batch_size": 32,
+            "dropout": 0.4940644677896193,
+            "encoder_n_layers": 2,
+            "learning_rate": 0.00026697921934185043,
+            "encoder_hidden_size": 64,
+            "decoder_layers": 2,
+            "decoder_hidden_size": 64,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2020,
+        "dataset_file": "V43_cluster_3.csv",
+        "global_seed": 42,
+        "best_value": 0.12047387066214692,
+        "best_params": {
+            "random_seed": 20315
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 7,
+            "batch_size": 32,
+            "dropout": 0.2370442399097197,
+            "encoder_n_layers": 3,
+            "learning_rate": 0.0003238039235894744,
+            "encoder_hidden_size": 32,
+            "decoder_layers": 3,
+            "decoder_hidden_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2020,
+        "dataset_file": "V43_cluster_4.csv",
+        "global_seed": 42,
+        "best_value": 0.11066441309424073,
+        "best_params": {
+            "random_seed": 42
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 7,
+            "batch_size": 32,
+            "dropout": 0.24083047590992426,
+            "encoder_n_layers": 2,
+            "learning_rate": 9.367127784396946e-05,
+            "encoder_hidden_size": 96,
+            "decoder_layers": 2,
+            "decoder_hidden_size": 96,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2021,
+        "dataset_file": "V43_cluster_0.csv",
+        "global_seed": 42,
+        "best_value": 0.1613057468856972,
+        "best_params": {
+            "random_seed": 42
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 8,
+            "batch_size": 32,
+            "dropout": 0.0,
+            "encoder_n_layers": 1,
+            "learning_rate": 1.0000565524118526e-05,
+            "encoder_hidden_size": 32,
+            "decoder_layers": 1,
+            "decoder_hidden_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2021,
+        "dataset_file": "V43_cluster_1.csv",
+        "global_seed": 42,
+        "best_value": 0.16288170699914797,
+        "best_params": {
+            "random_seed": 38853
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 8,
+            "batch_size": 32,
+            "dropout": 0.4736084783124435,
+            "encoder_n_layers": 2,
+            "learning_rate": 1.0000015324666938e-05,
+            "encoder_hidden_size": 32,
+            "decoder_layers": 2,
+            "decoder_hidden_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2021,
+        "dataset_file": "V43_cluster_2.csv",
+        "global_seed": 42,
+        "best_value": 0.10040053062098313,
+        "best_params": {
+            "random_seed": 19468
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 8,
+            "batch_size": 32,
+            "dropout": 0.3666476189686576,
+            "encoder_n_layers": 2,
+            "learning_rate": 1.0005950619387695e-05,
+            "encoder_hidden_size": 32,
+            "decoder_layers": 2,
+            "decoder_hidden_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2021,
+        "dataset_file": "V43_cluster_3.csv",
+        "global_seed": 42,
+        "best_value": 0.08498592585069589,
+        "best_params": {
+            "random_seed": 9804
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 8,
+            "batch_size": 32,
+            "dropout": 0.18995249113005458,
+            "encoder_n_layers": 2,
+            "learning_rate": 2.753721280152834e-05,
+            "encoder_hidden_size": 16,
+            "decoder_layers": 2,
+            "decoder_hidden_size": 16,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2021,
+        "dataset_file": "V43_cluster_4.csv",
+        "global_seed": 42,
+        "best_value": 0.1512045803335363,
+        "best_params": {
+            "random_seed": 2584
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 8,
+            "batch_size": 32,
+            "dropout": 0.26955629786844165,
+            "encoder_n_layers": 2,
+            "learning_rate": 0.00021862977786613812,
+            "encoder_hidden_size": 32,
+            "decoder_layers": 2,
+            "decoder_hidden_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2022,
+        "dataset_file": "V43_cluster_0.csv",
+        "global_seed": 42,
+        "best_value": 0.1557982764072018,
+        "best_params": {
+            "random_seed": 987
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 9,
+            "batch_size": 32,
+            "dropout": 0.13590025894167412,
+            "encoder_n_layers": 3,
+            "learning_rate": 9.111128578776764e-05,
+            "encoder_hidden_size": 128,
+            "decoder_layers": 3,
+            "decoder_hidden_size": 128,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2022,
+        "dataset_file": "V43_cluster_1.csv",
+        "global_seed": 42,
+        "best_value": 0.12751228865142555,
+        "best_params": {
+            "random_seed": 7564
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 9,
+            "batch_size": 32,
+            "dropout": 0.0,
+            "encoder_n_layers": 1,
+            "learning_rate": 0.0002615131974401608,
+            "encoder_hidden_size": 64,
+            "decoder_layers": 1,
+            "decoder_hidden_size": 64,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2022,
+        "dataset_file": "V43_cluster_2.csv",
+        "global_seed": 42,
+        "best_value": 0.11334074069801457,
+        "best_params": {
+            "random_seed": 42
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 9,
+            "batch_size": 32,
+            "dropout": 0.17185269659435892,
+            "encoder_n_layers": 3,
+            "learning_rate": 3.659032757019938e-05,
+            "encoder_hidden_size": 128,
+            "decoder_layers": 3,
+            "decoder_hidden_size": 128,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2022,
+        "dataset_file": "V43_cluster_3.csv",
+        "global_seed": 42,
+        "best_value": 0.11233697376426606,
+        "best_params": {
+            "random_seed": 17007
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 9,
+            "batch_size": 32,
+            "dropout": 0.281616756938409,
+            "encoder_n_layers": 3,
+            "learning_rate": 0.00022621706503585798,
+            "encoder_hidden_size": 32,
+            "decoder_layers": 3,
+            "decoder_hidden_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2022,
+        "dataset_file": "V43_cluster_4.csv",
+        "global_seed": 42,
+        "best_value": 0.0885878475922946,
+        "best_params": {
+            "random_seed": 48595
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 9,
+            "batch_size": 32,
+            "dropout": 0.17300251820493817,
+            "encoder_n_layers": 2,
+            "learning_rate": 0.00025790614913059884,
+            "encoder_hidden_size": 128,
+            "decoder_layers": 2,
+            "decoder_hidden_size": 128,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2023,
+        "dataset_file": "V43_cluster_0.csv",
+        "global_seed": 42,
+        "best_value": 0.10328217404516842,
+        "best_params": {
+            "random_seed": 42
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 10,
+            "batch_size": 32,
+            "dropout": 0.34548689800016336,
+            "encoder_n_layers": 2,
+            "learning_rate": 1.0000015244975452e-05,
+            "encoder_hidden_size": 32,
+            "decoder_layers": 2,
+            "decoder_hidden_size": 32,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2023,
+        "dataset_file": "V43_cluster_1.csv",
+        "global_seed": 42,
+        "best_value": 0.16176922513530975,
+        "best_params": {
+            "random_seed": 42
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 10,
+            "batch_size": 32,
+            "dropout": 0.49789685093335034,
+            "encoder_n_layers": 3,
+            "learning_rate": 0.00016014700439790706,
+            "encoder_hidden_size": 16,
+            "decoder_layers": 3,
+            "decoder_hidden_size": 16,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2023,
+        "dataset_file": "V43_cluster_2.csv",
+        "global_seed": 42,
+        "best_value": 0.15638353724497805,
+        "best_params": {
+            "random_seed": 5809
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 10,
+            "batch_size": 32,
+            "dropout": 0.0,
+            "encoder_n_layers": 1,
+            "learning_rate": 0.00015578810002824526,
+            "encoder_hidden_size": 16,
+            "decoder_layers": 1,
+            "decoder_hidden_size": 16,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2023,
+        "dataset_file": "V43_cluster_3.csv",
+        "global_seed": 42,
+        "best_value": 0.09765886042583159,
+        "best_params": {
+            "random_seed": 42
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 10,
+            "batch_size": 32,
+            "dropout": 0.27135926082332384,
+            "encoder_n_layers": 3,
+            "learning_rate": 0.00011784041988211478,
+            "encoder_hidden_size": 96,
+            "decoder_layers": 3,
+            "decoder_hidden_size": 96,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2023,
+        "dataset_file": "V43_cluster_4.csv",
+        "global_seed": 42,
+        "best_value": 0.08009799050417536,
+        "best_params": {
+            "random_seed": 15864
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 10,
+            "batch_size": 32,
+            "dropout": 0.11614915810390897,
+            "encoder_n_layers": 2,
+            "learning_rate": 0.0004457650731577964,
+            "encoder_hidden_size": 128,
+            "decoder_layers": 2,
+            "decoder_hidden_size": 128,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2024,
+        "dataset_file": "V43_cluster_0.csv",
+        "global_seed": 42,
+        "best_value": 0.1019190865147758,
+        "best_params": {
+            "random_seed": 42
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 11,
+            "batch_size": 32,
+            "dropout": 0.0,
+            "encoder_n_layers": 1,
+            "learning_rate": 0.0003414005444589117,
+            "encoder_hidden_size": 16,
+            "decoder_layers": 1,
+            "decoder_hidden_size": 16,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2024,
+        "dataset_file": "V43_cluster_1.csv",
+        "global_seed": 42,
+        "best_value": 0.12032033604478563,
+        "best_params": {
+            "random_seed": 36524
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 11,
+            "batch_size": 32,
+            "dropout": 0.0,
+            "encoder_n_layers": 1,
+            "learning_rate": 0.00025156923340511624,
+            "encoder_hidden_size": 16,
+            "decoder_layers": 1,
+            "decoder_hidden_size": 16,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2024,
+        "dataset_file": "V43_cluster_2.csv",
+        "global_seed": 42,
+        "best_value": 0.11326734061426633,
+        "best_params": {
+            "random_seed": 93559
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 11,
+            "batch_size": 32,
+            "dropout": 0.1282420152521082,
+            "encoder_n_layers": 2,
+            "learning_rate": 4.698740016079992e-05,
+            "encoder_hidden_size": 16,
+            "decoder_layers": 2,
+            "decoder_hidden_size": 16,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2024,
+        "dataset_file": "V43_cluster_3.csv",
+        "global_seed": 42,
+        "best_value": 0.0638502144777092,
+        "best_params": {
+            "random_seed": 42
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 11,
+            "batch_size": 32,
+            "dropout": 0.3337900601897947,
+            "encoder_n_layers": 3,
+            "learning_rate": 0.0003186665847443033,
+            "encoder_hidden_size": 96,
+            "decoder_layers": 3,
+            "decoder_hidden_size": 96,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    },
+    {
+        "ano_val": 2024,
+        "dataset_file": "V43_cluster_4.csv",
+        "global_seed": 42,
+        "best_value": 0.08974040933951423,
+        "best_params": {
+            "random_seed": 7052
+        },
+        "base_params": {
+            "h": 1,
+            "input_size": 11,
+            "batch_size": 32,
+            "dropout": 0.0,
+            "encoder_n_layers": 1,
+            "learning_rate": 0.00026245399072470876,
+            "encoder_hidden_size": 96,
+            "decoder_layers": 1,
+            "decoder_hidden_size": 96,
+            "weight_decay": 0.0001,
+            "steps": 1000
+        },
+        "transf_log": false,
+        "wmape_ponderado_area": true,
+        "arquivo_com_parametros_base": "Teste_1_reuniao_16_dez_Ajuste_parametros_por_cluster_modelo_simetrico_sem_transomacao_log_WMAPE_ponderado_completo/Teste_1_resultados_otimizacao_geral_16_01_2026.json",
+        "dataset_path": "../Dataset/V44",
+        "comentario": "21_01_2026: Ajuste de hiperparâmetros com Optuna.\nDataset V44 com 5 clusters.\nTreinado para os anos de 2019-2024 para validação.\nNeste não sera usada a transformação logarítmica.\nNeste teste a seed do modelo sera ajustada, sendo uma seed por modelo.\nSeeds usadas:\n   - global seed: 42 # Seed para os pontos que devem ser definidos antes de iniciar algumas bibliotecas."
+    }
+]
